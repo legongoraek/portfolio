@@ -1,0 +1,132 @@
+---
+const experiences = [
+  {
+    role: 'Desarrollador Full Stack Multiplataforma',
+    company: 'Freelance',
+    period: 'Julio 2025 – Actualidad',
+    color: 'primary',
+    achievements: [
+      'Desarrollo de aplicaciones web y móviles (iOS y Android)',
+      'Backend con Django REST Framework y autenticación JWT',
+      'Aplicaciones móviles con React Native y Expo',
+      'Arquitectura escalable con separación frontend y backend',
+    ],
+    impact: [
+      'Arquitectura escalable preparada para crecimiento',
+      'Mayor seguridad mediante autenticación JWT',
+      'Mejor experiencia de usuario multiplataforma',
+    ],
+  },
+  {
+    role: 'Desarrollador Full Stack',
+    company: 'Erbessd Instruments',
+    period: 'Octubre 2022 – Enero 2026',
+    color: 'primary',
+    achievements: [
+      'Diseño y desarrollo de endpoints backend optimizados',
+      'Desarrollo de interfaces con Vue.js, Electron, HTML y CSS',
+      'Administración y mantenimiento de bases de datos SQL',
+      'Creación de componentes escalables',
+    ],
+    impact: [
+      'Mejora en eficiencia de comunicación frontend-backend',
+      'Reducción de errores en componentes reutilizables',
+      'Mejor mantenibilidad del sistema',
+    ],
+  },
+  {
+    role: 'Desarrollo Web, Integraciones y Automatización',
+    company: 'Freelance',
+    period: 'Enero 2022 – Actualidad',
+    color: 'primary',
+    achievements: [
+      'Desarrollo y administración con WordPress y WooCommerce',
+      'Implementación de middleware con Node.js',
+      'Integración de APIs externas',
+      'Automatización de flujos de negocio',
+    ],
+    impact: [
+      'Automatización de procesos clave reduciendo tareas manuales',
+      'Mejora en tiempos de respuesta y sincronización',
+      'Disminución de errores humanos',
+    ],
+  },
+];
+---
+
+<section id="experiencia" class="py-16 md:py-24 bg-white dark:bg-slate-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-primary-900 dark:text-white mb-4">
+        Experiencia Profesional
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Trayectoria profesional con más de 3 años de experiencia
+      </p>
+    </div>
+
+    <div class="relative">
+      {/* Línea vertical */}
+      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-600 to-primary-400 dark:from-primary-500 dark:to-primary-400"></div>
+
+      <div class="space-y-12">
+        {experiences.map((exp, index) => (
+          <div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-stretch`}>
+            {/* Contenido */}
+            <div class="md:w-1/2">
+              <div class="card h-full">
+                {/* Header */}
+                <div class="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 class="text-2xl font-bold text-primary-900 dark:text-white">
+                      {exp.role}
+                    </h3>
+                    <p class="text-primary-600 dark:text-primary-400 font-semibold mt-1">
+                      {exp.company}
+                    </p>
+                  </div>
+                  <span class="text-3xl">💼</span>
+                </div>
+
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 font-medium">
+                  {exp.period}
+                </p>
+
+                {/* Logros */}
+                <div class="mb-6 pb-6 border-b border-gray-200 dark:border-slate-700">
+                  <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Responsabilidades:</p>
+                  <ul class="space-y-2">
+                    {exp.achievements.map((achievement) => (
+                      <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-3 shrink-0">→</span>
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Impacto */}
+                <div>
+                  <p class="text-sm font-semibold text-primary-700 dark:text-primary-300 mb-3">📊 Impacto:</p>
+                  <ul class="space-y-2">
+                    {exp.impact.map((item) => (
+                      <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start">
+                        <span class="text-green-600 dark:text-green-400 mr-3">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Marcador de timeline */}
+            <div class="hidden md:flex w-1/2 items-start justify-center pt-6">
+              <div class="w-5 h-5 bg-primary-600 rounded-full border-4 border-white dark:border-slate-950 shadow-lg"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

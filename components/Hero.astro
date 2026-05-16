@@ -1,0 +1,85 @@
+---
+---
+
+<header class="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 pt-20 md:pt-32 pb-20">
+  {/* Elementos decorativos */}
+  <div class="absolute top-0 right-0 w-96 h-96 bg-primary-100 dark:bg-primary-900/20 rounded-full blur-3xl opacity-30 -z-10"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30 -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      
+      {/* Contenido */}
+      <div class="fade-in">
+        <p class="text-primary-600 dark:text-primary-400 font-semibold mb-4">Hola, soy</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-900 dark:text-white mb-6">
+          Luis Enrique
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium mb-2">
+          Full Stack Developer
+        </p>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+          Especializado en web, mobile y automatización de procesos
+        </p>
+
+        <p class="text-gray-700 dark:text-gray-300 max-w-lg mb-8 leading-relaxed">
+          Construyo sistemas escalables con Django, React y React Native. Enfocado en arquitecturas modernas, APIs robustas y experiencias de usuario excepcionales.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contacto" class="btn-primary text-center">
+            Contacta conmigo →
+          </a>
+          <a href="#proyectos" class="btn-secondary text-center">
+            Ver proyectos
+          </a>
+        </div>
+
+        {/* Stats */}
+        <div class="grid grid-cols-3 gap-6 mt-12 pt-12 border-t border-gray-200 dark:border-slate-800">
+          <div>
+            <p class="text-2xl md:text-3xl font-bold text-primary-600 dark:text-primary-400">3+</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Años de experiencia</p>
+          </div>
+          <div>
+            <p class="text-2xl md:text-3xl font-bold text-primary-600 dark:text-primary-400">15+</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Proyectos completados</p>
+          </div>
+          <div>
+            <p class="text-2xl md:text-3xl font-bold text-primary-600 dark:text-primary-400">100%</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Cliente satisfaction</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Imagen */}
+      <div class="fade-in hidden md:block">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl blur-2xl opacity-20"></div>
+          <img
+            src="https://legongoraek.github.io/assets/img/IMG_9656.PNG"
+            alt="Luis Enrique Góngora Ek"
+            class="w-full max-w-md rounded-2xl shadow-2xl relative z-10 object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

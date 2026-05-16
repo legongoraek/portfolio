@@ -1,0 +1,125 @@
+---
+const technologies = {
+  frontend: [
+    { name: 'React', icon: '⚛️' },
+    { name: 'Vue.js', icon: '💚' },
+    { name: 'React Native', icon: '📱' },
+    { name: 'Next.js', icon: '▲' },
+    { name: 'Electron', icon: '🖥️' },
+    { name: 'JavaScript', icon: '📜' },
+  ],
+  backend: [
+    { name: 'Django', icon: '🐍' },
+    { name: 'Django REST', icon: '⚙️' },
+    { name: 'Node.js', icon: '💻' },
+    { name: 'Python', icon: '🐍' },
+    { name: 'JWT Auth', icon: '🔐' },
+  ],
+  database: [
+    { name: 'PostgreSQL', icon: '🐘' },
+    { name: 'MySQL', icon: '🗄️' },
+    { name: 'SQL', icon: '📊' },
+    { name: 'Azure', icon: '☁️' },
+  ],
+  tools: [
+    { name: 'WordPress', icon: '🔵' },
+    { name: 'WooCommerce', icon: '🛒' },
+    { name: 'Linux/Ubuntu', icon: '🐧' },
+    { name: 'API Integration', icon: '🔗' },
+    { name: 'Automatización', icon: '⚡' },
+  ],
+};
+---
+
+<section id="stack" class="py-16 md:py-24 bg-white dark:bg-slate-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-primary-900 dark:text-white mb-4">
+        Stack Tecnológico
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Tecnologías modernas y probadas que utilizo para construir soluciones escalables
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Frontend */}
+      <div class="slide-up">
+        <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 rounded-xl p-6 border border-primary-200 dark:border-slate-700">
+          <h3 class="text-xl font-bold text-primary-900 dark:text-white mb-6">Frontend</h3>
+          <ul class="space-y-3">
+            {technologies.frontend.map((tech) => (
+              <li class="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">
+                <span class="text-2xl">{tech.icon}</span>
+                <span class="font-medium">{tech.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Backend */}
+      <div class="slide-up" style="animation-delay: 0.1s">
+        <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 rounded-xl p-6 border border-primary-200 dark:border-slate-700">
+          <h3 class="text-xl font-bold text-primary-900 dark:text-white mb-6">Backend</h3>
+          <ul class="space-y-3">
+            {technologies.backend.map((tech) => (
+              <li class="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">
+                <span class="text-2xl">{tech.icon}</span>
+                <span class="font-medium">{tech.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Database */}
+      <div class="slide-up" style="animation-delay: 0.2s">
+        <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 rounded-xl p-6 border border-primary-200 dark:border-slate-700">
+          <h3 class="text-xl font-bold text-primary-900 dark:text-white mb-6">Datos</h3>
+          <ul class="space-y-3">
+            {technologies.database.map((tech) => (
+              <li class="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">
+                <span class="text-2xl">{tech.icon}</span>
+                <span class="font-medium">{tech.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Tools */}
+      <div class="slide-up" style="animation-delay: 0.3s">
+        <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 rounded-xl p-6 border border-primary-200 dark:border-slate-700">
+          <h3 class="text-xl font-bold text-primary-900 dark:text-white mb-6">Herramientas</h3>
+          <ul class="space-y-3">
+            {technologies.tools.map((tech) => (
+              <li class="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">
+                <span class="text-2xl">{tech.icon}</span>
+                <span class="font-medium">{tech.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

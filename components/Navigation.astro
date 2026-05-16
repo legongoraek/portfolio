@@ -1,0 +1,87 @@
+---
+const navItems = [
+  { label: 'Sobre mí', href: '#sobre-mi' },
+  { label: 'Stack', href: '#stack' },
+  { label: 'Proyectos', href: '#proyectos' },
+  { label: 'Experiencia', href: '#experiencia' },
+  { label: 'Contacto', href: '#contacto' },
+];
+---
+
+<nav class="sticky top-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-gray-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      
+      {/* Logo */}
+      <a href="/" class="flex items-center space-x-2 group">
+        <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg flex items-center justify-center text-white font-bold group-hover:shadow-lg transition-shadow">
+          LE
+        </div>
+        <span class="hidden sm:inline text-lg font-bold text-primary-900 dark:text-white">Luis Enrique</span>
+      </a>
+
+      {/* Menu Desktop */}
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      {/* Theme Toggle + Mobile Menu */}
+      <div class="flex items-center space-x-4">
+        <button
+          id="theme-toggle"
+          class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+          aria-label="Cambiar tema"
+        >
+          <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+        </button>
+
+        {/* Mobile Menu Button */}
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    {/* Mobile Menu */}
+    <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Cerrar menú al hacer click en un link
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

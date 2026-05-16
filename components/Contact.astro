@@ -1,0 +1,118 @@
+---
+const contactInfo = [
+  {
+    title: 'Email',
+    value: 'enriquegongora45@gmail.com',
+    href: 'mailto:enriquegongora45@gmail.com',
+    icon: '📧',
+  },
+  {
+    title: 'WhatsApp',
+    value: '+52 999 423 1687',
+    href: 'https://wa.me/529994231687',
+    icon: '💬',
+  },
+  {
+    title: 'LinkedIn',
+    value: 'luisenriquegongoraek',
+    href: 'https://www.linkedin.com/in/luisenriquegongoraek',
+    icon: '🔗',
+  },
+  {
+    title: 'GitHub',
+    value: 'legongoraek',
+    href: 'https://github.com/legongoraek',
+    icon: '💻',
+  },
+];
+---
+
+<section id="contacto" class="py-16 md:py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 relative overflow-hidden">
+  {/* Elementos decorativos */}
+  <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        ¿Listo para trabajar juntos?
+      </h2>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+        Tengo soluciones para tus proyectos. Contáctame y hablemos de cómo puedo ayudarte
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      {contactInfo.map((item, index) => (
+        <a
+          href={item.href}
+          target={item.href.startsWith('http') ? '_blank' : '_self'}
+          rel={item.href.startsWith('http') ? 'noopener noreferrer' : ''}
+          class="group card bg-white/10 dark:bg-white/5 border-white/20 backdrop-blur-sm hover:bg-white/20 dark:hover:bg-white/10"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <div class="flex items-start space-x-4">
+            <span class="text-4xl group-hover:scale-110 transition-transform">{item.icon}</span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-semibold text-blue-100 uppercase tracking-wide">{item.title}</p>
+              <p class="text-lg font-bold text-white mt-1 truncate group-hover:text-blue-100 transition">
+                {item.value}
+              </p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="bg-white/10 dark:bg-white/5 border border-white/20 rounded-xl p-8 md:p-12 backdrop-blur-sm text-center">
+      <h3 class="text-2xl font-bold text-white mb-6">
+        Envíame un mensaje directo
+      </h3>
+      <p class="text-blue-100 mb-8 max-w-lg mx-auto">
+        Respondo rápidamente a todas las consultas. Cuéntame sobre tu proyecto y qué necesitas.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="mailto:enriquegongora45@gmail.com"
+          class="px-8 py-3 bg-white text-primary-900 font-bold rounded-lg hover:bg-blue-50 transition inline-block"
+        >
+          Enviar Email
+        </a>
+        <a
+          href="https://wa.me/529994231687"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-8 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition inline-block"
+        >
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
+    {/* Tiempo de respuesta */}
+    <div class="mt-12 text-center">
+      <p class="text-blue-100 text-sm">
+        ⏱️ Tiempo de respuesta promedio: <span class="font-bold">24 horas</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .card {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
