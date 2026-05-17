@@ -3,11 +3,5 @@
   "devCommand": "npm run dev",
   "installCommand": "npm ci",
   "framework": "astro",
-  "outputDirectory": "dist",
-  "env": [
-    {
-      "key": "NODE_VERSION",
-      "value": "18.x"
-    }
-  ]
+  "outputDirectory": "dist"
 }
