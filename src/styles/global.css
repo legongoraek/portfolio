@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+
+* {
+  transition: color, background-color 300ms;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: white;
+  color: rgb(17, 24, 39);
+}
+
+body.dark {
+  background-color: rgb(3, 7, 18);
+  color: rgb(243, 244, 246);
+}
+
+/* Links con efecto hover */
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: #0057B8;
+}
+
+body.dark a:hover {
+  color: #93c5fd;
+}
+
+/* Botones base */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 200ms;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #0057B8;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #003D82;
+}
+
+.dark .btn-primary:hover {
+  background-color: #3b82f6;
+}
+
+.btn-secondary {
+  border: 2px solid #0057B8;
+  color: #0057B8;
+}
+
+.btn-secondary:hover {
+  background-color: #f0f7ff;
+}
+
+.dark .btn-secondary {
+  border-color: #93c5fd;
+  color: #93c5fd;
+}
+
+.dark .btn-secondary:hover {
+  background-color: #1e293b;
+}
+
+/* Secciones */
+section {
+  padding: 4rem 0;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #001a36;
+}
+
+body.dark h2 {
+  color: white;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #003D82;
+}
+
+body.dark h3 {
+  color: white;
+}
+
+/* Tarjetas */
+.card {
+  background-color: white;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(229, 231, 235);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 200ms;
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .card {
+  background-color: rgb(15, 23, 42);
+  border-color: rgb(30, 41, 59);
+}
+
+/* Code blocks */
+pre {
+  background-color: rgb(15, 23, 42);
+  color: rgb(243, 244, 246);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.875rem;
+}
+
+/* Animaciones */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
