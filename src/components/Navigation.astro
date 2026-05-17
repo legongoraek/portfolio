@@ -8,13 +8,13 @@ const navItems = [
 ];
 ---
 
-<nav class="sticky top-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-gray-200 dark:border-slate-800">
+<nav class="sticky top-0 z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl border-b border-white/10 shadow-sm shadow-black/5">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
       
       {/* Logo */}
       <a href="/" class="flex items-center space-x-2 group">
-        <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg flex items-center justify-center text-white font-bold group-hover:shadow-lg transition-shadow">
+        <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl shadow-lg shadow-primary-900/10 flex items-center justify-center text-white font-bold group-hover:scale-105 transition-all">
           LE
         </div>
         <span class="hidden sm:inline text-lg font-bold text-primary-900 dark:text-white">Luis Enrique</span>
@@ -25,7 +25,7 @@ const navItems = [
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
+            class="relative text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary-600 after:transition-all hover:after:w-full"
           >
             {item.label}
           </a>
@@ -36,7 +36,7 @@ const navItems = [
       <div class="flex items-center space-x-4">
         <button
           id="theme-toggle"
-          class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+          class="p-2 rounded-2xl hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
           aria-label="Cambiar tema"
         >
           <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
@@ -47,7 +47,7 @@ const navItems = [
         {/* Mobile Menu Button */}
         <button
           id="mobile-menu-btn"
-          class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800"
+          class="md:hidden p-2 rounded-2xl hover:bg-gray-100 dark:hover:bg-slate-800"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -61,7 +61,7 @@ const navItems = [
       {navItems.map((item) => (
         <a
           href={item.href}
-          class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800"
+          class="block px-4 py-2 rounded-2xl text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800"
         >
           {item.label}
         </a>
