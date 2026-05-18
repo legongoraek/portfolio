@@ -1,85 +1,189 @@
 ---
 ---
 
-<header class="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 pt-20 md:pt-32 pb-20">
-  {/* Elementos decorativos */}
-  <div class="absolute top-0 right-0 w-96 h-96 bg-primary-100 dark:bg-primary-900/20 rounded-full blur-3xl opacity-30 -z-10"></div>
-  <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30 -z-10"></div>
+<header
+  class="relative overflow-hidden pt-24 md:pt-32 pb-24 isolate
+  bg-[radial-gradient(circle_at_top_right,_rgba(0,87,184,0.15),transparent_30%),linear-gradient(to_bottom_right,#f8fbff,#ffffff,#eef5ff)]"
+>
+<section id="sobre-mi" class="py-16 md:py-24 bg-white">
 
+  {/* Glow Effects */}
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-400/20 rounded-full blur-3xl opacity-30 -z-10"></div>
+  <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-300/20 rounded-full blur-3xl opacity-30 -z-10"></div>
+  
+  {/* Grid Pattern */}
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+  </div>
+  
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      
-      {/* Contenido */}
-      <div class="fade-in">
-        <p class="text-primary-600 dark:text-primary-400 font-semibold mb-4">Hola, soy</p>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-900 dark:text-white mb-6">
-          Luis Enrique
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium mb-2">
+  
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+  
+      {/* LEFT CONTENT */}
+      <div class="relative z-10">
+  
+        {/* Badge */}
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8
+        bg-white/70 dark:bg-slate-900/70
+        border border-white/20 dark:border-white/10
+        backdrop-blur-xl shadow-lg shadow-black/5">
+  
+          <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+  
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
+            Disponible para proyectos freelance
+          </span>
+        </div>
+  
+        {/* Intro */}
+        <p class="text-primary-600 dark:text-primary-400 font-semibold tracking-wide uppercase mb-4">
           Full Stack Developer
         </p>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
-          Especializado en web, mobile y automatización de procesos
+  
+        {/* Title */}
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-none">
+  
+          <span class="block bg-gradient-to-r from-primary-600 via-blue-500 to-primary-800 bg-clip-text text-transparent">
+            Luis Enrique
+          </span>
+  
+          <span class="block mt-2 bg-gradient-to-r from-primary-600 via-blue-500 to-primary-800 bg-clip-text text-transparent">
+            Góngora Ek
+          </span>
+  
+        </h1>
+  
+        {/* Subtitle */}
+        <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium mb-6 max-w-2xl leading-relaxed">
+          Construyo experiencias web y mobile modernas,
+          escalables y enfocadas en negocio.
         </p>
-
-        <p class="text-gray-700 dark:text-gray-300 max-w-lg mb-8 leading-relaxed">
-          Construyo sistemas escalables con Django, React y React Native. Enfocado en arquitecturas modernas, APIs robustas y experiencias de usuario excepcionales.
+  
+        {/* Description */}
+        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mb-10">
+          Especializado en Django, React, React Native y arquitecturas modernas.
+          Desarrollo productos digitales optimizados para rendimiento,
+          escalabilidad y crecimiento.
         </p>
-
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#contacto" class="btn-primary text-center">
-            Contacta conmigo →
+  
+        {/* CTA */}
+        <div class="flex flex-col sm:flex-row gap-4 mb-14">
+  
+          <a href="#contacto" class="btn-primary">
+            Contacta conmigo
+            <span>→</span>
           </a>
-          <a href="#proyectos" class="btn-secondary text-center">
+  
+          <a href="#proyectos" class="btn-secondary">
             Ver proyectos
           </a>
+  
         </div>
-
-        {/* Stats */}
-        <div class="grid grid-cols-3 gap-6 mt-12 pt-12 border-t border-gray-200 dark:border-slate-800">
-          <div>
-            <p class="text-2xl md:text-3xl font-bold text-primary-600 dark:text-primary-400">3+</p>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Años de experiencia</p>
+  
+        {/* STATS */}
+        <div class="grid grid-cols-3 gap-4">
+  
+          <div class="stats-card">
+            <p class="stats-number">4+</p>
+            <p class="stats-label">Años experiencia</p>
           </div>
-          <div>
-            <p class="text-2xl md:text-3xl font-bold text-primary-600 dark:text-primary-400">15+</p>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Proyectos completados</p>
+  
+          <div class="stats-card">
+            <p class="stats-number">12+</p>
+            <p class="stats-label">Proyectos</p>
           </div>
-          <div>
-            <p class="text-2xl md:text-3xl font-bold text-primary-600 dark:text-primary-400">100%</p>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Cliente satisfaction</p>
+  
+          <div class="stats-card">
+            <p class="stats-number">99%</p>
+            <p class="stats-label">Satisfacción</p>
           </div>
+  
         </div>
+  
       </div>
-
-      {/* Imagen */}
-      <div class="fade-in hidden md:block">
+  
+      {/* RIGHT SIDE */}
+      <div class="relative hidden lg:flex justify-center">
+  
+        {/* Background Card */}
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary-600/20 to-blue-400/10 rounded-[2.5rem] blur-3xl scale-110"></div>
+  
+        {/* Floating Elements */}
+        <div class="absolute -top-8 -left-8 glass-card px-5 py-4 animate-float">
+          <p class="text-sm font-semibold text-primary-600 dark:text-primary-400">
+            Django REST
+          </p>
+        </div>
+  
+        <div class="absolute bottom-10 -right-10 glass-card px-5 py-4 animate-float-delay">
+          <p class="text-sm font-semibold text-primary-600 dark:text-primary-400">
+            React Native
+          </p>
+        </div>
+  
+        {/* Image Container */}
         <div class="relative">
-          <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl blur-2xl opacity-20"></div>
+  
+          {/* Glow */}
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-blue-500 rounded-[2rem] blur-2xl opacity-20"></div>
+  
+          {/* Image */}
           <img
             src="https://legongoraek.github.io/assets/img/IMG_9656.PNG"
             alt="Luis Enrique Góngora Ek"
-            class="w-full max-w-md rounded-2xl shadow-2xl relative z-10 object-cover"
+            class="relative z-10 w-full max-w-lg rounded-[2rem]
+            border border-white/20
+            shadow-[0_30px_80px_rgba(0,0,0,0.25)]
+            object-cover"
           />
+  
         </div>
+  
       </div>
+  
     </div>
+  
   </div>
+</section>
+
 </header>
 
 <style>
-  .fade-in {
-    animation: fadeIn 0.8s ease-out;
+  .glass-card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    border-radius: 1rem;
+
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.08);
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+  .dark .glass-card {
+    background: rgba(15,23,42,0.7);
+
+    border-color: rgba(255,255,255,0.08);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delay {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    50% {
+      transform: translateY(-10px);
     }
   }
 </style>

@@ -8,64 +8,128 @@ const navItems = [
 ];
 ---
 
-<nav class="sticky top-0 z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl border-b border-white/10 shadow-sm shadow-black/5">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 md:h-20">
-      
-      {/* Logo */}
-      <a href="/" class="flex items-center space-x-2 group">
-        <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl shadow-lg shadow-primary-900/10 flex items-center justify-center text-white font-bold group-hover:scale-105 transition-all">
-          LE
-        </div>
-        <span class="hidden sm:inline text-lg font-bold text-primary-900 dark:text-white">Luis Enrique</span>
-      </a>
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
+  <div
+    class="
+      rounded-3xl
+      border border-white/10
+      bg-white/65
+      backdrop-blur-2xl
+      shadow-[0_10px_40px_rgba(0,0,0,0.08)]
+    "
+  >
+    <div class="absolute inset-0 rounded-3xl ring-1 ring-white/10 pointer-events-none"></div>
 
-      {/* Menu Desktop */}
-      <div class="hidden md:flex items-center space-x-8">
+    <div class="relative max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+
+        {/* Logo - Visible en todos los tamaños */}
+        <a href="/" class="flex items-center gap-3 group shrink-0">
+
+          <div class="block">
+            <p class="text-xs md:text-sm text-gray-500">
+              Full Stack Developer
+            </p>
+
+            <p class="font-bold text-primary-900 leading-none text-sm md:text-base">
+              Luis Enrique
+            </p>
+          </div>
+        </a>
+
+        {/* Desktop Menu */}
+        <div class="hidden md:flex items-center gap-2">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              class="
+                relative px-4 py-2 rounded-xl
+                text-sm font-semibold
+
+                text-slate-800
+
+                hover:text-primary-600
+
+                hover:bg-white/70
+
+                transition-all duration-300
+
+                after:absolute
+                after:left-4
+                after:right-4
+                after:-bottom-0.5
+                after:h-[2px]
+                after:scale-x-0
+                after:origin-left
+                after:bg-primary-600
+                after:transition-transform
+                after:duration-300
+
+                hover:after:scale-x-100
+              "
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          id="mobile-menu-btn"
+          class="
+            md:hidden
+            p-2.5
+            rounded-2xl
+            border border-black/5
+            bg-white/50
+            hover:bg-white
+            transition-all
+            shrink-0
+          "
+          aria-label="Abrir menú"
+        >
+          <svg
+            class="w-5 h-5 text-gray-700"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        id="mobile-menu"
+        class="
+          hidden md:hidden
+          pb-5 pt-2
+          space-y-2
+        "
+      >
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="relative text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary-600 after:transition-all hover:after:w-full"
+            class="
+              block
+              px-4 py-3
+              rounded-2xl
+              text-gray-700
+              hover:bg-white/50
+              transition-all
+              font-medium
+            "
           >
             {item.label}
           </a>
         ))}
       </div>
-
-      {/* Theme Toggle + Mobile Menu */}
-      <div class="flex items-center space-x-4">
-        <button
-          id="theme-toggle"
-          class="p-2 rounded-2xl hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
-          aria-label="Cambiar tema"
-        >
-          <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-          </svg>
-        </button>
-
-        {/* Mobile Menu Button */}
-        <button
-          id="mobile-menu-btn"
-          class="md:hidden p-2 rounded-2xl hover:bg-gray-100 dark:hover:bg-slate-800"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    {/* Mobile Menu */}
-    <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
-      {navItems.map((item) => (
-        <a
-          href={item.href}
-          class="block px-4 py-2 rounded-2xl text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800"
-        >
-          {item.label}
-        </a>
-      ))}
     </div>
   </div>
 </nav>
@@ -78,7 +142,6 @@ const navItems = [
     mobileMenu?.classList.toggle('hidden');
   });
 
-  // Cerrar menú al hacer click en un link
   document.querySelectorAll('#mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu?.classList.add('hidden');

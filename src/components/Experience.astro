@@ -4,7 +4,6 @@ const experiences = [
     role: 'Desarrollador Full Stack Multiplataforma',
     company: 'Freelance',
     period: 'Julio 2025 – Actualidad',
-    color: 'primary',
     achievements: [
       'Desarrollo de aplicaciones web y móviles (iOS y Android)',
       'Backend con Django REST Framework y autenticación JWT',
@@ -21,7 +20,6 @@ const experiences = [
     role: 'Desarrollador Full Stack',
     company: 'Erbessd Instruments',
     period: 'Octubre 2022 – Enero 2026',
-    color: 'primary',
     achievements: [
       'Diseño y desarrollo de endpoints backend optimizados',
       'Desarrollo de interfaces con Vue.js, Electron, HTML y CSS',
@@ -38,7 +36,6 @@ const experiences = [
     role: 'Desarrollo Web, Integraciones y Automatización',
     company: 'Freelance',
     period: 'Enero 2022 – Actualidad',
-    color: 'primary',
     achievements: [
       'Desarrollo y administración con WordPress y WooCommerce',
       'Implementación de middleware con Node.js',
@@ -54,79 +51,205 @@ const experiences = [
 ];
 ---
 
-<section id="experiencia" class="py-16 md:py-24 bg-white dark:bg-slate-950">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-primary-900 dark:text-white mb-4">
-        Experiencia Profesional
+<section
+  id="experiencia"
+  class="relative overflow-hidden py-20 md:py-28 isolate
+  bg-[radial-gradient(circle_at_top_left,_rgba(0,87,184,0.08),transparent_30%),linear-gradient(to_bottom,#ffffff,#f8fbff,#eef5ff)]"
+>
+
+  {/* Glow Effects */}
+  <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-primary-300/20 rounded-full blur-3xl opacity-30 -z-10"></div>
+
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-300/20 rounded-full blur-3xl opacity-30 -z-10"></div>
+
+  {/* Grid Pattern */}
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+    <div class="absolute inset-0
+    bg-[linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)]
+    bg-[size:64px_64px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* Header */}
+    <div class="text-center mb-20">
+
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6
+      bg-white/70 border border-white/30 backdrop-blur-xl shadow-lg shadow-black/5">
+
+        <div class="w-2 h-2 rounded-full bg-primary-600"></div>
+
+        <span class="text-sm font-medium text-gray-700">
+          Experiencia profesional
+        </span>
+
+      </div>
+
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">
+
+        <span class="bg-gradient-to-r from-primary-600 via-blue-500 to-primary-800 bg-clip-text text-transparent">
+          Trayectoria &
+        </span>
+
+        <span class="block text-slate-900 mt-2">
+          Experiencia
+        </span>
+
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        Trayectoria profesional con más de 3 años de experiencia
+
+      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Más de 3 años construyendo plataformas web, móviles
+        y sistemas escalables enfocados en negocio.
       </p>
+
     </div>
 
+    {/* Timeline */}
     <div class="relative">
-      {/* Línea vertical */}
-      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-600 to-primary-400 dark:from-primary-500 dark:to-primary-400"></div>
+
+      {/* Center Line */}
+      <div class="hidden lg:block absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full
+      bg-gradient-to-b from-primary-600/0 via-primary-500 to-primary-600/0"></div>
 
       <div class="space-y-12">
+
         {experiences.map((exp, index) => (
-          <div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-stretch`}>
-            {/* Contenido */}
-            <div class="md:w-1/2">
-              <div class="card h-full">
-                {/* Header */}
-                <div class="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 class="text-2xl font-bold text-primary-900 dark:text-white">
-                      {exp.role}
-                    </h3>
-                    <p class="text-primary-600 dark:text-primary-400 font-semibold mt-1">
-                      {exp.company}
-                    </p>
+          <div
+            class={`relative flex flex-col ${
+              index % 2 === 0
+                ? 'lg:flex-row'
+                : 'lg:flex-row-reverse'
+            } gap-10 items-stretch`}
+          >
+
+            {/* Timeline Dot */}
+            <div class="hidden lg:flex absolute left-1/2 top-10 -translate-x-1/2 z-20">
+              <div class="w-5 h-5 rounded-full bg-gradient-to-r from-primary-600 to-blue-500
+              border-4 border-white shadow-xl shadow-primary-500/30"></div>
+            </div>
+
+            {/* Card */}
+            <div class="lg:w-1/2">
+
+              <div
+                class="group relative overflow-hidden h-full rounded-[2rem]
+                bg-white/70 backdrop-blur-xl
+                border border-white/30
+                shadow-[0_20px_60px_rgba(0,0,0,0.06)]
+                hover:shadow-[0_30px_80px_rgba(0,87,184,0.12)]
+                transition-all duration-500
+                hover:-translate-y-1"
+              >
+
+                {/* Gradient Glow */}
+                <div class="absolute inset-0 bg-gradient-to-br from-primary-500/[0.04] via-transparent to-blue-500/[0.05] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Content */}
+                <div class="relative z-10 p-8">
+
+                  {/* Top */}
+                  <div class="flex items-start justify-between gap-6 mb-6">
+
+                    <div>
+
+                      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4
+                      bg-primary-100/70 text-primary-700 text-xs font-semibold">
+
+                        💼 {exp.company}
+
+                      </div>
+
+                      <h3 class="text-2xl font-bold text-slate-900 leading-tight mb-2">
+                        {exp.role}
+                      </h3>
+
+                      <p class="text-sm font-medium text-gray-500">
+                        {exp.period}
+                      </p>
+
+                    </div>
+
+                    <div
+                      class="w-14 h-14 rounded-2xl
+                      bg-gradient-to-br from-primary-600 to-blue-500
+                      flex items-center justify-center
+                      text-white text-2xl
+                      shadow-lg shadow-primary-500/20 shrink-0"
+                    >
+                      🚀
+                    </div>
+
                   </div>
-                  <span class="text-3xl">💼</span>
+
+                  {/* Responsibilities */}
+                  <div class="mb-8">
+
+                    <p class="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wide">
+                      Responsabilidades
+                    </p>
+
+                    <ul class="space-y-3">
+
+                      {exp.achievements.map((achievement) => (
+                        <li class="flex items-start gap-3 text-gray-700 leading-relaxed">
+
+                          <span class="mt-1 text-primary-600 shrink-0">
+                            →
+                          </span>
+
+                          <span>{achievement}</span>
+
+                        </li>
+                      ))}
+
+                    </ul>
+
+                  </div>
+
+                  {/* Impact */}
+                  <div
+                    class="rounded-2xl p-5
+                    bg-gradient-to-br from-primary-50 to-blue-50
+                    border border-primary-100"
+                  >
+
+                    <p class="text-sm font-semibold text-primary-700 mb-4 uppercase tracking-wide">
+                      Impacto generado
+                    </p>
+
+                    <ul class="space-y-3">
+
+                      {exp.impact.map((item) => (
+                        <li class="flex items-start gap-3 text-gray-700">
+
+                          <span class="text-emerald-500 mt-0.5 shrink-0">
+                            ✓
+                          </span>
+
+                          <span>{item}</span>
+
+                        </li>
+                      ))}
+
+                    </ul>
+
+                  </div>
+
                 </div>
 
-                <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 font-medium">
-                  {exp.period}
-                </p>
-
-                {/* Logros */}
-                <div class="mb-6 pb-6 border-b border-gray-200 dark:border-slate-700">
-                  <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Responsabilidades:</p>
-                  <ul class="space-y-2">
-                    {exp.achievements.map((achievement) => (
-                      <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start">
-                        <span class="text-primary-600 dark:text-primary-400 mr-3 shrink-0">→</span>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Impacto */}
-                <div>
-                  <p class="text-sm font-semibold text-primary-700 dark:text-primary-300 mb-3">📊 Impacto:</p>
-                  <ul class="space-y-2">
-                    {exp.impact.map((item) => (
-                      <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start">
-                        <span class="text-green-600 dark:text-green-400 mr-3">✓</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
+
             </div>
 
-            {/* Marcador de timeline */}
-            <div class="hidden md:flex w-1/2 items-start justify-center pt-6">
-              <div class="w-5 h-5 bg-primary-600 rounded-full border-4 border-white dark:border-slate-950 shadow-lg"></div>
-            </div>
+            {/* Spacer */}
+            <div class="hidden lg:block lg:w-1/2"></div>
+
           </div>
         ))}
+
       </div>
+
     </div>
+
   </div>
 </section>

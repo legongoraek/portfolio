@@ -2,17 +2,17 @@
 
 Portafolio profesional moderno construido con Astro, Tailwind CSS y deployado en Vercel.
 
-## 🚀 Características
+## Características
 
-- ⚡ **Ultra rápido** - Astro con optimizaciones de rendimiento
-- 🎨 **Diseño moderno** - Tailwind CSS + Paleta azul profesional
-- 🌙 **Dark mode** - Toggle de tema claro/oscuro
-- 📱 **Responsive** - Perfecto en móvil, tablet y desktop
-- 🔍 **SEO optimizado** - Meta tags, Open Graph, Sitemap
-- ♿ **Accesible** - WCAG compliant
-- ⚡ **Animaciones suaves** - Fade-in, slide-up, scale-in
+- **Ultra rápido** - Astro con optimizaciones de rendimiento
+- **Diseño moderno** - Tailwind CSS + Paleta azul profesional
+- **Dark mode** - Toggle de tema claro/oscuro
+- **Responsive** - Perfecto en móvil, tablet y desktop
+- **SEO optimizado** - Meta tags, Open Graph, Sitemap
+- **Accesible** - WCAG compliant
+- **Animaciones suaves** - Fade-in, slide-up, scale-in
 
-## 📦 Stack Tecnológico
+## Stack Tecnológico
 
 - **Framework**: Astro
 - **Estilos**: Tailwind CSS
@@ -20,7 +20,7 @@ Portafolio profesional moderno construido con Astro, Tailwind CSS y deployado en
 - **Analíticas**: Google Analytics
 - **Versionamiento**: Git + GitHub
 
-## 🛠️ Instalación Local
+## Instalación Local
 
 ### Requisitos previos
 - Node.js 18+ 
@@ -46,7 +46,7 @@ npm run dev
 
 El sitio estará disponible en `http://localhost:3000`
 
-## 📝 Editar Contenido
+## Editar Contenido
 
 ### Actualizar información personal
 - **Hero**: `src/components/Hero.astro`
@@ -101,13 +101,13 @@ vercel
 
 Sigue las instrucciones del CLI.
 
-## 📊 Optimizaciones de rendimiento
+## Optimizaciones de rendimiento
 
-- ✅ Astro Island Architecture (carga mínima de JS)
-- ✅ Lazy loading de imágenes
-- ✅ CSS purificado (solo lo necesario)
-- ✅ Animaciones solo en CSS (no JS)
-- ✅ Compresión de assets
+- Astro Island Architecture (carga mínima de JS)
+- Lazy loading de imágenes
+- CSS purificado (solo lo necesario)
+- Animaciones solo en CSS (no JS)
+- Compresión de assets
 
 ### Verificar performance
 ```bash
@@ -117,7 +117,7 @@ npm run preview
 
 Luego abre Chrome DevTools > Lighthouse
 
-## 📈 Analíticas
+## Analíticas
 
 El sitio incluye Google Analytics. Para cambiar el ID:
 
@@ -127,7 +127,7 @@ El sitio incluye Google Analytics. Para cambiar el ID:
 <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"></script>
 ```
 
-## 📱 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 src/
@@ -147,7 +147,7 @@ src/
     └── global.css
 ```
 
-## 🔧 Scripts disponibles
+## Scripts disponibles
 
 ```bash
 # Desarrollo
@@ -163,7 +163,7 @@ npm run preview
 npm run astro -- --verbose
 ```
 
-## 🎨 Personalización
+## Personalización
 
 ### Cambiar paleta de colores
 En `tailwind.config.mjs`, actualiza `theme.colors.primary`
@@ -181,7 +181,7 @@ fontFamily: {
 }
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### El sitio no carga
 ```bash
@@ -200,17 +200,17 @@ npm run dev
 npm run build -- --verbose
 ```
 
-## 📚 Documentación útil
+## Documentación útil
 
 - [Astro Docs](https://docs.astro.build)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [Vercel Docs](https://vercel.com/docs)
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto es código abierto y está disponible bajo la licencia MIT.
 
-## ✨ Mejoras futuras
+## Mejoras futuras
 
 - [ ] Agregar blog/articulos
 - [ ] Formulario de contacto funcional

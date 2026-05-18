@@ -47,97 +47,400 @@ const projects = [
 ];
 ---
 
-<section id="proyectos" class="py-16 md:py-24 bg-gray-50 dark:bg-slate-900">
+<section
+  id="proyectos"
+  class="relative overflow-hidden py-24 isolate
+  bg-[linear-gradient(to_bottom,#f8fbff,#ffffff,#eef5ff)]"
+>
+
+  {/* Glow Background */}
+  <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-primary-400/10 rounded-full blur-3xl opacity-30 -z-10"></div>
+
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-300/10 rounded-full blur-3xl opacity-30 -z-10"></div>
+
+  {/* Grid */}
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none -z-10">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+  </div>
+
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-primary-900 dark:text-white mb-4">
-        Proyectos Destacados
+
+    {/* HEADER */}
+    <div class="text-center mb-20">
+
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6
+      bg-white/70
+      border border-white/20
+      backdrop-blur-xl shadow-lg shadow-black/5">
+
+        <div class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></div>
+
+        <span class="text-sm font-medium text-gray-700">
+          Casos reales y productos digitales
+        </span>
+
+      </div>
+
+      <h2 class="text-5xl md:text-6xl font-black tracking-tight mb-6">
+
+        <span class="bg-gradient-to-r from-primary-600 via-blue-500 to-primary-800 bg-clip-text text-transparent">
+          Proyectos Destacados
+        </span>
+
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        Soluciones profesionales que he desarrollado para diferentes clientes
+
+      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Productos digitales, plataformas y aplicaciones
+        desarrolladas con enfoque en escalabilidad,
+        rendimiento y experiencia de usuario.
       </p>
+
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {/* PROJECTS GRID */}
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
       {projects.map((project, index) => (
+
         <div
-          class="group card hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-          style={`animation-delay: ${index * 0.1}s`}
+          class="project-card group"
+          style={`animation-delay:${index * 0.1}s`}
         >
-          {/* Header con emoji */}
-          <div class="flex items-start justify-between mb-4">
-            <h3 class="text-xl font-bold text-primary-900 dark:text-white pr-4 leading-tight">
-              {project.title}
-            </h3>
-            <span class="text-3xl shrink-0">{project.emoji}</span>
-          </div>
 
-          {/* Categoría */}
-          <span class="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-xs font-semibold rounded-full mb-4">
-            {project.category}
-          </span>
+          {/* Glow */}
+          <div class="project-glow"></div>
 
-          {/* Descripción */}
-          <p class="text-gray-700 dark:text-gray-300 text-sm mb-6 line-clamp-3">
-            {project.description}
-          </p>
+          <div class="relative z-10 flex flex-col h-full">
 
-          {/* Tecnologías */}
-          <div class="mb-6 pb-6 border-b border-gray-200 dark:border-slate-700">
-            <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Tecnologías:</p>
-            <div class="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <span class="px-2 py-1 bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 text-xs rounded">
-                  {tech}
+            {/* TOP */}
+            <div class="flex items-start justify-between mb-6">
+
+              <div>
+
+                <span class="project-badge">
+                  {project.category}
                 </span>
-              ))}
+
+                <h3 class="project-title mt-4">
+                  {project.title}
+                </h3>
+
+              </div>
+
+              <div class="project-emoji">
+                {project.emoji}
+              </div>
+
             </div>
+
+            {/* DESCRIPTION */}
+            <p class="project-description">
+              {project.description}
+            </p>
+
+            {/* TECH */}
+            <div class="mt-8">
+
+              <p class="project-label">
+                Tecnologías
+              </p>
+
+              <div class="flex flex-wrap gap-2 mt-3">
+
+                {project.technologies.map((tech) => (
+                  <span class="tech-pill">
+                    {tech}
+                  </span>
+                ))}
+
+              </div>
+
+            </div>
+
+            {/* IMPACT */}
+            <div class="mt-8 flex-1">
+
+              <p class="project-label">
+                Impacto
+              </p>
+
+              <ul class="space-y-3 mt-4">
+
+                {project.impact.map((item) => (
+                  <li class="project-impact">
+
+                    <div class="impact-icon">
+                      ✓
+                    </div>
+
+                    <span>{item}</span>
+
+                  </li>
+                ))}
+
+              </ul>
+
+            </div>
+
+            {/* LINK */}
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link mt-10"
+              >
+
+                <span>Ver proyecto</span>
+
+                <svg
+                  class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  ></path>
+                </svg>
+
+              </a>
+            )}
+
           </div>
 
-          {/* Impacto */}
-          <div class="mb-6">
-            <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Logros:</p>
-            <ul class="space-y-1">
-              {project.impact.map((item) => (
-                <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start">
-                  <span class="text-primary-600 dark:text-primary-400 mr-2">✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Link */}
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center space-x-2 text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 transition"
-            >
-              <span>Ver proyecto</span>
-              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-            </a>
-          )}
         </div>
+
       ))}
+
     </div>
+
   </div>
 </section>
 
 <style>
-  .card {
-    animation: slideUp 0.6s ease-out forwards;
+  .project-card {
+    position: relative;
+
+    padding: 2rem;
+
+    border-radius: 2rem;
+
+    background: rgba(255,255,255,0.72);
+
+    backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.05);
+
+    overflow: hidden;
+
+    transition:
+      transform 300ms ease,
+      box-shadow 300ms ease,
+      border-color 300ms ease;
+
+    animation: fadeUp 0.7s ease forwards;
+
     opacity: 0;
   }
 
-  @keyframes slideUp {
+  .project-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+      0 30px 60px rgba(0,0,0,0.08);
+
+    border-color: rgba(59,130,246,0.25);
+  }
+
+  .project-glow {
+    position: absolute;
+    inset: 0;
+
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba(59,130,246,0.16),
+        transparent 45%
+      );
+
+    opacity: 0;
+
+    transition: opacity 300ms ease;
+  }
+
+  .group:hover .project-glow {
+    opacity: 1;
+  }
+
+  .project-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 0.45rem 0.9rem;
+
+    border-radius: 999px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(0,87,184,0.12),
+        rgba(59,130,246,0.08)
+      );
+
+    color: #0057B8;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    border: 1px solid rgba(59,130,246,0.15);
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    color: #0f172a;
+  }
+
+  .project-emoji {
+    width: 4rem;
+    height: 4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 1.2rem;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255,255,255,0.8),
+        rgba(255,255,255,0.4)
+      );
+
+    font-size: 2rem;
+
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5);
+  }
+
+  .project-description {
+    color: rgb(75, 85, 99);
+
+    line-height: 1.8;
+
+    font-size: 0.98rem;
+  }
+
+  .project-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    color: rgb(100, 116, 139);
+  }
+
+  .tech-pill {
+    padding: 0.55rem 0.9rem;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.55);
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    color: rgb(51,65,85);
+
+    transition:
+      transform 220ms ease,
+      background 220ms ease;
+  }
+
+  .tech-pill:hover {
+    transform: translateY(-2px);
+
+    background: rgba(255,255,255,0.9);
+  }
+
+  .project-impact {
+    display: flex;
+    align-items: start;
+    gap: 0.8rem;
+
+    color: rgb(51,65,85);
+
+    font-size: 0.95rem;
+  }
+
+  .impact-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    background:
+      linear-gradient(
+        135deg,
+        #0057B8,
+        #3b82f6
+      );
+
+    color: white;
+
+    font-size: 0.75rem;
+    font-weight: bold;
+
+    flex-shrink: 0;
+
+    margin-top: 0.1rem;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    font-weight: 700;
+
+    color: #0057B8;
+
+    transition:
+      gap 220ms ease,
+      color 220ms ease;
+  }
+
+  .project-link:hover {
+    gap: 0.9rem;
+
+    color: #2563eb;
+  }
+
+  @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(25px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);

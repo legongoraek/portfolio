@@ -5,114 +5,213 @@ const contactInfo = [
     value: 'enriquegongora45@gmail.com',
     href: 'mailto:enriquegongora45@gmail.com',
     icon: '📧',
+    color: 'from-blue-500 to-primary-600',
   },
   {
     title: 'WhatsApp',
     value: '+52 999 423 1687',
     href: 'https://wa.me/529994231687',
     icon: '💬',
+    color: 'from-emerald-500 to-green-600',
   },
   {
     title: 'LinkedIn',
     value: 'luisenriquegongoraek',
     href: 'https://www.linkedin.com/in/luisenriquegongoraek',
     icon: '🔗',
+    color: 'from-sky-500 to-blue-700',
   },
   {
     title: 'GitHub',
     value: 'legongoraek',
     href: 'https://github.com/legongoraek',
     icon: '💻',
+    color: 'from-slate-700 to-slate-900',
   },
 ];
 ---
 
-<section id="contacto" class="py-16 md:py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 relative overflow-hidden">
-  {/* Elementos decorativos */}
-  <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
+<section
+  id="contacto"
+  class="relative overflow-hidden py-20 md:py-28 isolate
+  bg-[radial-gradient(circle_at_top_right,_rgba(0,87,184,0.10),transparent_30%),linear-gradient(to_bottom,#f8fbff,#ffffff,#eef5ff)]"
+>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-        ¿Listo para trabajar juntos?
+  {/* Glow Effects */}
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-300/20 rounded-full blur-3xl opacity-30 -z-10"></div>
+
+  <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-300/20 rounded-full blur-3xl opacity-30 -z-10"></div>
+
+  {/* Grid Pattern */}
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+    <div class="absolute inset-0
+    bg-[linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)]
+    bg-[size:64px_64px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* Header */}
+    <div class="text-center mb-20">
+
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6
+      bg-white/70 border border-white/30 backdrop-blur-xl shadow-lg shadow-black/5">
+
+        <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+
+        <span class="text-sm font-medium text-gray-700">
+          Disponible para nuevos proyectos
+        </span>
+
+      </div>
+
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">
+
+        <span class="bg-gradient-to-r from-primary-600 via-blue-500 to-primary-800 bg-clip-text text-transparent">
+          ¿Trabajamos
+        </span>
+
+        <span class="block text-slate-900 mt-2">
+          juntos?
+        </span>
+
       </h2>
-      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
-        Tengo soluciones para tus proyectos. Contáctame y hablemos de cómo puedo ayudarte
+
+      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Desarrollo soluciones web y móviles enfocadas en rendimiento,
+        escalabilidad y crecimiento digital.
       </p>
+
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+    {/* Contact Cards */}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+
       {contactInfo.map((item, index) => (
         <a
           href={item.href}
           target={item.href.startsWith('http') ? '_blank' : '_self'}
           rel={item.href.startsWith('http') ? 'noopener noreferrer' : ''}
-          class="group card bg-white/10 dark:bg-white/5 border-white/20 backdrop-blur-sm hover:bg-white/20 dark:hover:bg-white/10"
-          style={`animation-delay: ${index * 0.1}s`}
+          class="group relative overflow-hidden rounded-[2rem]
+          bg-white/70 backdrop-blur-xl
+          border border-white/30
+          shadow-[0_20px_60px_rgba(0,0,0,0.06)]
+          hover:shadow-[0_25px_80px_rgba(0,87,184,0.12)]
+          transition-all duration-500
+          hover:-translate-y-1"
+          style={`animation-delay:${index * 0.1}s`}
         >
-          <div class="flex items-start space-x-4">
-            <span class="text-4xl group-hover:scale-110 transition-transform">{item.icon}</span>
-            <div class="flex-1 min-w-0">
-              <p class="text-sm font-semibold text-blue-100 uppercase tracking-wide">{item.title}</p>
-              <p class="text-lg font-bold text-white mt-1 truncate group-hover:text-blue-100 transition">
-                {item.value}
-              </p>
-            </div>
+
+          {/* Hover Glow */}
+          <div class={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
+          bg-gradient-to-br ${item.color} /[0.05]`}>
           </div>
+
+          <div class="relative z-10 p-7">
+
+            {/* Icon */}
+            <div
+              class={`w-16 h-16 rounded-2xl mb-6
+              bg-gradient-to-br ${item.color}
+              flex items-center justify-center
+              text-3xl text-white
+              shadow-lg`}
+            >
+              {item.icon}
+            </div>
+
+            {/* Content */}
+            <p class="text-xs uppercase tracking-wider font-semibold text-gray-500 mb-2">
+              {item.title}
+            </p>
+
+            <p class="text-lg font-bold text-slate-900 break-all group-hover:text-primary-700 transition-colors">
+              {item.value}
+            </p>
+
+          </div>
+
         </a>
       ))}
+
     </div>
 
-    <div class="bg-white/10 dark:bg-white/5 border border-white/20 rounded-xl p-8 md:p-12 backdrop-blur-sm text-center">
-      <h3 class="text-2xl font-bold text-white mb-6">
-        Envíame un mensaje directo
-      </h3>
-      <p class="text-blue-100 mb-8 max-w-lg mx-auto">
-        Respondo rápidamente a todas las consultas. Cuéntame sobre tu proyecto y qué necesitas.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="mailto:enriquegongora45@gmail.com"
-          class="px-8 py-3 bg-white text-primary-900 font-bold rounded-lg hover:bg-blue-50 transition inline-block"
+    {/* CTA Card */}
+    <div
+      class="relative overflow-hidden rounded-[2.5rem]
+      bg-white/70 backdrop-blur-xl
+      border border-white/30
+      shadow-[0_25px_80px_rgba(0,0,0,0.08)]"
+    >
+
+      {/* Background Glow */}
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-500/[0.04] via-transparent to-blue-500/[0.05]"></div>
+
+      <div class="relative z-10 px-8 py-14 md:px-16 text-center">
+
+        <div
+          class="inline-flex items-center justify-center
+          w-20 h-20 rounded-[1.5rem]
+          bg-gradient-to-br from-primary-600 to-blue-500
+          text-white text-4xl
+          shadow-xl shadow-primary-500/20 mb-8"
         >
-          Enviar Email
-        </a>
-        <a
-          href="https://wa.me/529994231687"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-8 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition inline-block"
-        >
-          WhatsApp
-        </a>
+          🚀
+        </div>
+
+        <h3 class="text-3xl md:text-4xl font-black text-slate-900 mb-6">
+          Cuéntame sobre tu proyecto
+        </h3>
+
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed mb-10">
+          Desde plataformas web hasta aplicaciones móviles y automatización
+          de procesos. Estoy listo para ayudarte a construir algo increíble.
+        </p>
+
+        {/* Buttons */}
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+          <a
+            href="mailto:enriquegongora45@gmail.com"
+            class="btn-primary"
+          >
+            Enviar Email
+            <span>→</span>
+          </a>
+
+          <a
+            href="https://wa.me/529994231687"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
       </div>
+
     </div>
 
-    {/* Tiempo de respuesta */}
-    <div class="mt-12 text-center">
-      <p class="text-blue-100 text-sm">
-        ⏱️ Tiempo de respuesta promedio: <span class="font-bold">24 horas</span>
-      </p>
+    {/* Response Time */}
+    <div class="mt-10 text-center">
+
+      <div class="inline-flex items-center gap-2 px-5 py-3 rounded-full
+      bg-white/70 backdrop-blur-xl border border-white/30 shadow-lg shadow-black/5">
+
+        <span class="text-emerald-500">⏱</span>
+
+        <p class="text-sm font-medium text-gray-700">
+          Tiempo promedio de respuesta:
+          <span class="font-bold text-primary-700 ml-1">
+            menos de 24 horas
+          </span>
+        </p>
+
+      </div>
+
     </div>
+
   </div>
 </section>
-
-<style>
-  .card {
-    animation: slideUp 0.6s ease-out forwards;
-    opacity: 0;
-  }
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>

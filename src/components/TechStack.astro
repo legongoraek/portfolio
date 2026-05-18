@@ -31,95 +31,280 @@ const technologies = {
 };
 ---
 
-<section id="stack" class="py-16 md:py-24 bg-white dark:bg-slate-950">
+<section
+  id="stack"
+  class="relative overflow-hidden py-24 isolate
+  bg-[linear-gradient(to_bottom,#ffffff,#f8fbff,#eef5ff)]"
+>
+
+  {/* Glow Background */}
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-400/10 rounded-full blur-3xl opacity-30 -z-10"></div>
+
+  <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-300/10 rounded-full blur-3xl opacity-30 -z-10"></div>
+
+  {/* Grid */}
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none -z-10">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+  </div>
+
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-primary-900 dark:text-white mb-4">
-        Stack Tecnológico
+
+    {/* Header */}
+    <div class="text-center mb-20">
+
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6
+      bg-white/70
+      border border-white/20
+      backdrop-blur-xl shadow-lg shadow-black/5">
+
+        <div class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></div>
+
+        <span class="text-sm font-medium text-gray-700">
+          Tecnologías modernas
+        </span>
+      </div>
+
+      <h2 class="text-5xl md:text-6xl font-black tracking-tight mb-6">
+
+        <span class="bg-gradient-to-r from-primary-600 via-blue-500 to-primary-800 bg-clip-text text-transparent">
+          Stack Tecnológico
+        </span>
+
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        Tecnologías modernas y probadas que utilizo para construir soluciones escalables
+
+      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Tecnologías y herramientas modernas que utilizo para construir
+        productos digitales rápidos, escalables y enfocados en negocio.
       </p>
+
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {/* Frontend */}
-      <div class="slide-up">
-        <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 rounded-xl p-6 border border-primary-200 dark:border-slate-700">
-          <h3 class="text-xl font-bold text-primary-900 dark:text-white mb-6">Frontend</h3>
-          <ul class="space-y-3">
+    {/* Cards */}
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+
+      {/* FRONTEND */}
+      <div class="tech-card group">
+        <div class="tech-glow"></div>
+
+        <div class="relative z-10">
+
+          <div class="tech-icon-wrapper">
+            💻
+          </div>
+
+          <h3 class="tech-title">
+            Frontend
+          </h3>
+
+          <ul class="space-y-4 mt-8">
             {technologies.frontend.map((tech) => (
-              <li class="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">
+              <li class="tech-item">
                 <span class="text-2xl">{tech.icon}</span>
-                <span class="font-medium">{tech.name}</span>
+                <span>{tech.name}</span>
               </li>
             ))}
           </ul>
+
         </div>
       </div>
 
-      {/* Backend */}
-      <div class="slide-up" style="animation-delay: 0.1s">
-        <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 rounded-xl p-6 border border-primary-200 dark:border-slate-700">
-          <h3 class="text-xl font-bold text-primary-900 dark:text-white mb-6">Backend</h3>
-          <ul class="space-y-3">
+      {/* BACKEND */}
+      <div class="tech-card group">
+        <div class="tech-glow"></div>
+
+        <div class="relative z-10">
+
+          <div class="tech-icon-wrapper">
+            ⚙️
+          </div>
+
+          <h3 class="tech-title">
+            Backend
+          </h3>
+
+          <ul class="space-y-4 mt-8">
             {technologies.backend.map((tech) => (
-              <li class="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">
+              <li class="tech-item">
                 <span class="text-2xl">{tech.icon}</span>
-                <span class="font-medium">{tech.name}</span>
+                <span>{tech.name}</span>
               </li>
             ))}
           </ul>
+
         </div>
       </div>
 
-      {/* Database */}
-      <div class="slide-up" style="animation-delay: 0.2s">
-        <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 rounded-xl p-6 border border-primary-200 dark:border-slate-700">
-          <h3 class="text-xl font-bold text-primary-900 dark:text-white mb-6">Datos</h3>
-          <ul class="space-y-3">
+      {/* DATABASE */}
+      <div class="tech-card group">
+        <div class="tech-glow"></div>
+
+        <div class="relative z-10">
+
+          <div class="tech-icon-wrapper">
+            🗄️
+          </div>
+
+          <h3 class="tech-title">
+            Datos
+          </h3>
+
+          <ul class="space-y-4 mt-8">
             {technologies.database.map((tech) => (
-              <li class="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">
+              <li class="tech-item">
                 <span class="text-2xl">{tech.icon}</span>
-                <span class="font-medium">{tech.name}</span>
+                <span>{tech.name}</span>
               </li>
             ))}
           </ul>
+
         </div>
       </div>
 
-      {/* Tools */}
-      <div class="slide-up" style="animation-delay: 0.3s">
-        <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 rounded-xl p-6 border border-primary-200 dark:border-slate-700">
-          <h3 class="text-xl font-bold text-primary-900 dark:text-white mb-6">Herramientas</h3>
-          <ul class="space-y-3">
+      {/* TOOLS */}
+      <div class="tech-card group">
+        <div class="tech-glow"></div>
+
+        <div class="relative z-10">
+
+          <div class="tech-icon-wrapper">
+            🚀
+          </div>
+
+          <h3 class="tech-title">
+            Herramientas
+          </h3>
+
+          <ul class="space-y-4 mt-8">
             {technologies.tools.map((tech) => (
-              <li class="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">
+              <li class="tech-item">
                 <span class="text-2xl">{tech.icon}</span>
-                <span class="font-medium">{tech.name}</span>
+                <span>{tech.name}</span>
               </li>
             ))}
           </ul>
+
         </div>
       </div>
+
     </div>
+
   </div>
 </section>
 
 <style>
-  .slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-    opacity: 0;
+  .tech-card {
+    position: relative;
+
+    padding: 2rem;
+
+    border-radius: 2rem;
+
+    background: rgba(255,255,255,0.7);
+
+    backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.05);
+
+    overflow: hidden;
+
+    transition:
+      transform 300ms ease,
+      box-shadow 300ms ease,
+      border-color 300ms ease;
   }
 
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .tech-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+      0 25px 50px rgba(0,0,0,0.08);
+
+    border-color: rgba(59,130,246,0.25);
+  }
+
+  .tech-glow {
+    position: absolute;
+    inset: 0;
+
+    background:
+      radial-gradient(circle at top right,
+      rgba(59,130,246,0.15),
+      transparent 45%);
+
+    opacity: 0;
+
+    transition: opacity 300ms ease;
+  }
+
+  .group:hover .tech-glow {
+    opacity: 1;
+  }
+
+  .tech-icon-wrapper {
+    width: 4rem;
+    height: 4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 1.2rem;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(0,87,184,0.12),
+        rgba(59,130,246,0.08)
+      );
+
+    font-size: 1.8rem;
+
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+
+  .tech-title {
+    margin-top: 1.5rem;
+
+    font-size: 1.5rem;
+    font-weight: 800;
+
+    color: #0f172a;
+  }
+
+  .tech-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 0.85rem 1rem;
+
+    border-radius: 1rem;
+
+    background: rgba(255,255,255,0.45);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    color: rgb(51, 65, 85);
+
+    font-weight: 500;
+
+    transition:
+      transform 220ms ease,
+      background 220ms ease,
+      border-color 220ms ease;
+  }
+
+  .tech-item:hover {
+    transform: translateX(4px);
+
+    background: rgba(255,255,255,0.75);
+
+    border-color: rgba(59,130,246,0.2);
+
+    color: #0057B8;
   }
 </style>
