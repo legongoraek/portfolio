@@ -1,32 +1,34 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const contactInfo = [
   {
     title: 'Email',
     value: 'enriquegongora45@gmail.com',
     href: 'mailto:enriquegongora45@gmail.com',
-    icon: '📧',
+    icon: 'mdi:email-outline',
     color: 'from-blue-500 to-primary-600',
   },
   {
     title: 'WhatsApp',
     value: '+52 999 423 1687',
     href: 'https://wa.me/529994231687',
-    icon: '💬',
+    icon: 'mdi:whatsapp',
     color: 'from-emerald-500 to-green-600',
   },
   {
     title: 'LinkedIn',
     value: 'luisenriquegongoraek',
     href: 'https://www.linkedin.com/in/luisenriquegongoraek',
-    icon: '🔗',
+    icon: 'mdi:linkedin',
     color: 'from-sky-500 to-blue-700',
   },
   {
     title: 'GitHub',
     value: 'legongoraek',
     href: 'https://github.com/legongoraek',
-    icon: '💻',
-    color: 'from-slate-700 to-slate-900',
+    icon: 'mdi:github',
+    color: 'from-blue-500 to-primary-600',
   },
 ];
 ---
@@ -59,19 +61,26 @@ const contactInfo = [
 
         <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
 
-        <span class="text-sm font-medium text-gray-700">
-          Disponible para nuevos proyectos
-        </span>
+        <div class="flex items-center gap-2">
+          <Icon
+            name="mdi:check-decagram"
+            class="w-4 h-4 text-emerald-500"
+          />
+
+          <span class="text-sm font-medium text-gray-700">
+            Disponible para nuevos proyectos
+          </span>
+        </div>
 
       </div>
 
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.3] mb-6">
 
-        <span class="bg-gradient-to-r from-primary-600 via-blue-500 to-primary-800 bg-clip-text text-transparent">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
           ¿Trabajamos
         </span>
 
-        <span class="block text-slate-900 mt-2">
+        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
           juntos?
         </span>
 
@@ -117,7 +126,10 @@ const contactInfo = [
               text-3xl text-white
               shadow-lg`}
             >
-              {item.icon}
+              <Icon
+                name={item.icon}
+                class="w-8 h-8"
+              />
             </div>
 
             {/* Content */}
@@ -153,10 +165,13 @@ const contactInfo = [
           class="inline-flex items-center justify-center
           w-20 h-20 rounded-[1.5rem]
           bg-gradient-to-br from-primary-600 to-blue-500
-          text-white text-4xl
+          text-white
           shadow-xl shadow-primary-500/20 mb-8"
         >
-          🚀
+          <Icon
+            name="mdi:rocket-launch-outline"
+            class="w-10 h-10"
+          />
         </div>
 
         <h3 class="text-3xl md:text-4xl font-black text-slate-900 mb-6">
@@ -175,8 +190,16 @@ const contactInfo = [
             href="mailto:enriquegongora45@gmail.com"
             class="btn-primary"
           >
+            <Icon
+              name="mdi:email-fast-outline"
+              class="w-5 h-5"
+            />
             Enviar Email
-            <span>→</span>
+
+            <Icon
+              name="mdi:arrow-right"
+              class="w-4 h-4"
+            />
           </a>
 
           <a
@@ -185,6 +208,10 @@ const contactInfo = [
             rel="noopener noreferrer"
             class="btn-secondary"
           >
+            <Icon
+              name="mdi:whatsapp"
+              class="w-5 h-5"
+            />
             WhatsApp
           </a>
 
@@ -200,7 +227,10 @@ const contactInfo = [
       <div class="inline-flex items-center gap-2 px-5 py-3 rounded-full
       bg-white/70 backdrop-blur-xl border border-white/30 shadow-lg shadow-black/5">
 
-        <span class="text-emerald-500">⏱</span>
+        <Icon
+          name="mdi:clock-outline"
+          class="w-5 h-5 text-emerald-500"
+        />
 
         <p class="text-sm font-medium text-gray-700">
           Tiempo promedio de respuesta:

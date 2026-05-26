@@ -1,35 +1,40 @@
 ---
+
+import { Icon } from "astro-icon/components";
+
 const technologies = {
   frontend: [
-    { name: 'React', icon: '⚛️' },
-    { name: 'Vue.js', icon: '💚' },
-    { name: 'React Native', icon: '📱' },
-    { name: 'Next.js', icon: '▲' },
-    { name: 'Electron', icon: '🖥️' },
-    { name: 'JavaScript', icon: '📜' },
+    { name: 'React', icon: 'logos:react' },
+    { name: 'Vue.js', icon: 'logos:vue' },
+    { name: 'React Native', icon: 'logos:react' },
+    { name: 'Next.js', icon: 'logos:nextjs-icon' },
+    { name: 'Electron', icon: 'logos:electron' },
+    { name: 'JavaScript', icon: 'logos:javascript' },
   ],
   backend: [
-    { name: 'Django', icon: '🐍' },
-    { name: 'Django REST', icon: '⚙️' },
-    { name: 'Node.js', icon: '💻' },
-    { name: 'Python', icon: '🐍' },
-    { name: 'JWT Auth', icon: '🔐' },
+    { name: 'Django', icon: 'logos:django-icon' },
+    { name: 'Django REST', icon: 'mdi:api' },
+    { name: 'Node.js', icon: 'logos:nodejs-icon' },
+    { name: 'Python', icon: 'logos:python' },
+    { name: 'JWT Auth', icon: 'mdi:key-chain' },
   ],
   database: [
-    { name: 'PostgreSQL', icon: '🐘' },
-    { name: 'MySQL', icon: '🗄️' },
-    { name: 'SQL', icon: '📊' },
-    { name: 'Azure', icon: '☁️' },
+    { name: 'PostgreSQL', icon: 'logos:postgresql' },
+    { name: 'MySQL', icon: 'logos:mysql' },
+    { name: 'SQL', icon: 'mdi:database' },
+    { name: 'Azure', icon: 'logos:microsoft-azure' },
   ],
   tools: [
-    { name: 'WordPress', icon: '🔵' },
-    { name: 'WooCommerce', icon: '🛒' },
-    { name: 'Linux/Ubuntu', icon: '🐧' },
-    { name: 'API Integration', icon: '🔗' },
-    { name: 'Automatización', icon: '⚡' },
+    { name: 'WordPress', icon: 'logos:wordpress-icon' },
+    { name: 'WooCommerce', icon: 'logos:woocommerce-icon' },
+    { name: 'Linux/Ubuntu', icon: 'logos:ubuntu' },
+    { name: 'API Integration', icon: 'mdi:api' },
+    { name: 'Automatización', icon: 'mdi:robot-outline' },
   ],
 };
 ---
+
+
 
 <section
   id="stack"
@@ -66,7 +71,7 @@ const technologies = {
 
       <h2 class="text-5xl md:text-6xl font-black tracking-tight mb-6">
 
-        <span class="bg-gradient-to-r from-primary-600 via-blue-500 to-primary-800 bg-clip-text text-transparent">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
           Stack Tecnológico
         </span>
 
@@ -99,7 +104,7 @@ const technologies = {
           <ul class="space-y-4 mt-8">
             {technologies.frontend.map((tech) => (
               <li class="tech-item">
-                <span class="text-2xl">{tech.icon}</span>
+                <Icon name={tech.icon} class="text-2xl" />
                 <span>{tech.name}</span>
               </li>
             ))}
@@ -125,7 +130,7 @@ const technologies = {
           <ul class="space-y-4 mt-8">
             {technologies.backend.map((tech) => (
               <li class="tech-item">
-                <span class="text-2xl">{tech.icon}</span>
+                <Icon name={tech.icon} class="text-2xl" />
                 <span>{tech.name}</span>
               </li>
             ))}
@@ -151,7 +156,7 @@ const technologies = {
           <ul class="space-y-4 mt-8">
             {technologies.database.map((tech) => (
               <li class="tech-item">
-                <span class="text-2xl">{tech.icon}</span>
+                <Icon name={tech.icon} class="text-2xl" />
                 <span>{tech.name}</span>
               </li>
             ))}
@@ -177,7 +182,7 @@ const technologies = {
           <ul class="space-y-4 mt-8">
             {technologies.tools.map((tech) => (
               <li class="tech-item">
-                <span class="text-2xl">{tech.icon}</span>
+                <Icon name={tech.icon} class="text-2xl" />
                 <span>{tech.name}</span>
               </li>
             ))}
