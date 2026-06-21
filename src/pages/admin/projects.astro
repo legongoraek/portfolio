@@ -1,0 +1,277 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+import projectsData from '../../data/projects.json';
+
+export const prerender = false;
+
+const projects = projectsData;
+const isAuthenticated = Astro.cookies.get('admin_auth')?.value === '1';
+
+if (!isAuthenticated) {
+  return Astro.redirect('/admin/login?redirect=%2Fadmin%2Fprojects');
+}
+---
+
+<Layout title="Admin - Proyectos" showChrome={false}>
+  <main class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {/* Header */}
+      <div class="mb-12">
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <a href="/" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700">
+            <Icon name="mdi:arrow-left" class="w-5 h-5" />
+            Volver al inicio
+          </a>
+
+          <a href="/admin/logout" class="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold">
+            <Icon name="mdi:logout" class="w-5 h-5" />
+            Cerrar sesion
+          </a>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-900 mb-2 mt-8">Gestionar Proyectos</h1>
+        <p class="text-gray-600">Agrega, edita o elimina proyectos de tu portafolio</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        {/* Form */}
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 p-8 rounded-2xl bg-white shadow-lg border border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Agregar Proyecto</h3>
+            
+            <form id="projectForm" class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Título</label>
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Título del proyecto"
+                  required
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Categoría</label>
+                <input
+                  type="text"
+                  name="category"
+                  placeholder="Frontend, Full Stack, etc"
+                  required
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Descripción</label>
+                <textarea
+                  name="description"
+                  placeholder="Descripción del proyecto"
+                  rows="3"
+                  required
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                ></textarea>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Link</label>
+                <input
+                  type="url"
+                  name="link"
+                  placeholder="https://ejemplo.com"
+                  required
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Icon (MDI)</label>
+                <input
+                  type="text"
+                  name="icon"
+                  placeholder="mdi:web"
+                  required
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Tecnologías</label>
+                <input
+                  type="text"
+                  name="technologies"
+                  placeholder="React, Next.js, Tailwind (separadas por coma)"
+                  required
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Impacto</label>
+                <input
+                  type="text"
+                  name="impact"
+                  placeholder="Impacto 1, Impacto 2 (separados por coma)"
+                  required
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+              >
+                Agregar Proyecto
+              </button>
+            </form>
+
+            <div id="formMessage" class="mt-4 p-4 rounded-lg hidden text-sm"></div>
+          </div>
+        </div>
+
+        {/* List */}
+        <div class="lg:col-span-2">
+          <div class="space-y-4">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Proyectos Actuales ({projects.length})</h3>
+            
+            {projects.length === 0 ? (
+              <div class="p-8 rounded-2xl bg-white border-2 border-dashed border-gray-300 text-center">
+                <p class="text-gray-600">No hay proyectos aún</p>
+              </div>
+            ) : (
+              <div class="space-y-4">
+                {projects.map((project, index) => (
+                  <div class="p-6 rounded-2xl bg-white shadow-md border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="flex items-start justify-between gap-4">
+                      <div class="flex-1">
+                        <h3 class="text-lg font-bold text-gray-900">{project.title}</h3>
+                        <p class="text-sm text-gray-600 mt-1">{project.description}</p>
+                        
+                        <div class="mt-4 flex flex-wrap gap-2">
+                          <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold">
+                            {project.category}
+                          </span>
+                          {project.technologies.map((tech) => (
+                            <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-semibold">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div class="mt-3 text-xs text-gray-500">
+                          <a href={project.link} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+                            {project.link}
+                          </a>
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onclick={`deleteProject('${project.title}')`}
+                        class="px-4 py-2 rounded-lg bg-red-100 text-red-600 hover:bg-red-200 font-semibold transition-colors shrink-0"
+                      >
+                        <Icon name="mdi:delete" class="w-5 h-5 inline-block" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const form = document.getElementById('projectForm') as HTMLFormElement | null;
+  const messageDiv = document.getElementById('formMessage') as HTMLDivElement | null;
+
+  const toText = (value: FormDataEntryValue | null) => (typeof value === 'string' ? value.trim() : '');
+
+  const showMessage = (message: string, isError = false) => {
+    if (!messageDiv) return;
+    messageDiv.textContent = message;
+    messageDiv.className = isError
+      ? 'mt-4 p-4 rounded-lg bg-red-100 text-red-700 border border-red-300'
+      : 'mt-4 p-4 rounded-lg bg-green-100 text-green-700 border border-green-300';
+    messageDiv.classList.remove('hidden');
+  };
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = {
+        title: toText(formData.get('title')),
+        description: toText(formData.get('description')),
+        technologies: toText(formData.get('technologies')).split(',').map((t) => t.trim()).filter(Boolean),
+        impact: toText(formData.get('impact')).split(',').map((i) => i.trim()).filter(Boolean),
+        link: toText(formData.get('link')),
+        category: toText(formData.get('category')),
+        icon: toText(formData.get('icon')),
+      };
+
+      if (!data.title || !data.description || !data.link) {
+        showMessage('❌ Completa título, descripción y link.', true);
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/projects', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          showMessage('✅ Proyecto agregado exitosamente');
+          form.reset();
+          setTimeout(() => window.location.reload(), 1500);
+        } else {
+          let errorMessage = 'Error al agregar el proyecto';
+          try {
+            const payload = await response.json();
+            if (payload?.error) errorMessage = payload.error;
+          } catch {
+            // Ignore JSON parsing error and keep default message.
+          }
+          throw new Error(errorMessage);
+        }
+      } catch (error) {
+        showMessage('❌ ' + (error instanceof Error ? error.message : 'Error desconocido'), true);
+      }
+    });
+  }
+
+  (window as any).deleteProject = async (title: string) => {
+    if (!confirm(`¿Seguro que deseas eliminar "${title}"?`)) return;
+
+    try {
+      const response = await fetch('/api/projects', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title }),
+      });
+
+      if (response.ok) {
+        window.location.reload();
+      } else {
+        let errorMessage = 'Error al eliminar el proyecto';
+        try {
+          const payload = await response.json();
+          if (payload?.error) errorMessage = payload.error;
+        } catch {
+          // Ignore JSON parsing error and keep default message.
+        }
+        alert(errorMessage);
+      }
+    } catch (error) {
+      alert('Error: ' + (error instanceof Error ? error.message : 'Error desconocido'));
+    }
+  };
+</script>

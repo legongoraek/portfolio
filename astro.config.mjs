@@ -11,7 +11,7 @@ export default defineConfig({
     })
   ],
   site: 'https://luisenriquegongoraek.com',
-  output: 'static',
+  output: 'hybrid',
   vite: {
     plugins: [tailwindcss()],
     ssr: {

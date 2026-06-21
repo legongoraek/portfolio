@@ -6,9 +6,14 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  showChrome?: boolean;
 }
 
-const { title = 'Luis Enrique Góngora Ek | Full Stack Developer', description = 'Portafolio profesional de Luis Enrique Góngora Ek, Full Stack Developer especializado en desarrollo web, mobile y automatización de procesos.' } = Astro.props;
+const {
+  title = 'Luis Enrique Góngora Ek | Full Stack Developer',
+  description = 'Portafolio profesional de Luis Enrique Góngora Ek, Full Stack Developer especializado en desarrollo web, mobile y automatización de procesos.',
+  showChrome = true,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -52,8 +57,8 @@ const { title = 'Luis Enrique Góngora Ek | Full Stack Developer', description =
     <link rel="manifest" href="/site.webmanifest" />
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7V1V88QR9"></script>
-    <script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-Q7V1V88QR9"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -61,8 +66,8 @@ const { title = 'Luis Enrique Góngora Ek | Full Stack Developer', description =
     </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y78BK6KXF1"></script>
-    <script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-Y78BK6KXF1"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -77,11 +82,11 @@ const { title = 'Luis Enrique Góngora Ek | Full Stack Developer', description =
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NK4WR7H3"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <Navigation />
+    {showChrome && <Navigation />}
     <main>
       <slot />
     </main>
-    <Footer />
+    {showChrome && <Footer />}
 
     <script>
       // Theme toggle
