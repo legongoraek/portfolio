@@ -3,6 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 import vercel from '@astrojs/vercel/serverless';
 
+const isDev = process.env.NODE_ENV !== 'production';
+
 export default defineConfig({
   adapter: vercel(),
   integrations: [
@@ -14,8 +16,12 @@ export default defineConfig({
   output: 'hybrid',
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {},
+    },
     ssr: {
-      external: ['svgo']
+      external: isDev ? ['svgo', 'cookie', 'kleur'] : ['svgo'],
+      noExternal: isDev ? [] : ['cookie', 'kleur'],
     }
   }
 });
