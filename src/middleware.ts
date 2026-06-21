@@ -4,9 +4,18 @@ const ADMIN_AUTH_COOKIE = 'admin_auth';
 const PROTECTED_API_PATHS = new Set(['/api/projects', '/api/experiences']);
 
 export const onRequest = defineMiddleware((context, next) => {
+  if (context.isPrerendered) {
+    return next();
+  }
+
   const pathname = context.url.pathname;
   const isAdminPage = pathname.startsWith('/admin') && pathname !== '/admin/login';
   const isProtectedApi = PROTECTED_API_PATHS.has(pathname);
+
+  if (!isAdminPage && !isProtectedApi) {
+    return next();
+  }
+
   const isAuthenticated = context.cookies.get(ADMIN_AUTH_COOKIE)?.value === '1';
 
   if (!isAuthenticated && (isAdminPage || isProtectedApi)) {
