@@ -188,5 +188,23 @@
     "link": "https://dinametra-crypto.vercel.app/",
     "category": "Frontend",
     "icon": "mdi:bitcoin"
+  },
+  {
+    "title": "Query Converter AI",
+    "description": "Herramienta web para convertir, corregir, optimizar y explicar queries SQL, ORM, MongoDB, GraphQL y otros formatos, con modo local y opción de consulta con AI.",
+    "technologies": [
+      "React",
+      "Tailwind CSS",
+      "Gemini AI"
+    ],
+    "impact": [
+      "Conversión entre formatos de consulta",
+      "Optimización de queries",
+      "Explicación detallada",
+      "Modo local y AI"
+    ],
+    "link": "https://query-converter-ai.vercel.app/",
+    "category": "Full Stack",
+    "icon": "mdi:database-search"
   }
 ]
