@@ -15,14 +15,6 @@ export default defineConfig({
   ],
 
   vite: {
-    plugins: [tailwindcss()],
-    ssr: {
-      noExternal: [
-        'astro-icon',
-        'es-module-lexer',
-        'cookie',
-        'kleur'
-      ]
-    }
+    plugins: [tailwindcss()]
   }
 });
