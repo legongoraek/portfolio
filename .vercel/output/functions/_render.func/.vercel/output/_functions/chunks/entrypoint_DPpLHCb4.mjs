@@ -1,7 +1,6 @@
 import { Http2ServerResponse } from 'node:http2';
 import { w as ROUTE_TYPE_HEADER, t as REROUTE_DIRECTIVE_HEADER, X as decryptString, V as createSlotValueFromString, a0 as renderComponent, a7 as renderTemplate, D as DEFAULT_404_COMPONENT, a as AstroError, l as LocalsNotAnObject, O as clientLocalsSymbol, K as clientAddressSymbol, R as REROUTABLE_STATUS_CODES, a8 as responseSentSymbol } from './astro/server_-LkitC-W.mjs';
-import { h as requestIs404Or500, b as notFound, n as normalizeTheLocale, c as redirectToFallback, r as redirectToDefaultLocale, e as requestHasLocale, d as defineMiddleware, a as RouteCache, s as sequence, f as findRouteToRewrite, m as matchRoute, R as RenderContext, g as getSetCookiesFromResponse } from './index_D9ZrDhiP.mjs';
-import 'cookie';
+import { h as requestIs404Or500, b as notFound, n as normalizeTheLocale, c as redirectToFallback, r as redirectToDefaultLocale, e as requestHasLocale, d as defineMiddleware, a as RouteCache, s as sequence, f as findRouteToRewrite, m as matchRoute, R as RenderContext, g as getSetCookiesFromResponse } from './index_DQ5_SIOJ.mjs';
 import { bold, red, yellow, dim, blue } from 'kleur/colors';
 import { N as NOOP_MIDDLEWARE_FN } from './noop-middleware_DsZDo7j9.mjs';
 import { f as fileExtension, j as joinPaths, h as slash, p as prependForwardSlash, r as removeTrailingForwardSlash, a as appendForwardSlash } from './astro/assets-service_BR9VEoQ3.mjs';

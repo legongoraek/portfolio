@@ -15,7 +15,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     ssr: {
-      external: ['svgo']
+      external: ['svgo'],
+      noExternal: ['cookie']
     }
   }
 });
