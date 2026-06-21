@@ -1,6 +1,7 @@
-import { d as defineMiddleware, s as sequence } from './chunks/index_D2vEXBQ8.mjs';
+import { d as defineMiddleware, s as sequence } from './chunks/index_D9ZrDhiP.mjs';
 import 'es-module-lexer';
-import './chunks/astro-designed-error-pages_BoM2slfM.mjs';
+import './chunks/astro-designed-error-pages_CPrgpkis.mjs';
+import 'cookie';
 
 const ADMIN_AUTH_COOKIE = "admin_auth";
 const PROTECTED_API_PATHS = /* @__PURE__ */ new Set(["/api/projects", "/api/experiences"]);

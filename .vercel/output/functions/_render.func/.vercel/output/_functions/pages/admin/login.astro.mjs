@@ -1,5 +1,6 @@
-import { V as createAstro, W as createComponent, a4 as renderComponent, ab as renderTemplate, a1 as maybeRenderHead } from '../../chunks/astro/server_wDrnAVcI.mjs';
-import { $ as $$Layout } from '../../chunks/Layout_BHJVDDFl.mjs';
+import { Q as createAstro, T as createComponent, a0 as renderComponent, a7 as renderTemplate, _ as maybeRenderHead } from '../../chunks/astro/server_-LkitC-W.mjs';
+import 'kleur/colors';
+import { $ as $$Layout } from '../../chunks/Layout_B4jlIgCs.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro("https://luisenriquegongoraek.com");
