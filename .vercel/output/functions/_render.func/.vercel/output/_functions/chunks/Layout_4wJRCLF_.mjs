@@ -24,14 +24,12 @@ Luis Enrique
 </p> </div> </a>  <div class="hidden md:flex items-center gap-2"> ${navItems.map((item) => renderTemplate`<a${addAttribute(item.href, "href")} class="
                 relative px-4 py-2 rounded-xl
                 text-sm font-semibold
-
                 text-slate-800
-
-                hover:text-primary-600
-
-                hover:bg-white/70
-
                 transition-all duration-300
+                hover:text-primary-600
+                hover:bg-primary-50
+                hover:-translate-y-0.5
+                hover:shadow-sm
 
                 after:absolute
                 after:left-4
@@ -43,7 +41,6 @@ Luis Enrique
                 after:bg-primary-600
                 after:transition-transform
                 after:duration-300
-
                 hover:after:scale-x-100
               "> ${item.label} </a>`)} </div>  <button id="mobile-menu-btn" class="
             md:hidden
@@ -54,6 +51,8 @@ Luis Enrique
             hover:bg-white
             transition-all
             shrink-0
+            hover:shadow-md
+            cursor-pointer
           " aria-label="Abrir menú"> <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div>  <div id="mobile-menu" class="
           hidden md:hidden
           pb-5 pt-2
@@ -66,6 +65,21 @@ Luis Enrique
               hover:bg-white/50
               transition-all
               font-medium
+              hover:shadow-sm
+              hover:-translate-y-0.5
+              hover:text-primary-600
+              hover:backdrop-blur-sm
+              hover:border hover:border-primary-100
+              hover:after:absolute
+              hover:after:left-4
+              hover:after:right-4
+              hover:after:-bottom-0.5
+              hover:after:h-[2px]
+              hover:after:scale-x-100
+              hover:after:origin-left
+              hover:after:bg-primary-600
+              hover:after:transition-transform
+              hover:after:duration-300
             "> ${item.label} </a>`)} </div> </div> </div> </nav> `;
 }, "D:/Proyectos/portfolio/src/components/Navigation.astro", void 0);
 
@@ -80,13 +94,13 @@ const $$Footer = createComponent(($$result, $$props, $$slots) => {
         p-8 md:p-12
       "> <div class="absolute inset-0 rounded-3xl ring-1 ring-white/20 pointer-events-none"></div> <div class="relative"> <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">  <div> <h3 class="text-lg font-bold text-primary-900 mb-4">Luis Enrique Góngora Ek</h3> <p class="text-gray-600 text-sm leading-relaxed">
 Full Stack Developer especializado en web, mobile y automatización de procesos.
-</p> </div>  <div> <h3 class="text-lg font-bold text-primary-900 mb-4">Enlaces</h3> <ul class="space-y-2 text-sm"> <li> <a href="#sobre-mi" class="text-gray-700 hover:text-primary-600 transition font-medium">
+</p> </div>  <div> <h3 class="text-lg font-bold text-primary-900 mb-4">Enlaces</h3> <ul class="space-y-2 text-sm"> <li> <a href="#sobre-mi" class="text-gray-700 hover:text-primary-600 transition font-medium hover:underline">
 Sobre mí
-</a> </li> <li> <a href="#proyectos" class="text-gray-700 hover:text-primary-600 transition font-medium">
+</a> </li> <li> <a href="#proyectos" class="text-gray-700 hover:text-primary-600 transition font-medium hover:underline">
 Proyectos
-</a> </li> <li> <a href="#experiencia" class="text-gray-700 hover:text-primary-600 transition font-medium">
+</a> </li> <li> <a href="#experiencia" class="text-gray-700 hover:text-primary-600 transition font-medium hover:underline">
 Experiencia
-</a> </li> <li> <a href="#contacto" class="text-gray-700 hover:text-primary-600 transition font-medium">
+</a> </li> <li> <a href="#contacto" class="text-gray-700 hover:text-primary-600 transition font-medium hover:underline">
 Contacto
 </a> </li> </ul> </div>  <div> <h3 class="text-lg font-bold text-primary-900 mb-4">Conecta conmigo</h3> <div class="flex gap-3"> <a href="https://github.com/legongoraek" target="_blank" rel="noopener noreferrer" class="
                   w-10 h-10
