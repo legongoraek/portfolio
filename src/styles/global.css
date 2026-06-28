@@ -21,7 +21,7 @@ body {
   color: rgb(17, 24, 39);
 }
 
-body.dark {
+.dark {
   background:
     radial-gradient(circle at top, rgba(59,130,246,0.08), transparent 25%),
     rgb(2, 6, 23);
@@ -161,7 +161,7 @@ h2 {
   color: #001a36;
 }
 
-body.dark h2 {
+.dark h2 {
   color: white;
 }
 
@@ -171,7 +171,7 @@ h3 {
   color: #003D82;
 }
 
-body.dark h3 {
+.dark h3 {
   color: white;
 }
 
