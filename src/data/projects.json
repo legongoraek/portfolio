@@ -206,5 +206,22 @@
     "link": "https://query-converter-ai.vercel.app/",
     "category": "Full Stack",
     "icon": "mdi:database-search"
+  },
+  {
+    "title": "Dashboard Garmin Connect",
+    "description": "Dashboard para visualizar datos de Garmin Connect con gráficos interactivos y estadísticas detalladas.",
+    "technologies": [
+      "React",
+      "Chart.js",
+      "APIs REST"
+    ],
+    "impact": [
+      "Visualización de datos de Garmin Connect",
+      "Gráficos interactivos",
+      "Estadísticas detalladas",
+    ],
+    "link": "https://dashboard-garmin-azure.vercel.app/",
+    "category": "Full Stack",
+    "icon": "mdi:watch"
   }
 ]
