@@ -218,7 +218,7 @@
     "impact": [
       "Visualización de datos de Garmin Connect",
       "Gráficos interactivos",
-      "Estadísticas detalladas",
+      "Estadísticas detalladas"
     ],
     "link": "https://dashboard-garmin-azure.vercel.app/",
     "category": "Full Stack",
