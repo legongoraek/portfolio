@@ -223,5 +223,22 @@
     "link": "https://dashboard-garmin-azure.vercel.app/",
     "category": "Full Stack",
     "icon": "mdi:watch"
+  },
+  {
+    "title": "KYB Customs Platform",
+    "description": "Plataforma para la gestión de procesos de conocimiento del cliente (KYB) y cumplimiento de regulaciones aduaneras, con un panel de control completo.",
+    "technologies": [
+      "React",
+      "Express",
+      "PostgreSQL"
+    ],
+    "impact": [
+      "Gestión de procesos KYB",
+      "Cumplimiento de regulaciones aduaneras",
+      "Panel de control"
+    ],
+    "link": "https://kyb-customs-platform.vercel.app/",
+    "category": "Full Stack",
+    "icon": "mdi:account-box-multiple-outline"
   }
 ]
