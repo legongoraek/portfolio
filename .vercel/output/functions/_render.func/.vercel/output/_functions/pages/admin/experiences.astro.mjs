@@ -1,9 +1,62 @@
 import { Q as createAstro, T as createComponent, a0 as renderComponent, a7 as renderTemplate, _ as maybeRenderHead, H as addAttribute } from '../../chunks/astro/server_-LkitC-W.mjs';
 import 'kleur/colors';
 import { $ as $$Icon } from '../../chunks/Icon_DORyTDU-.mjs';
-import { $ as $$Layout } from '../../chunks/Layout_4wJRCLF_.mjs';
-import { e as experiencesData } from '../../chunks/experiences_72ATjFvT.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_CQM1Q6lP.mjs';
 export { renderers } from '../../renderers.mjs';
+
+const experiencesData = [
+	{
+		role: "Desarrollador Full Stack Multiplataforma",
+		company: "Freelance",
+		period: "Julio 2025 – Actualidad",
+		achievements: [
+			"Desarrollo de aplicaciones web y móviles (iOS y Android)",
+			"Backend con Django REST Framework y autenticación JWT",
+			"Aplicaciones móviles con React Native y Expo",
+			"Arquitectura escalable con separación frontend y backend"
+		],
+		impact: [
+			"Arquitectura escalable preparada para crecimiento",
+			"Mayor seguridad mediante autenticación JWT",
+			"Mejor experiencia de usuario multiplataforma"
+		],
+		icon: "mdi:laptop-account"
+	},
+	{
+		role: "Desarrollador Full Stack",
+		company: "Erbessd Instruments",
+		period: "Octubre 2022 – Enero 2026",
+		achievements: [
+			"Diseño y desarrollo de endpoints backend optimizados",
+			"Desarrollo de interfaces con Vue.js, Electron, HTML y CSS",
+			"Administración y mantenimiento de bases de datos SQL",
+			"Creación de componentes escalables"
+		],
+		impact: [
+			"Mejora en eficiencia de comunicación frontend-backend",
+			"Reducción de errores en componentes reutilizables",
+			"Mejor mantenibilidad del sistema"
+		],
+		icon: "mdi:code-braces-box"
+	},
+	{
+		role: "Desarrollo Web, Integraciones y Automatización",
+		company: "Freelance",
+		period: "Enero 2022 – Actualidad",
+		achievements: [
+			"Desarrollo y administración con WordPress y WooCommerce",
+			"Implementación de middleware con Node.js",
+			"Integración de APIs externas",
+			"Automatización de flujos de negocio"
+		],
+		impact: [
+			"Automatización de procesos clave reduciendo tareas manuales",
+			"Mejora en tiempos de respuesta y sincronización",
+			"Disminución de errores humanos"
+		],
+		icon: "mdi:cog-sync"
+	}
+];
 
 const $$Astro = createAstro("https://luisenriquegongoraek.com");
 const prerender = false;

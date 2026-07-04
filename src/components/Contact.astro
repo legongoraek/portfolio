@@ -35,7 +35,7 @@ const contactInfo = [
 
 <section
   id="contacto"
-  class="relative overflow-hidden py-20 md:py-28 isolate
+  class="relative overflow-hidden pt-16 pb-16 md:py-28 isolate
   bg-white"
 >
 
@@ -116,7 +116,7 @@ const contactInfo = [
           bg-gradient-to-br ${item.color} /[0.05]`}>
           </div>
 
-          <div class="relative z-10 p-7">
+          <div class="relative z-10 p-7 text-center sm:text-left">
 
             {/* Icon */}
             <div
@@ -124,7 +124,7 @@ const contactInfo = [
               bg-gradient-to-br ${item.color}
               flex items-center justify-center
               text-3xl text-white
-              shadow-lg`}
+              shadow-lg mx-auto sm:mx-0`}
             >
               <Icon
                 name={item.icon}
