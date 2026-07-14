@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap');
 @import "tailwindcss";
 
 
@@ -13,12 +13,22 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Renderizado diferido para contenido que todavía está fuera del viewport. */
+#stack,
+#proyectos,
+#experiencia,
+#contacto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
 body {
   background:
-    radial-gradient(circle at top, rgba(0,87,184,0.05), transparent 30%),
-    white;
+    radial-gradient(circle at 8% 12%, rgba(49,86,211,0.12), transparent 28%),
+    radial-gradient(circle at 92% 18%, rgba(22,163,161,0.11), transparent 24%),
+    #f4f7fb;
 
-  color: rgb(17, 24, 39);
+  color: #14213d;
 }
 
 .dark {
@@ -66,7 +76,7 @@ a {
 
   border-radius: 0.9rem;
 
-  background: linear-gradient(135deg, #0057B8 0%, #003D82 100%);
+  background: linear-gradient(135deg, #3156d3 0%, #4667dc 100%);
   color: white;
 
   font-weight: 600;
@@ -75,7 +85,7 @@ a {
   border: 1px solid rgba(255,255,255,0.1);
 
   box-shadow:
-    0 10px 30px rgba(0, 87, 184, 0.25),
+    0 10px 30px rgba(49, 86, 211, 0.25),
     inset 0 1px 0 rgba(255,255,255,0.15);
 
   transition:
@@ -88,10 +98,10 @@ a {
   transform: translateY(-2px);
 
   box-shadow:
-    0 18px 40px rgba(0, 87, 184, 0.35),
+    0 18px 40px rgba(49, 86, 211, 0.32),
     inset 0 1px 0 rgba(255,255,255,0.2);
 
-  background: linear-gradient(135deg, #0066d6 0%, #0047a3 100%);
+  background: linear-gradient(135deg, #2947b5 0%, #3156d3 100%);
 }
 
 .dark .btn-primary:hover {
@@ -147,6 +157,11 @@ a {
 /* Secciones */
 section {
   padding: 3.5rem 0;
+  background-color: transparent !important;
+}
+
+header {
+  background-color: transparent !important;
 }
 
 @media (min-width: 768px) {
@@ -164,7 +179,8 @@ h2 {
 
   margin-bottom: 2rem;
 
-  color: #001a36;
+  color: #14213d;
+  font-family: 'Space Grotesk', 'Manrope', sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -180,7 +196,7 @@ h2 {
 h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #003D82;
+  color: #14213d;
 }
 
 .dark h3 {
@@ -212,16 +228,16 @@ body.dark .card {
 
   padding: 1.75rem;
 
-  border-radius: 1.5rem;
+  border-radius: 1.25rem;
 
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.86);
 
   backdrop-filter: blur(16px);
 
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.72);
 
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.06);
+    0 18px 50px rgba(31,50,95,0.08);
 
   transition:
     transform 250ms ease,
@@ -310,11 +326,11 @@ code {
 
   border-radius: 1.2rem;
 
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.86);
 
   backdrop-filter: blur(14px);
 
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.72);
 
   box-shadow:
     0 10px 30px rgba(0,0,0,0.05);
@@ -361,7 +377,7 @@ code {
   font-size: 2rem;
   font-weight: 800;
 
-  background: linear-gradient(135deg, #0057B8, #3b82f6);
+  background: linear-gradient(135deg, #3156d3, #16a3a1);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -380,7 +396,7 @@ code {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -441,6 +457,30 @@ body {
   backdrop-filter: blur(14px);
 
   border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Dirección visual tomada del portafolio anterior: superficies suaves y compactas. */
+.tech-card,
+.project-card {
+  border-radius: 1.25rem !important;
+  background: rgba(255,255,255,0.86) !important;
+  border-color: rgba(255,255,255,0.72) !important;
+  box-shadow: 0 18px 50px rgba(31,50,95,0.08) !important;
+}
+
+#experiencia .group,
+#contacto a.group {
+  border-radius: 1.25rem;
+  background-color: rgba(255,255,255,0.86);
+  border-color: rgba(255,255,255,0.72);
+  box-shadow: 0 18px 50px rgba(31,50,95,0.08);
+}
+
+h1,
+h2,
+.project-title,
+.tech-title {
+  font-family: 'Space Grotesk', 'Manrope', sans-serif;
 }
 
 .dark .glass {

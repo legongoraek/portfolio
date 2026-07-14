@@ -5,13 +5,13 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#f0f7ff',
-          100: '#e0f0ff',
-          500: '#0057B8',
-          600: '#004497',
-          700: '#003D82',
-          800: '#002855',
-          900: '#001a36',
+          50: '#eef2ff',
+          100: '#dfe7ff',
+          500: '#4667dc',
+          600: '#3156d3',
+          700: '#2947b5',
+          800: '#20398f',
+          900: '#14213d',
         },
         secondary: {
           50: '#f5f5f5',
@@ -21,7 +21,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
         mono: ['Fira Code', 'monospace'],
       },
       animation: {
