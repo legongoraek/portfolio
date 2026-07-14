@@ -78,7 +78,7 @@ const experiences = [
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     {/* Header */}
-    <div class="text-center mb-20">
+    <div class="text-center mb-10 md:mb-20">
 
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6
       bg-white/70 border border-white/30 backdrop-blur-xl shadow-lg shadow-black/5">
@@ -117,7 +117,7 @@ const experiences = [
       <div class="hidden lg:block absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full
       bg-gradient-to-b from-primary-600/0 via-primary-500 to-primary-600/0"></div>
 
-      <div class="space-y-12">
+      <div class="space-y-6 md:space-y-12">
 
         {experiences.map((exp, index) => (
           <div
@@ -125,7 +125,7 @@ const experiences = [
               index % 2 === 0
                 ? 'lg:flex-row'
                 : 'lg:flex-row-reverse'
-            } gap-10 items-stretch`}
+            } gap-5 lg:gap-10 items-stretch`}
           >
 
             {/* Timeline Dot */}
