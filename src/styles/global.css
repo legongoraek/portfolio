@@ -23,18 +23,13 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at 8% 12%, rgba(49,86,211,0.12), transparent 28%),
-    radial-gradient(circle at 92% 18%, rgba(22,163,161,0.11), transparent 24%),
-    #f4f7fb;
+  background: #f4f7fb;
 
   color: #14213d;
 }
 
 .dark {
-  background:
-    radial-gradient(circle at top, rgba(59,130,246,0.08), transparent 25%),
-    rgb(2, 6, 23);
+  background: rgb(2, 6, 23);
 
   color: rgb(243, 244, 246);
 }
@@ -76,7 +71,7 @@ a {
 
   border-radius: 0.9rem;
 
-  background: linear-gradient(135deg, #3156d3 0%, #4667dc 100%);
+  background: #3156d3;
   color: white;
 
   font-weight: 600;
@@ -101,11 +96,11 @@ a {
     0 18px 40px rgba(49, 86, 211, 0.32),
     inset 0 1px 0 rgba(255,255,255,0.2);
 
-  background: linear-gradient(135deg, #2947b5 0%, #3156d3 100%);
+  background: #2947b5;
 }
 
 .dark .btn-primary:hover {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: #3b82f6;
 }
 
 .btn-secondary {
@@ -260,12 +255,7 @@ body.dark .card {
   position: absolute;
   inset: 0;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.18),
-      transparent 60%
-    );
+  background: transparent;
 
   pointer-events: none;
 }
@@ -357,12 +347,7 @@ code {
   position: absolute;
   inset: 0;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.12),
-      transparent 60%
-    );
+  background: transparent;
 
   pointer-events: none;
 }
@@ -377,10 +362,7 @@ code {
   font-size: 2rem;
   font-weight: 800;
 
-  background: linear-gradient(135deg, #3156d3, #16a3a1);
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #3156d3;
 }
 
 .stats-label {
