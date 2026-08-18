@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Portafolio profesional de Luis Enrique Góngora Ek - Full Stack Developer",
   "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

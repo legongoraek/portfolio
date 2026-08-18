@@ -11,13 +11,13 @@ const $$Navigation = createComponent(($$result, $$props, $$slots) => {
     { label: "Experiencia", href: "#experiencia" },
     { label: "Contacto", href: "#contacto" }
   ];
-  return renderTemplate`${maybeRenderHead()}<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl"> <div class="
-      rounded-3xl
-      border border-white/10
-      bg-white/65
+  return renderTemplate`${maybeRenderHead()}<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl"> <div class="
+      rounded-full
+      border border-white/70
+      bg-white/80
       backdrop-blur-2xl
-      shadow-[0_10px_40px_rgba(0,0,0,0.08)]
-    "> <div class="absolute inset-0 rounded-3xl ring-1 ring-white/10 pointer-events-none"></div> <div class="relative max-w-7xl mx-auto px-5 lg:px-8"> <div class="flex items-center justify-between h-16 md:h-20">  <a href="/" class="flex items-center gap-3 group shrink-0"> <div class="block"> <p class="text-xs md:text-sm text-gray-500">
+      shadow-[0_10px_35px_rgba(31,50,95,0.10)]
+    "> <div class="absolute inset-0 rounded-full ring-1 ring-white/30 pointer-events-none"></div> <div class="relative max-w-7xl mx-auto px-5 lg:px-8"> <div class="flex items-center justify-between h-16 md:h-20">  <a href="/" class="flex items-center gap-3 group shrink-0"> <div class="block"> <p class="text-xs md:text-sm text-gray-500">
 Full Stack Developer
 </p> <p class="font-bold text-primary-900 leading-none text-sm md:text-base">
 Luis Enrique
@@ -81,7 +81,7 @@ Luis Enrique
               hover:after:transition-transform
               hover:after:duration-300
             "> ${item.label} </a>`)} </div> </div> </div> </nav> `;
-}, "D:/Proyectos/portfolio/src/components/Navigation.astro", void 0);
+}, "/home/user/portfolio/src/components/Navigation.astro", void 0);
 
 const $$Footer = createComponent(($$result, $$props, $$slots) => {
   const currentYear = (/* @__PURE__ */ new Date()).getFullYear();
@@ -92,7 +92,7 @@ const $$Footer = createComponent(($$result, $$props, $$slots) => {
         backdrop-blur-2xl
         shadow-[0_10px_40px_rgba(0,0,0,0.06)]
         p-8 md:p-12
-      "> <div class="absolute inset-0 rounded-3xl ring-1 ring-white/20 pointer-events-none"></div> <div class="relative"> <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">  <div> <h3 class="text-lg font-bold text-primary-900 mb-4">Luis Enrique Góngora Ek</h3> <p class="text-gray-600 text-sm leading-relaxed">
+      "> <div class="absolute inset-0 rounded-3xl ring-1 ring-white/20 pointer-events-none"></div> <div class="relative"> <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">  <div> <h3 class="text-lg font-bold text-primary-900 mb-4">Luis Enrique Góngora Ek</h3> <p class="text-gray-600 text-sm leading-relaxed">
 Full Stack Developer especializado en web, mobile y automatización de procesos.
 </p> </div>  <div> <h3 class="text-lg font-bold text-primary-900 mb-4">Enlaces</h3> <ul class="space-y-2 text-sm"> <li> <a href="#sobre-mi" class="text-gray-700 hover:text-primary-600 transition font-medium hover:underline">
 Sobre mí
@@ -153,7 +153,7 @@ Contacto
                 " aria-label="Portafolio"> <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 5m3 6a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 1 0 7.07 7.07L13 19"></path> </svg> </a> </div> </div> </div>  <div class="border-t border-gray-200 pt-8 mt-8 text-center"> <p class="text-gray-600 text-sm font-medium">
 &copy; ${currentYear} Luis Enrique Góngora Ek. Todos los derechos reservados.
 </p> </div> </div> </div> </div> </footer>`;
-}, "D:/Proyectos/portfolio/src/components/Footer.astro", void 0);
+}, "/home/user/portfolio/src/components/Footer.astro", void 0);
 
 var __freeze = Object.freeze;
 var __defProp = Object.defineProperty;
@@ -179,7 +179,7 @@ const $$Layout = createComponent(($$result, $$props, $$slots) => {
       gtag('js', new Date());
 
       gtag('config', 'G-Y78BK6KXF1');
-    <\/script><title>`, "</title>", '</head> <body> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NK4WR7H3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) --> ', " <main> ", " </main> ", "  </body> </html>"])), addAttribute(description, "content"), addAttribute(title, "content"), addAttribute(description, "content"), title, renderHead(), showChrome && renderTemplate`${renderComponent($$result, "Navigation", $$Navigation, {})}`, renderSlot($$result, $$slots["default"]), showChrome && renderTemplate`${renderComponent($$result, "Footer", $$Footer, {})}`);
-}, "D:/Proyectos/portfolio/src/layouts/Layout.astro", void 0);
+    <\/script><title>`, "</title>", '</head> <body> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NK4WR7H3" loading="lazy" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) --> ', " <main> ", " </main> ", "  </body> </html>"])), addAttribute(description, "content"), addAttribute(title, "content"), addAttribute(description, "content"), title, renderHead(), showChrome && renderTemplate`${renderComponent($$result, "Navigation", $$Navigation, {})}`, renderSlot($$result, $$slots["default"]), showChrome && renderTemplate`${renderComponent($$result, "Footer", $$Footer, {})}`);
+}, "/home/user/portfolio/src/layouts/Layout.astro", void 0);
 
 export { $$Layout as $ };

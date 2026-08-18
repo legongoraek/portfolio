@@ -63,6 +63,6 @@ const $$Icon = createComponent(($$result, $$props, $$slots) => {
     delete normalizedProps.viewBox;
   }
   return renderTemplate`${maybeRenderHead()}<svg${spreadAttributes(normalizedProps)}${addAttribute(name, "data-icon")}> ${title && renderTemplate`<title>${title}</title>`} ${desc && renderTemplate`<desc>${desc}</desc>`} ${inline ? renderTemplate`${renderComponent($$result, "Fragment", Fragment, { "id": id }, { "default": ($$result2) => renderTemplate`${unescapeHTML(normalizedBody)}` })}` : renderTemplate`${renderComponent($$result, "Fragment", Fragment, {}, { "default": ($$result2) => renderTemplate`${includeSymbol && renderTemplate`<symbol${addAttribute(id, "id")}${addAttribute(viewBox, "viewBox")}>${unescapeHTML(normalizedBody)}</symbol>`}<use${addAttribute(`#${id}`, "href")}></use> ` })}`} </svg>`;
-}, "D:/Proyectos/portfolio/node_modules/astro-icon/components/Icon.astro", void 0);
+}, "/home/user/portfolio/node_modules/astro-icon/components/Icon.astro", void 0);
 
 export { $$Icon as $ };
