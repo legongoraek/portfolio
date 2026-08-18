@@ -1,1 +1,0 @@
-import"./hoisted.CkNJGPE2.js";const t=document.querySelectorAll(".experience-item"),s=new IntersectionObserver(e=>{e.forEach(r=>{r.isIntersecting&&(r.target.classList.add("is-visible"),s.unobserve(r.target))})},{threshold:.15,rootMargin:"0px 0px -60px 0px"});t.forEach(e=>s.observe(e));
