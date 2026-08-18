@@ -7,16 +7,17 @@ const experiences = [
     "role": "Desarrollador Full Stack Multiplataforma",
     "company": "Freelance",
     "period": "Julio 2025 – Actualidad",
+    "current": true,
     "achievements": [
-      "Desarrollo de aplicaciones web y móviles (iOS y Android)",
-      "Backend con Django REST Framework y autenticación JWT",
-      "Aplicaciones móviles con React Native y Expo",
-      "Arquitectura escalable con separación frontend y backend"
+      "Desarrollo de aplicaciones web y móviles nativas para iOS y Android",
+      "Construcción de APIs REST con Django REST Framework y autenticación basada en JWT",
+      "Apps móviles multiplataforma con React Native y Expo",
+      "Diseño de arquitecturas desacopladas frontend/backend orientadas a escalar"
     ],
     "impact": [
-      "Arquitectura escalable preparada para crecimiento",
-      "Mayor seguridad mediante autenticación JWT",
-      "Mejor experiencia de usuario multiplataforma"
+      "Base técnica lista para escalar sin reescrituras mayores",
+      "Autenticación robusta que protege datos y sesiones de usuario",
+      "Experiencia consistente entre web, iOS y Android"
     ],
     "icon": "mdi:laptop-account"
   },
@@ -24,16 +25,17 @@ const experiences = [
     "role": "Desarrollador Full Stack",
     "company": "Erbessd Instruments",
     "period": "Octubre 2022 – Enero 2026",
+    "current": false,
     "achievements": [
-      "Diseño y desarrollo de endpoints backend optimizados",
+      "Diseño y optimización de endpoints backend de alto rendimiento",
       "Desarrollo de interfaces con Vue.js, Electron, HTML y CSS",
-      "Administración y mantenimiento de bases de datos SQL",
-      "Creación de componentes escalables"
+      "Administración y mantenimiento de bases de datos SQL en producción",
+      "Creación de una librería de componentes reutilizables para todo el equipo"
     ],
     "impact": [
-      "Mejora en eficiencia de comunicación frontend-backend",
-      "Reducción de errores en componentes reutilizables",
-      "Mejor mantenibilidad del sistema"
+      "Comunicación frontend-backend más rápida y confiable",
+      "Menos bugs gracias a componentes probados y reutilizables",
+      "Sistema más fácil de mantener y extender por el equipo"
     ],
     "icon": "mdi:code-braces-box"
   },
@@ -41,16 +43,17 @@ const experiences = [
     "role": "Desarrollo Web, Integraciones y Automatización",
     "company": "Freelance",
     "period": "Enero 2022 – Actualidad",
+    "current": true,
     "achievements": [
-      "Desarrollo y administración con WordPress y WooCommerce",
-      "Implementación de middleware con Node.js",
-      "Integración de APIs externas",
-      "Automatización de flujos de negocio"
+      "Desarrollo y administración de tiendas con WordPress y WooCommerce",
+      "Middlewares a medida con Node.js para conectar sistemas",
+      "Integración de APIs externas de pago, envíos y CRMs",
+      "Automatización de flujos de negocio para eliminar trabajo manual"
     ],
     "impact": [
-      "Automatización de procesos clave reduciendo tareas manuales",
-      "Mejora en tiempos de respuesta y sincronización",
-      "Disminución de errores humanos"
+      "Horas de trabajo manual convertidas en procesos automáticos",
+      "Sincronización de datos más rápida entre sistemas",
+      "Menos errores humanos en procesos operativos clave"
     ],
     "icon": "mdi:cog-sync"
   }
@@ -113,29 +116,43 @@ const experiences = [
     {/* Timeline */}
     <div class="relative">
 
-      {/* Center Line */}
+      {/* Center Line (desktop) */}
       <div class="hidden lg:block absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full
       bg-primary-500"></div>
+
+      {/* Left Line (mobile/tablet) */}
+      <div class="lg:hidden absolute left-[9px] top-2 bottom-2 w-[2px]
+      bg-primary-200"></div>
 
       <div class="space-y-6 md:space-y-12">
 
         {experiences.map((exp, index) => (
           <div
-            class={`relative flex flex-col ${
+            class={`experience-item relative flex flex-col ${
               index % 2 === 0
                 ? 'lg:flex-row'
                 : 'lg:flex-row-reverse'
-            } gap-5 lg:gap-10 items-stretch`}
+            } gap-5 lg:gap-10 items-stretch opacity-0 translate-y-6
+            transition-all duration-700 ease-out`}
+            style={`transition-delay:${index * 120}ms`}
           >
 
-            {/* Timeline Dot */}
+            {/* Timeline Dot (desktop) */}
             <div class="hidden lg:flex absolute left-1/2 top-10 -translate-x-1/2 z-20">
-              <div class="w-5 h-5 rounded-full bg-primary-600
-              border-4 border-white shadow-xl shadow-primary-500/30"></div>
+              <div class={`w-5 h-5 rounded-full border-4 border-white shadow-xl shadow-primary-500/30 ${
+                exp.current ? 'bg-emerald-500 animate-pulse' : 'bg-primary-600'
+              }`}></div>
+            </div>
+
+            {/* Timeline Dot (mobile) */}
+            <div class="lg:hidden absolute left-0 top-10 z-20">
+              <div class={`w-5 h-5 rounded-full border-4 border-white shadow-lg shadow-primary-500/20 ${
+                exp.current ? 'bg-emerald-500 animate-pulse' : 'bg-primary-600'
+              }`}></div>
             </div>
 
             {/* Card */}
-            <div class="lg:w-1/2">
+            <div class="lg:w-1/2 pl-10 lg:pl-0">
 
               <div
                 class="group relative overflow-hidden h-full rounded-[2rem]
@@ -158,15 +175,27 @@ const experiences = [
 
                     <div>
 
-                      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4
-                      bg-primary-100/70 text-primary-700 text-xs font-semibold">
+                      <div class="flex items-center flex-wrap gap-2 mb-4">
 
-                        <Icon
-                          name="mdi:briefcase-outline"
-                          class="w-4 h-4"
-                        /> 
-                        
-                        {exp.company}
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full
+                        bg-primary-100/70 text-primary-700 text-xs font-semibold">
+
+                          <Icon
+                            name="mdi:briefcase-outline"
+                            class="w-4 h-4"
+                          />
+
+                          {exp.company}
+
+                        </div>
+
+                        {exp.current && (
+                          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full
+                          bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            Actual
+                          </div>
+                        )}
 
                       </div>
 
@@ -185,7 +214,9 @@ const experiences = [
                       bg-primary-600
                       flex items-center justify-center
                       text-white
-                      shadow-lg shadow-primary-500/20 shrink-0"
+                      shadow-lg shadow-primary-500/20 shrink-0
+                      transition-transform duration-500
+                      group-hover:scale-110 group-hover:rotate-3"
                     >
                       <Icon
                         name={exp.icon}
@@ -271,3 +302,36 @@ const experiences = [
 
   </div>
 </section>
+
+<style>
+  .experience-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .experience-item {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const items = document.querySelectorAll('.experience-item');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+  );
+
+  items.forEach((item) => observer.observe(item));
+</script>
