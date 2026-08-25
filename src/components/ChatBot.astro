@@ -1,6 +1,7 @@
 ---
-// Widget de chat flotante. Habla con /api/chat (mismo origen) sobre la
-// experiencia, proyectos y stack de Luis Enrique.
+// Widget de chat flotante. Habla con el servicio compartido
+// portfolio-assistant (https://github.com/legongoraek/portfolio-assistant)
+// sobre la experiencia, proyectos y stack de Luis Enrique.
 ---
 
 <div id="chatbot-root">
@@ -219,6 +220,10 @@
 <script>
   type ChatMessage = { role: 'user' | 'assistant'; content: string };
 
+  // Servicio compartido: github.com/legongoraek/portfolio-assistant.
+  // Actualiza esta URL si el proyecto se despliega con otro dominio en Vercel.
+  const CHAT_API_URL = 'https://portfolio-assistant.vercel.app/api/chat';
+
   const root = document.getElementById('chatbot-root');
   const toggle = document.getElementById('chatbot-toggle');
   const panel = document.getElementById('chatbot-panel');
@@ -275,7 +280,7 @@
       if (submitBtn) submitBtn.disabled = true;
 
       try {
-        const res = await fetch('/api/chat', {
+        const res = await fetch(CHAT_API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ messages: history }),
