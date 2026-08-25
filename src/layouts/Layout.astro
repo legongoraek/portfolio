@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import ChatBot from '../components/ChatBot.astro';
 
 interface Props {
   title?: string;
@@ -87,6 +88,7 @@ const {
       <slot />
     </main>
     {showChrome && <Footer />}
+    {showChrome && <ChatBot />}
 
     <script>
       // Theme toggle
