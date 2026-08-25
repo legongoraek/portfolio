@@ -21,12 +21,12 @@
   </button>
 
   <div id="chatbot-panel" role="dialog" aria-modal="false" aria-label="Chat sobre Luis Enrique" hidden>
-    <header id="chatbot-header">
+    <div id="chatbot-header">
       <div>
         <strong>Pregúntame sobre mi trabajo</strong>
         <span>Respuestas generadas con IA sobre mi experiencia y proyectos</span>
       </div>
-    </header>
+    </div>
 
     <div id="chatbot-messages" aria-live="polite"></div>
 
@@ -82,6 +82,10 @@
     height: 1.6rem;
   }
 
+  #chatbot-panel[hidden] {
+    display: none;
+  }
+
   #chatbot-panel {
     position: absolute;
     right: 0;
@@ -97,7 +101,7 @@
     box-shadow: 0 24px 60px rgba(31, 50, 95, 0.25);
   }
 
-  .dark #chatbot-panel {
+  :global(.dark) #chatbot-panel {
     background: rgb(15, 23, 42);
     border-color: rgba(255, 255, 255, 0.1);
   }
@@ -130,7 +134,7 @@
     font-size: 0.88rem;
   }
 
-  .chatbot-msg {
+  :global(.chatbot-msg) {
     max-width: 85%;
     padding: 0.55rem 0.8rem;
     border-radius: 0.9rem;
@@ -139,26 +143,26 @@
     word-break: break-word;
   }
 
-  .chatbot-msg.user {
+  :global(.chatbot-msg.user) {
     align-self: flex-end;
     background: #3156d3;
     color: white;
     border-bottom-right-radius: 0.25rem;
   }
 
-  .chatbot-msg.assistant {
+  :global(.chatbot-msg.assistant) {
     align-self: flex-start;
     background: rgba(49, 87, 213, 0.09);
     color: #14213d;
     border-bottom-left-radius: 0.25rem;
   }
 
-  .dark .chatbot-msg.assistant {
+  :global(.dark .chatbot-msg.assistant) {
     background: rgba(255, 255, 255, 0.08);
     color: rgb(243, 244, 246);
   }
 
-  .chatbot-msg.error {
+  :global(.chatbot-msg.error) {
     align-self: center;
     background: rgba(220, 38, 38, 0.1);
     color: #b91c1c;
@@ -172,7 +176,7 @@
     border-top: 1px solid rgba(49, 87, 213, 0.12);
   }
 
-  .dark #chatbot-form {
+  :global(.dark) #chatbot-form {
     border-top-color: rgba(255, 255, 255, 0.08);
   }
 
