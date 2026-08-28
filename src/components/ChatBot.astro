@@ -240,6 +240,7 @@
     const history: ChatMessage[] = [];
     let isOpen = false;
     let isSending = false;
+    let greetingShown = false;
 
     function setOpen(next: boolean) {
       isOpen = next;
@@ -251,11 +252,12 @@
       }
       if (isOpen) {
         input!.focus();
-        if (history.length === 0) {
+        if (!greetingShown) {
           appendMessage(
             'assistant',
             'Hola 👋 Soy el asistente de este portafolio. Pregúntame sobre la experiencia, proyectos o stack técnico de Luis Enrique.'
           );
+          greetingShown = true;
         }
       }
     }
