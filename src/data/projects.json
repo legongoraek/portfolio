@@ -240,5 +240,44 @@
     "link": "https://kyb-customs-platform.vercel.app/",
     "category": "Full Stack",
     "icon": "mdi:account-box-multiple-outline"
+  },
+  {
+    "title": "Renta lo que quieras",
+    "description": "Marketplace P2P para rentar productos, propiedades, vehículos y servicios, con catálogo, reservas y paneles para dueños y clientes.",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Django",
+      "Django REST Framework",
+      "PostgreSQL",
+      "Supabase"
+    ],
+    "impact": [
+      "Catálogo con búsqueda y filtros",
+      "Autenticación y rutas privadas",
+      "Flujo de reservas y panel de gestión"
+    ],
+    "link": "https://renta-lo-que-quieras.vercel.app/",
+    "category": "Full Stack",
+    "icon": "mdi:home-city-outline"
+  },
+  {
+    "title": "Portfolio Assistant",
+    "description": "Asistente conversacional compartido que responde preguntas sobre experiencia profesional, proyectos y habilidades desde un backend serverless, integrado y probado en portafolios Astro y GitHub Pages como legongoraek.github.io.",
+    "technologies": [
+      "TypeScript",
+      "Vercel Functions",
+      "Anthropic Claude",
+      "OpenAI",
+      "Gemini"
+    ],
+    "impact": [
+      "API reutilizable para múltiples sitios",
+      "Selección de proveedor LLM por configuración",
+      "Rate limiting y CORS"
+    ],
+    "link": "https://portafolio-astro-smoky.vercel.app/",
+    "category": "AI / Backend",
+    "icon": "mdi:robot-outline"
   }
 ]
