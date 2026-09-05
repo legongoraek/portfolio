@@ -2,6 +2,10 @@
 
 Portafolio construido con Astro, Tailwind CSS y deployado en Vercel.
 
+## Sitio publicado
+
+https://legongoraek.me/
+
 ## Características
 
 - **Ultra rápido** - Astro con optimizaciones de rendimiento
