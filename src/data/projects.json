@@ -185,7 +185,7 @@
       "Monitoreo de criptomonedas",
       "Prueba Técnica"
     ],
-    "link": "https://dinametra-crypto.vercel.app/",
+    "link": "https://dinametra-dashboard.netlify.app/",
     "category": "Frontend",
     "icon": "mdi:bitcoin"
   },

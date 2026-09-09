@@ -19,6 +19,10 @@ const expectedProjects = [
     title: 'Portfolio Assistant',
     link: 'https://portafolio-astro-smoky.vercel.app/',
   },
+  {
+    title: 'Dashboard Crypto - Dinametra',
+    link: 'https://dinametra-dashboard.netlify.app/',
+  },
 ];
 
 test('includes the requested projects in the project data', () => {
