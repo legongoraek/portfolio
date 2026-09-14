@@ -7,31 +7,118 @@ import ChatBot from '../components/ChatBot.astro';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  canonical?: string;
+  noindex?: boolean;
   showChrome?: boolean;
 }
 
 const {
-  title = 'Luis Enrique Góngora Ek | Full Stack Developer',
-  description = 'Portafolio profesional de Luis Enrique Góngora Ek, Full Stack Developer especializado en desarrollo web, mobile y automatización de procesos.',
+  title = 'Luis Enrique Góngora Ek | Software Engineer & Full Stack Developer',
+  description = 'Portafolio profesional de Luis Enrique Góngora Ek, Software Engineer y Full Stack Developer especializado en desarrollo web, mobile, APIs y automatización de procesos.',
+  image = '/android-chrome-512x512.png',
+  canonical,
+  noindex = false,
   showChrome = true,
 } = Astro.props;
+
+const site = Astro.site ?? new URL('https://legongoraek.me');
+const canonicalURL = canonical ? new URL(canonical, site) : new URL(Astro.url.pathname, site);
+const imageURL = new URL(image, site);
+const personId = new URL('/#person', site).href;
+const websiteId = new URL('/#website', site).href;
+const profilePageId = new URL('/#profile', site).href;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: 'Luis Enrique Góngora Ek',
+      alternateName: 'Luis Enrique Gongora Ek',
+      url: new URL('/', site).href,
+      image: imageURL.href,
+      jobTitle: 'Software Engineer & Full Stack Developer',
+      description,
+      sameAs: [
+        'https://github.com/legongoraek',
+        'https://www.linkedin.com/in/luisenriquegongoraek',
+      ],
+      knowsAbout: [
+        'Full Stack Development',
+        'Software Engineering',
+        'Django',
+        'React',
+        'React Native',
+        'Vue.js',
+        'APIs',
+        'Mobile Development',
+        'Process Automation',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: new URL('/', site).href,
+      name: 'Portafolio de Luis Enrique Góngora Ek',
+      description,
+      inLanguage: 'es-MX',
+      publisher: { '@id': personId },
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': profilePageId,
+      url: canonicalURL.href,
+      name: title,
+      description,
+      inLanguage: 'es-MX',
+      isPartOf: { '@id': websiteId },
+      mainEntity: { '@id': personId },
+    },
+  ],
+};
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Luis Enrique Góngora Ek" />
     <meta name="description" content={description} />
-    <meta name="keywords" content="Full Stack Developer, Django, React, React Native, Vue.js, APIs, Automatización, México" />
-    
+    <meta name="keywords" content="Luis Enrique Góngora Ek, Software Engineer, Full Stack Developer, Django, React, React Native, Vue.js, APIs, automatización, desarrollo web, desarrollo mobile" />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}
+    />
+    <meta
+      name="googlebot"
+      content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}
+    />
+    <link rel="canonical" href={canonicalURL} />
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://luisenriquegongoraek.com/" />
-    <meta property="og:image" content="https://luisenriquegongoraek.com/og-image.jpg" />
-    
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:alt" content={`Portafolio profesional de ${title.split('|')[0].trim()}`} />
+    <meta property="og:site_name" content="Portafolio de Luis Enrique Góngora Ek" />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+    <meta name="twitter:image:alt" content="Portafolio profesional de Luis Enrique Góngora Ek" />
+
+    <!-- Structured data for search engines and generative engines -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
 
@@ -56,7 +143,7 @@ const {
     />
 
     <link rel="manifest" href="/site.webmanifest" />
-    
+
     <!-- Google Analytics -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-Q7V1V88QR9"></script>
     <script is:inline>
@@ -94,12 +181,12 @@ const {
       // Theme toggle
       const html = document.documentElement;
       const themeToggle = document.getElementById('theme-toggle');
-      
+
       const theme = localStorage.getItem('theme') || 'light';
       if (theme === 'dark') {
         html.classList.add('dark');
       }
-      
+
       themeToggle?.addEventListener('click', () => {
         html.classList.toggle('dark');
         const newTheme = html.classList.contains('dark') ? 'dark' : 'light';
