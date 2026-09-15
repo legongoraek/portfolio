@@ -146,6 +146,15 @@ const projects = [
     link: "https://portafolio-astro-smoky.vercel.app/",
     category: "AI / Backend",
     icon: "mdi:robot-outline"
+  },
+  {
+    title: "RIS PACS AI – Plataforma Clínica / EHR",
+    description: "Plataforma clínica modular con EHR longitudinal y módulo especializado RIS/PACS para radiología, con interoperabilidad FHIR, auditoría y una frontera segura para IA clínica que no genera diagnósticos sin un modelo clínicamente validado.",
+    technologies: ["EHR", "DICOM", "Orthanc", "OHIF", "FHIR"],
+    impact: ["Historia clínica longitudinal y encuentros", "Flujo RIS/PACS con visor OHIF y DICOM", "Reportes versionados y exportables", "Auditoría e interoperabilidad FHIR"],
+    link: "https://web-rho-eight-aku7lobemg.vercel.app",
+    category: "HealthTech / AI",
+    icon: "mdi:hospital-box-outline"
   }
 ];
 ---
@@ -400,163 +409,80 @@ const projects = [
   }
 
   .project-title {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     font-weight: 800;
-
-    line-height: 1.2;
-
     color: #0f172a;
   }
 
-  .project-emoji {
-    width: 4rem;
-    height: 4rem;
-
+  .project-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 1.2rem;
-
-    background: rgba(255,255,255,0.8);
-
-    font-size: 2rem;
-
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.5);
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 1rem;
+    background: rgba(59,130,246,0.08);
+    color: #0057B8;
   }
 
   .project-description {
-    color: rgb(75, 85, 99);
-
-    line-height: 1.8;
-
-    font-size: 0.98rem;
+    color: #475569;
+    line-height: 1.7;
   }
 
   .project-label {
-    font-size: 0.78rem;
-    font-weight: 700;
-
+    font-size: 0.75rem;
     text-transform: uppercase;
-
     letter-spacing: 0.08em;
-
-    color: rgb(100, 116, 139);
+    font-weight: 800;
+    color: #64748b;
   }
 
   .tech-pill {
-    padding: 0.55rem 0.9rem;
-
+    padding: 0.4rem 0.7rem;
     border-radius: 999px;
-
-    background: rgba(255,255,255,0.55);
-
-    border: 1px solid rgba(255,255,255,0.3);
-
-    font-size: 0.82rem;
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 0.75rem;
     font-weight: 600;
-
-    color: rgb(51,65,85);
-
-    transition:
-      transform 220ms ease,
-      background 220ms ease;
-  }
-
-  .tech-pill:hover {
-    transform: translateY(-2px);
-
-    background: rgba(255,255,255,0.9);
   }
 
   .project-impact {
     display: flex;
-    align-items: start;
-    gap: 0.8rem;
-
-    color: rgb(51,65,85);
-
-    font-size: 0.95rem;
+    gap: 0.7rem;
+    align-items: flex-start;
+    color: #334155;
   }
 
   .impact-icon {
-    width: 1.4rem;
-    height: 1.4rem;
-
+    flex: 0 0 auto;
+    margin-top: 0.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 999px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 999px;
-
-    background: #0057B8;
-
-    color: white;
-
-    font-size: 0.75rem;
-    font-weight: bold;
-
-    flex-shrink: 0;
-
-    margin-top: 0.1rem;
+    background: rgba(34,197,94,0.1);
+    color: #16a34a;
   }
 
   .project-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-
-    font-weight: 700;
-
+    gap: 0.5rem;
     color: #0057B8;
-
-    transition:
-      gap 220ms ease,
-      color 220ms ease;
-  }
-
-  .project-link:hover {
-    gap: 0.9rem;
-
-    color: #2563eb;
+    font-weight: 800;
   }
 
   @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(25px);
+      transform: translateY(18px);
     }
-
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  .project-icon {
-  width: 4rem;
-  height: 4rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 1.2rem;
-
-  background: rgba(255,255,255,0.8);
-
-  color: #0057B8;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.5);
-
-  transition:
-    transform 220ms ease,
-    color 220ms ease;
-}
-
-.project-card:hover .project-icon {
-  transform: scale(1.08);
-  color: #2563eb;
-}
 </style>
