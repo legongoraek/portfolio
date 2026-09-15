@@ -25,7 +25,7 @@ const expectedProjects = [
   },
   {
     title: 'RIS PACS AI – Plataforma Clínica / EHR',
-    link: 'https://web-rho-eight-aku7lobemg.vercel.app',
+    link: 'https://medular-ai.vercel.app/',
   },
 ];
 
