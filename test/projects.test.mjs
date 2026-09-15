@@ -23,6 +23,10 @@ const expectedProjects = [
     title: 'Dashboard Crypto - Dinametra',
     link: 'https://dinametra-dashboard.netlify.app/',
   },
+  {
+    title: 'RIS PACS AI – Plataforma Clínica / EHR',
+    link: '',
+  },
 ];
 
 test('includes the requested projects in the project data', () => {
@@ -40,6 +44,12 @@ test('includes the requested projects in the project data', () => {
     projects.find((project) => project.title === 'Portfolio Assistant')?.description ?? '',
     /legongoraek\.github\.io/,
   );
+
+  const risPacs = projects.find((project) => project.title === 'RIS PACS AI – Plataforma Clínica / EHR');
+  assert.ok(risPacs, 'Missing RIS PACS AI project');
+  assert.deepEqual(risPacs.technologies, ['EHR', 'DICOM', 'Orthanc', 'OHIF', 'FHIR']);
+  assert.match(risPacs.description, /RIS\/PACS/);
+  assert.match(risPacs.description, /IA clínica/i);
 });
 
 test('keeps the established inline project list structure', () => {
@@ -47,6 +57,13 @@ test('keeps the established inline project list structure', () => {
 
   for (const expectedProject of expectedProjects) {
     assert.match(projectsComponent, new RegExp(`title: ["']${expectedProject.title}["']`));
-    assert.match(projectsComponent, new RegExp(`link: ["']${expectedProject.link.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')}["']`));
+    if (expectedProject.link) {
+      assert.match(projectsComponent, new RegExp(`link: ["']${expectedProject.link.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')}["']`));
+    }
   }
+
+  assert.match(projectsComponent, /RIS\/PACS/);
+  assert.match(projectsComponent, /Orthanc/);
+  assert.match(projectsComponent, /OHIF/);
+  assert.match(projectsComponent, /FHIR/);
 });
