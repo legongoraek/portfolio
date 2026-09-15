@@ -24,7 +24,7 @@ const expectedProjects = [
     link: 'https://dinametra-dashboard.netlify.app/',
   },
   {
-    title: 'RIS PACS AI – Plataforma Clínica / EHR',
+    title: 'Medular AI – Plataforma Clínica / EHR',
     link: 'https://medular-ai.vercel.app/',
   },
 ];
@@ -45,11 +45,11 @@ test('includes the requested projects in the project data', () => {
     /legongoraek\.github\.io/,
   );
 
-  const risPacs = projects.find((project) => project.title === 'RIS PACS AI – Plataforma Clínica / EHR');
-  assert.ok(risPacs, 'Missing RIS PACS AI project');
-  assert.deepEqual(risPacs.technologies, ['EHR', 'DICOM', 'Orthanc', 'OHIF', 'FHIR']);
-  assert.match(risPacs.description, /RIS\/PACS/);
-  assert.match(risPacs.description, /IA clínica/i);
+  const medular = projects.find((project) => project.title === 'Medular AI – Plataforma Clínica / EHR');
+  assert.ok(medular, 'Missing Medular AI project');
+  assert.deepEqual(medular.technologies, ['EHR', 'DICOM', 'Orthanc', 'OHIF', 'FHIR']);
+  assert.match(medular.description, /RIS\/PACS/);
+  assert.match(medular.description, /IA clínica/i);
 });
 
 test('keeps the established inline project list structure', () => {
