@@ -25,7 +25,7 @@ const expectedProjects = [
   },
   {
     title: 'RIS PACS AI – Plataforma Clínica / EHR',
-    link: '',
+    link: 'https://web-rho-eight-aku7lobemg.vercel.app',
   },
 ];
 
@@ -57,9 +57,7 @@ test('keeps the established inline project list structure', () => {
 
   for (const expectedProject of expectedProjects) {
     assert.match(projectsComponent, new RegExp(`title: ["']${expectedProject.title}["']`));
-    if (expectedProject.link) {
-      assert.match(projectsComponent, new RegExp(`link: ["']${expectedProject.link.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')}["']`));
-    }
+    assert.match(projectsComponent, new RegExp(`link: ["']${expectedProject.link.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')}["']`));
   }
 
   assert.match(projectsComponent, /RIS\/PACS/);
