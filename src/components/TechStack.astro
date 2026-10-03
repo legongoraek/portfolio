@@ -1,6 +1,7 @@
 ---
 
 import { Icon } from "astro-icon/components";
+import SectionHeader from "./SectionHeader.astro";
 
 const technologies = {
   frontend: [
@@ -35,276 +36,57 @@ const technologies = {
     { name: 'Docker', icon: 'logos:docker-icon' },
   ],
 };
+
+const groups = [
+  { title: 'Frontend', icon: 'mdi:monitor-dashboard', items: technologies.frontend },
+  { title: 'Backend', icon: 'mdi:server-outline', items: technologies.backend },
+  { title: 'Datos', icon: 'mdi:database-outline', items: technologies.database },
+  { title: 'Herramientas', icon: 'mdi:tools', items: technologies.tools },
+];
 ---
 
+<section id="stack" class="section">
+  <div class="container-custom">
+    <SectionHeader
+      anchor="stack"
+      title="Stack"
+      accent="tecnológico"
+      lead="Tecnologías y herramientas que utilizo para construir productos digitales rápidos, escalables y enfocados en negocio."
+    />
 
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5">
+      {groups.map((group, i) => (
+        <div class="reveal panel panel-hover p-6" style={`--reveal-delay:${i * 80}ms`}>
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold">{group.title}</h3>
+            <span class="grid place-items-center w-10 h-10 rounded-xl bg-accent-soft text-accent">
+              <Icon name={group.icon} class="w-5 h-5" />
+            </span>
+          </div>
 
-<section
-  id="stack"
-  class="relative overflow-hidden pt-16 md:pt-24 pb-16 md:pb-24 isolate
-   bg-white"
->
-
-  {/* Glow Background */}
-  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-400/10 rounded-full blur-3xl opacity-30 -z-10"></div>
-
-  <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-300/10 rounded-full blur-3xl opacity-30 -z-10"></div>
-
-  {/* Grid */}
-  <div class="absolute inset-0 opacity-[0.03] pointer-events-none -z-10">
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)] bg-[size:64px_64px]"></div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    {/* Header */}
-    <div class="text-center mb-10 md:mb-20">
-
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6
-      bg-white/70
-      border border-white/20
-      backdrop-blur-xl shadow-lg shadow-black/5">
-
-        <div class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></div>
-
-        <span class="text-sm font-medium text-gray-700">
-          Tecnologías modernas
-        </span>
-      </div>
-
-      <h2 class="text-5xl md:text-6xl font-black tracking-tight mb-6">
-
-        <span class="text-blue-600">
-          Stack Tecnológico
-        </span>
-
-      </h2>
-
-      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Tecnologías y herramientas modernas que utilizo para construir
-        productos digitales rápidos, escalables y enfocados en negocio.
-      </p>
-
+          <ul class="divide-y divide-line">
+            {group.items.map((tech) => (
+              <li class="tech-item flex items-center gap-3 py-2.5 text-[0.95rem] font-semibold text-ink/80">
+                <span class="grid place-items-center w-8 h-8 rounded-lg bg-white border border-line shrink-0 text-[#14213d]">
+                  <Icon name={tech.icon} class="w-[1.15rem] h-[1.15rem]" />
+                </span>
+                {tech.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
-
-    {/* Cards */}
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-8">
-
-      {/* FRONTEND */}
-      <div class="tech-card group">
-        <div class="tech-glow"></div>
-
-        <div class="relative z-10">
-
-          <div class="tech-icon-wrapper">
-            💻
-          </div>
-
-          <h3 class="tech-title">
-            Frontend
-          </h3>
-
-          <ul class="space-y-4 mt-8">
-            {technologies.frontend.map((tech) => (
-              <li class="tech-item">
-                <Icon name={tech.icon} class="text-2xl" />
-                <span>{tech.name}</span>
-              </li>
-            ))}
-          </ul>
-
-        </div>
-      </div>
-
-      {/* BACKEND */}
-      <div class="tech-card group">
-        <div class="tech-glow"></div>
-
-        <div class="relative z-10">
-
-          <div class="tech-icon-wrapper">
-            ⚙️
-          </div>
-
-          <h3 class="tech-title">
-            Backend
-          </h3>
-
-          <ul class="space-y-4 mt-8">
-            {technologies.backend.map((tech) => (
-              <li class="tech-item">
-                <Icon name={tech.icon} class="text-2xl" />
-                <span>{tech.name}</span>
-              </li>
-            ))}
-          </ul>
-
-        </div>
-      </div>
-
-      {/* DATABASE */}
-      <div class="tech-card group">
-        <div class="tech-glow"></div>
-
-        <div class="relative z-10">
-
-          <div class="tech-icon-wrapper">
-            🗄️
-          </div>
-
-          <h3 class="tech-title">
-            Datos
-          </h3>
-
-          <ul class="space-y-4 mt-8">
-            {technologies.database.map((tech) => (
-              <li class="tech-item">
-                <Icon name={tech.icon} class="text-2xl" />
-                <span>{tech.name}</span>
-              </li>
-            ))}
-          </ul>
-
-        </div>
-      </div>
-
-      {/* TOOLS */}
-      <div class="tech-card group">
-        <div class="tech-glow"></div>
-
-        <div class="relative z-10">
-
-          <div class="tech-icon-wrapper">
-            🚀
-          </div>
-
-          <h3 class="tech-title">
-            Herramientas
-          </h3>
-
-          <ul class="space-y-4 mt-8">
-            {technologies.tools.map((tech) => (
-              <li class="tech-item">
-                <Icon name={tech.icon} class="text-2xl" />
-                <span>{tech.name}</span>
-              </li>
-            ))}
-          </ul>
-
-        </div>
-      </div>
-
-    </div>
-
   </div>
 </section>
 
 <style>
-  .tech-card {
-    position: relative;
-
-    padding: 2rem;
-
-    border-radius: 2rem;
-
-    background: rgba(255,255,255,0.7);
-
-    backdrop-filter: blur(16px);
-
-    border: 1px solid rgba(255,255,255,0.3);
-
-    box-shadow:
-      0 10px 30px rgba(0,0,0,0.05);
-
-    overflow: hidden;
-
-    transition:
-      transform 300ms ease,
-      box-shadow 300ms ease,
-      border-color 300ms ease;
-  }
-
-  .tech-card:hover {
-    transform: translateY(-8px);
-
-    box-shadow:
-      0 25px 50px rgba(0,0,0,0.08);
-
-    border-color: rgba(59,130,246,0.25);
-  }
-
-  .tech-glow {
-    position: absolute;
-    inset: 0;
-
-    background: transparent;
-
-    opacity: 0;
-
-    transition: opacity 300ms ease;
-  }
-
-  .group:hover .tech-glow {
-    opacity: 1;
-  }
-
-  .tech-icon-wrapper {
-    width: 4rem;
-    height: 4rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 1.2rem;
-
-    background: rgba(0,87,184,0.12);
-
-    font-size: 1.8rem;
-
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.4);
-  }
-
-  .tech-title {
-    margin-top: 1.5rem;
-
-    font-size: 1.5rem;
-    font-weight: 800;
-
-    color: #0f172a;
-  }
-
   .tech-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    padding: 0.85rem 1rem;
-
-    border-radius: 1rem;
-
-    background: rgba(255,255,255,0.45);
-
-    border: 1px solid rgba(255,255,255,0.2);
-
-    color: rgb(51, 65, 85);
-
-    font-weight: 500;
-
-    transition:
-      transform 220ms ease,
-      background 220ms ease,
-      border-color 220ms ease;
+    transition: color 200ms ease, transform 200ms ease;
   }
 
   .tech-item:hover {
-    transform: translateX(4px);
-
-    background: rgba(255,255,255,0.75);
-
-    border-color: rgba(59,130,246,0.2);
-
-    color: #0057B8;
+    color: var(--accent);
+    transform: translateX(3px);
   }
 </style>

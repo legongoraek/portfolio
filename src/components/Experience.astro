@@ -1,6 +1,7 @@
 ---
 
 import { Icon } from 'astro-icon/components';
+import SectionHeader from './SectionHeader.astro';
 
 const experiences = [
   {
@@ -60,277 +61,78 @@ const experiences = [
 ]
 ---
 
-<section
-  id="experiencia"
-  class="relative overflow-hidden pt-16 pb-16 md:py-28 isolate
-  bg-white"
->
+<section id="experiencia" class="section">
+  <div class="container-custom">
+    <SectionHeader
+      anchor="experiencia"
+      title="Trayectoria"
+      accent="profesional"
+      lead="Más de 3 años construyendo plataformas web, móviles y sistemas escalables enfocados en negocio."
+    />
 
-  {/* Glow Effects */}
-  <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-primary-300/20 rounded-full blur-3xl opacity-30 -z-10"></div>
+    {/* Riel de fechas a la izquierda, tarjeta a la derecha: el orden cronológico se lee de arriba abajo. */}
+    <ol class="relative space-y-6 md:space-y-8">
+      {experiences.map((exp, index) => (
+        <li class="reveal group relative grid gap-4 lg:grid-cols-[14rem_1fr] lg:gap-12 pl-8 lg:pl-0" style={`--reveal-delay:${index * 90}ms`}>
+          {/* Línea y punto: en móvil a la izquierda, en desktop entre riel y tarjeta. */}
+          <span class="absolute left-[7px] lg:left-[calc(14rem+1.5rem)] top-3 bottom-[-2rem] w-px bg-line group-last:hidden" aria-hidden="true"></span>
+          <span
+            class:list={[
+              'absolute left-0 lg:left-[calc(14rem+1.5rem-7.5px)] top-2 w-4 h-4 rounded-full border-[3px] border-canvas',
+              exp.current ? 'bg-ok' : 'bg-accent',
+            ]}
+            aria-hidden="true"
+          ></span>
 
-  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-300/20 rounded-full blur-3xl opacity-30 -z-10"></div>
-
-  {/* Grid Pattern */}
-  <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
-    <div class="absolute inset-0
-    bg-[linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)]
-    bg-[size:64px_64px]"></div>
-  </div>
-
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    {/* Header */}
-    <div class="text-center mb-10 md:mb-20">
-
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6
-      bg-white/70 border border-white/30 backdrop-blur-xl shadow-lg shadow-black/5">
-
-        <div class="w-2 h-2 rounded-full bg-primary-600"></div>
-
-        <span class="text-sm font-medium text-gray-700">
-          Experiencia profesional
-        </span>
-
-      </div>
-
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.3] mb-6">
-
-        <span class="text-blue-600">
-          Trayectoria &
-        </span>
-
-        <span class="block text-blue-600">
-          Experiencia
-        </span>
-
-      </h2>
-
-      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Más de 3 años construyendo plataformas web, móviles
-        y sistemas escalables enfocados en negocio.
-      </p>
-
-    </div>
-
-    {/* Timeline */}
-    <div class="relative">
-
-      {/* Center Line (desktop) */}
-      <div class="hidden lg:block absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full
-      bg-primary-500"></div>
-
-      <div class="space-y-6 md:space-y-12">
-
-        {experiences.map((exp, index) => (
-          <div
-            class={`experience-item relative flex flex-col ${
-              index % 2 === 0
-                ? 'lg:flex-row'
-                : 'lg:flex-row-reverse'
-            } gap-5 lg:gap-10 items-stretch opacity-0 translate-y-6
-            transition-all duration-700 ease-out`}
-            style={`transition-delay:${index * 120}ms`}
-          >
-
-            {/* Timeline Dot (desktop) */}
-            <div class="hidden lg:flex absolute left-1/2 top-10 -translate-x-1/2 z-20">
-              <div class={`w-5 h-5 rounded-full border-4 border-white shadow-xl shadow-primary-500/30 ${
-                exp.current ? 'bg-emerald-500 animate-pulse' : 'bg-primary-600'
-              }`}></div>
-            </div>
-
-            {/* Card */}
-            <div class="relative lg:w-1/2 pl-10 lg:pl-0">
-
-              {/* Left Line + Dot (mobile/tablet) */}
-              <div class="lg:hidden absolute left-[9px] top-2 bottom-2 w-[2px]
-              bg-primary-200"></div>
-
-              <div class="lg:hidden absolute left-0 top-10 z-20">
-                <div class={`w-5 h-5 rounded-full border-4 border-white shadow-lg shadow-primary-500/20 ${
-                  exp.current ? 'bg-emerald-500 animate-pulse' : 'bg-primary-600'
-                }`}></div>
-              </div>
-
-              <div
-                class="group relative overflow-hidden h-full rounded-[2rem]
-                bg-white/70 backdrop-blur-xl
-                border border-white/30
-                shadow-[0_20px_60px_rgba(0,0,0,0.06)]
-                hover:shadow-[0_30px_80px_rgba(0,87,184,0.12)]
-                transition-all duration-500
-                hover:-translate-y-1"
-              >
-
-                {/* Gradient Glow */}
-                <div class="absolute inset-0 bg-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Content */}
-                <div class="relative z-10 p-8">
-
-                  {/* Top */}
-                  <div class="flex items-start justify-between gap-6 mb-6">
-
-                    <div>
-
-                      <div class="flex items-center flex-wrap gap-2 mb-4">
-
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full
-                        bg-primary-100/70 text-primary-700 text-xs font-semibold">
-
-                          <Icon
-                            name="mdi:briefcase-outline"
-                            class="w-4 h-4"
-                          />
-
-                          {exp.company}
-
-                        </div>
-
-                        {exp.current && (
-                          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full
-                          bg-emerald-100 text-emerald-700 text-xs font-semibold">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                            Actual
-                          </div>
-                        )}
-
-                      </div>
-
-                      <h3 class="text-2xl font-bold text-slate-900 leading-tight mb-2">
-                        {exp.role}
-                      </h3>
-
-                      <p class="text-sm font-medium text-gray-500">
-                        {exp.period}
-                      </p>
-
-                    </div>
-
-                    <div
-                      class="w-14 h-14 rounded-2xl
-                      bg-primary-600
-                      flex items-center justify-center
-                      text-white
-                      shadow-lg shadow-primary-500/20 shrink-0
-                      transition-transform duration-500
-                      group-hover:scale-110 group-hover:rotate-3"
-                    >
-                      <Icon
-                        name={exp.icon}
-                        class="w-8 h-8"
-                      />
-                    </div>
-
-                  </div>
-
-                  {/* Responsibilities */}
-                  <div class="mb-8">
-
-                    <p class="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wide">
-                      <Icon
-                        name="mdi:clipboard-text-outline"
-                        class="w-4 h-4 inline-block mr-2"
-                      />
-                      Responsabilidades
-                    </p>
-
-                    <ul class="space-y-3">
-
-                      {exp.achievements.map((achievement) => (
-                        <li class="flex items-start gap-3 text-gray-700 leading-relaxed">
-
-                          <span class="mt-1 text-primary-600 shrink-0">
-                            →
-                          </span>
-
-                          <span>{achievement}</span>
-
-                        </li>
-                      ))}
-
-                    </ul>
-
-                  </div>
-
-                  {/* Impact */}
-                  <div
-                    class="rounded-2xl p-5
-                    bg-primary-50
-                    border border-primary-100"
-                  >
-
-                    <p class="text-sm font-semibold text-primary-700 mb-4 uppercase tracking-wide">
-                      Impacto generado
-                    </p>
-
-                    <ul class="space-y-3">
-
-                      {exp.impact.map((item) => (
-                        <li class="flex items-start gap-3 text-gray-700">
-
-                          <span class="text-emerald-500 mt-0.5 shrink-0">
-                            ✓
-                          </span>
-
-                          <span>{item}</span>
-
-                        </li>
-                      ))}
-
-                    </ul>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* Spacer */}
-            <div class="hidden lg:block lg:w-1/2"></div>
-
+          <div class="lg:text-right lg:pt-0.5">
+            <p class="font-mono text-sm text-accent">{exp.period}</p>
+            <p class="mt-1 font-semibold text-ink inline-flex items-center gap-2 lg:justify-end">
+              {exp.company}
+              {exp.current && (
+                <span class="inline-flex items-center gap-1 rounded-full bg-ok/12 text-ok text-[0.7rem] font-bold px-2 py-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-ok"></span>
+                  Actual
+                </span>
+              )}
+            </p>
           </div>
-        ))}
 
-      </div>
+          <article class="panel panel-hover p-6 md:p-8">
+            <div class="flex items-start justify-between gap-5 mb-6">
+              <h3 class="text-xl md:text-2xl font-bold leading-tight">{exp.role}</h3>
+              <span class="grid place-items-center w-12 h-12 rounded-xl bg-accent-soft text-accent shrink-0">
+                <Icon name={exp.icon} class="w-6 h-6" />
+              </span>
+            </div>
 
-    </div>
+            <div class="grid gap-6 md:grid-cols-2 md:gap-8">
+              <div>
+                <p class="eyebrow mb-3">responsabilidades</p>
+                <ul class="space-y-2.5">
+                  {exp.achievements.map((achievement) => (
+                    <li class="flex items-start gap-2.5 text-[0.95rem] text-ink/85 leading-relaxed">
+                      <span class="mt-[0.6rem] w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
+              <div class="rounded-xl bg-surface-2 border border-line p-5">
+                <p class="eyebrow mb-3">impacto</p>
+                <ul class="space-y-2.5">
+                  {exp.impact.map((item) => (
+                    <li class="flex items-start gap-2.5 text-[0.95rem] text-ink/85 leading-relaxed">
+                      <Icon name="mdi:check" class="w-4 h-4 mt-1 text-ok shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        </li>
+      ))}
+    </ol>
   </div>
 </section>
-
-<style>
-  .experience-item.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .experience-item {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-  }
-</style>
-
-<script>
-  const items = document.querySelectorAll('.experience-item');
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
-  );
-
-  items.forEach((item) => observer.observe(item));
-</script>

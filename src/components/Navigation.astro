@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const navItems = [
   { label: 'Sobre mí', href: '#sobre-mi' },
   { label: 'Stack', href: '#stack' },
@@ -8,139 +10,65 @@ const navItems = [
 ];
 ---
 
-<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl">
+<nav class="fixed top-3 md:top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-6xl" aria-label="Principal">
   <div
     id="nav-panel"
-    class="
-      rounded-full
-      border border-white/70
-      bg-white/80
-      backdrop-blur-2xl
-      shadow-[0_10px_35px_rgba(31,50,95,0.10)]
-      transition-[border-radius] duration-200
-    "
+    class="rounded-2xl border border-line bg-surface/85 backdrop-blur-xl shadow-[var(--shadow)] transition-shadow duration-300"
   >
-    <div id="nav-panel-ring" class="absolute inset-0 rounded-full ring-1 ring-white/30 pointer-events-none transition-[border-radius] duration-200"></div>
-
-    <div class="relative max-w-7xl mx-auto px-5 lg:px-8">
-      <div class="flex items-center justify-between h-16 md:h-20">
-
-        {/* Logo - Visible en todos los tamaños */}
-        <a href="/" class="flex items-center gap-3 group shrink-0">
-
-          <div class="block">
-            <p class="text-xs md:text-sm text-gray-500">
-              Full Stack Developer
-            </p>
-
-            <p class="font-bold text-primary-900 leading-none text-sm md:text-base">
-              Luis Enrique
-            </p>
-          </div>
+    <div class="px-4 lg:px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="#sobre-mi" class="flex items-center gap-3 shrink-0" aria-label="Luis Enrique Góngora Ek, ir al inicio">
+          <span class="grid place-items-center w-9 h-9 rounded-xl bg-accent text-on-accent font-display font-bold text-sm tracking-tight">
+            LE
+          </span>
+          <span class="leading-tight">
+            <span class="block font-display font-bold text-ink text-sm md:text-base">Luis Enrique</span>
+            <span class="block font-mono text-[0.7rem] text-muted">full stack dev</span>
+          </span>
         </a>
 
-        {/* Desktop Menu */}
-        <div class="hidden md:flex items-center gap-2">
+        <div class="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
             <a
               href={item.href}
-              class="
-                relative px-4 py-2 rounded-xl
-                text-sm font-semibold
-                text-slate-800
-                transition-all duration-300
-                hover:text-primary-600
-                hover:bg-primary-50
-                hover:-translate-y-0.5
-                hover:shadow-sm
-
-                after:absolute
-                after:left-4
-                after:right-4
-                after:-bottom-0.5
-                after:h-[2px]
-                after:scale-x-0
-                after:origin-left
-                after:bg-primary-600
-                after:transition-transform
-                after:duration-300
-                hover:after:scale-x-100
-              "
+              data-nav-link
+              class="px-3.5 py-2 rounded-lg text-sm font-semibold text-muted hover:text-ink hover:bg-accent-soft transition-colors aria-[current=true]:text-accent aria-[current=true]:bg-accent-soft"
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          id="mobile-menu-btn"
-          class="
-            md:hidden
-            p-2.5
-            rounded-2xl
-            border border-black/5
-            bg-white/50
-            hover:bg-white
-            transition-all
-            shrink-0
-            hover:shadow-md
-            cursor-pointer
-          "
-          aria-label="Abrir menú"
-        >
-          <svg
-            class="w-5 h-5 text-gray-700"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        <div class="flex items-center gap-2">
+          <button
+            id="theme-toggle"
+            type="button"
+            class="grid place-items-center w-10 h-10 rounded-xl border border-line text-muted hover:text-ink hover:border-accent transition-colors cursor-pointer"
+            aria-label="Cambiar tema claro u oscuro"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+            <Icon name="mdi:weather-night" class="w-5 h-5 dark:hidden" />
+            <Icon name="mdi:white-balance-sunny" class="w-5 h-5 hidden dark:block" />
+          </button>
+
+          <button
+            id="mobile-menu-btn"
+            type="button"
+            class="md:hidden grid place-items-center w-10 h-10 rounded-xl border border-line text-ink cursor-pointer"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <Icon name="mdi:menu" class="w-5 h-5" />
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        id="mobile-menu"
-        class="
-          hidden md:hidden
-          pb-5 pt-2
-          space-y-2
-        "
-      >
+      <div id="mobile-menu" class="hidden md:hidden pb-4 pt-1 border-t border-line">
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="
-              block
-              px-4 py-3
-              rounded-2xl
-              text-gray-700
-              hover:bg-white/50
-              transition-all
-              font-medium
-              hover:shadow-sm
-              hover:-translate-y-0.5
-              hover:text-primary-600
-              hover:backdrop-blur-sm
-              hover:border hover:border-primary-100
-              hover:after:absolute
-              hover:after:left-4
-              hover:after:right-4
-              hover:after:-bottom-0.5
-              hover:after:h-[2px]
-              hover:after:scale-x-100
-              hover:after:origin-left
-              hover:after:bg-primary-600
-              hover:after:transition-transform
-              hover:after:duration-300
-            "
+            data-nav-link
+            class="block px-3 py-3 rounded-lg font-semibold text-muted hover:text-ink hover:bg-accent-soft aria-[current=true]:text-accent"
           >
             {item.label}
           </a>
@@ -151,26 +79,30 @@ const navItems = [
 </nav>
 
 <script>
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const navPanel = document.getElementById('nav-panel');
-  const navPanelRing = document.getElementById('nav-panel-ring');
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
 
   function setMenuOpen(open: boolean) {
-    mobileMenu?.classList.toggle('hidden', !open);
-    navPanel?.classList.toggle('rounded-full', !open);
-    navPanel?.classList.toggle('rounded-[2rem]', open);
-    navPanelRing?.classList.toggle('rounded-full', !open);
-    navPanelRing?.classList.toggle('rounded-[2rem]', open);
+    menu?.classList.toggle('hidden', !open);
+    menuBtn?.setAttribute('aria-expanded', String(open));
+    menuBtn?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
   }
 
-  mobileMenuBtn?.addEventListener('click', () => {
-    setMenuOpen(mobileMenu?.classList.contains('hidden') ?? false);
-  });
+  menuBtn?.addEventListener('click', () => setMenuOpen(menu?.classList.contains('hidden') ?? false));
+  menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
 
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      setMenuOpen(false);
-    });
-  });
+  // Marca el enlace de la sección que ocupa el centro de la pantalla.
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const hash = `#${entry.target.id}`;
+        links.forEach((link) => link.setAttribute('aria-current', String(link.hash === hash)));
+      }
+    },
+    { rootMargin: '-45% 0px -50% 0px' }
+  );
+
+  document.querySelectorAll('#sobre-mi, #stack, #proyectos, #experiencia, #contacto').forEach((s) => sectionObserver.observe(s));
 </script>

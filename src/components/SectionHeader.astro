@@ -1,0 +1,21 @@
+---
+interface Props {
+  anchor: string;
+  title: string;
+  accent?: string;
+  lead?: string;
+}
+
+const { anchor, title, accent, lead } = Astro.props;
+---
+
+<div class="reveal grid gap-5 lg:grid-cols-[1.1fr_1fr] lg:items-end lg:gap-16 mb-10 md:mb-16">
+  <div>
+    <p class="eyebrow mb-4">#{anchor}</p>
+    <h2 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.05]">
+      {title}
+      {accent && <span class="text-accent">{accent}</span>}
+    </h2>
+  </div>
+  {lead && <p class="text-base md:text-lg text-muted leading-relaxed max-w-xl lg:justify-self-end">{lead}</p>}
+</div>

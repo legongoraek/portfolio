@@ -1,190 +1,94 @@
 ---
+import { Icon } from 'astro-icon/components';
+
+const stats = [
+  { value: '4+', label: 'años de experiencia' },
+  { value: '12+', label: 'proyectos entregados' },
+  { value: '99%', label: 'satisfacción' },
+];
 ---
 
-<header
-  class="relative overflow-hidden pt-28 md:pt-32 pb-0 md:pb-24 isolate bg-white"
->
-<section id="sobre-mi" class="py-16 md:py-24 bg-white">
-
-  {/* Glow Effects */}
-  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-400/20 rounded-full blur-3xl opacity-30 -z-10"></div>
-  <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-300/20 rounded-full blur-3xl opacity-30 -z-10"></div>
-  
-  {/* Grid Pattern */}
-  <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+<header id="sobre-mi" class="relative isolate overflow-hidden pt-32 pb-16 md:pt-40 md:pb-28">
+  {/* Cuadrícula tenue: solo en el hero, como papel milimétrico. */}
+  <div
+    class="absolute inset-0 -z-10 opacity-[0.5] dark:opacity-[0.35] bg-[linear-gradient(to_right,var(--line)_1px,transparent_1px),linear-gradient(to_bottom,var(--line)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]"
+    aria-hidden="true"
+  >
   </div>
-  
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-  
-      {/* LEFT CONTENT */}
-      <div class="relative z-10">
-  
-        {/* Badge */}
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 md:mb-8
-        bg-white/70 dark:bg-slate-900/70
-        border border-white/20 dark:border-white/10
-        backdrop-blur-xl shadow-lg shadow-black/5">
-  
-          <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-  
-          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
-            Disponible para proyectos freelance
-          </span>
-        </div>
-  
-        {/* Intro */}
-        <p class="text-primary-600 dark:text-primary-400 font-semibold tracking-wide uppercase mb-4">
-          Full Stack Developer
-        </p>
-  
-        {/* Title */}
-        <h1 class="text-5xl md:text-6xl font-black tracking-tight leading-[1.2] mb-6">
 
-          <span class="text-blue-600">
-            Luis Enrique
-          </span>
-
-          <span class="block mt-2 text-blue-600">
-            Góngora Ek
-          </span>
-
-        </h1>
-  
-        {/* Subtitle */}
-        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mb-6 md:mb-10">
-          Construyo experiencias web y mobile modernas,
-          escalables y enfocadas en negocio.
-        </p>
-  
-        {/* Description */}
-        <p class="text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mb-6 md:mb-10">
-          Especializado en Django, React, React Native y arquitecturas modernas.
-          Desarrollo productos digitales optimizados para rendimiento,
-          escalabilidad y crecimiento.
-        </p>
-  
-        {/* CTA */}
-        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 md:mb-14">
-  
-          <a href="#contacto" class="btn-primary">
-            Contacta conmigo
-            <span>→</span>
-          </a>
-  
-          <a href="#proyectos" class="btn-secondary">
-            Ver proyectos
-          </a>
-  
-        </div>
-  
-        {/* STATS */}
-        <div class="grid grid-cols-3 gap-4">
-  
-          <div class="stats-card">
-            <p class="stats-number">4+</p>
-            <p class="stats-label">Años experiencia</p>
-          </div>
-  
-          <div class="stats-card">
-            <p class="stats-number">12+</p>
-            <p class="stats-label">Proyectos</p>
-          </div>
-  
-          <div class="stats-card">
-            <p class="stats-number">99%</p>
-            <p class="stats-label">Satisfacción</p>
-          </div>
-  
-        </div>
-  
+  <div class="container-custom grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-14 lg:gap-16 items-center">
+    <div>
+      <div class="hero-in inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-line bg-surface text-sm font-semibold text-muted mb-8">
+        <span class="relative flex w-2 h-2">
+          <span class="absolute inset-0 rounded-full bg-ok animate-ping opacity-60"></span>
+          <span class="relative w-2 h-2 rounded-full bg-ok"></span>
+        </span>
+        Disponible para proyectos freelance
       </div>
-  
-      {/* RIGHT SIDE */}
-      <div class="relative hidden lg:flex justify-center">
-  
-        {/* Background Card */}
-        <div class="absolute inset-0 bg-primary-600/20 rounded-[2.5rem] blur-3xl scale-110"></div>
-  
-        {/* Floating Elements */}
-        <div class="absolute -top-8 -left-8 glass-card px-5 py-4 animate-float">
-          <p class="text-sm font-semibold text-primary-600 dark:text-primary-400">
-            Django REST
-          </p>
-        </div>
-  
-        <div class="absolute bottom-10 -right-10 glass-card px-5 py-4 animate-float-delay">
-          <p class="text-sm font-semibold text-primary-600 dark:text-primary-400">
-            React Native
-          </p>
-        </div>
-  
-        {/* Image Container */}
-        <div class="relative">
-  
-          {/* Glow */}
-          <div class="absolute inset-0 bg-primary-600 rounded-[2rem] blur-2xl opacity-20"></div>
-  
-          {/* Image */}
-          <img
-            src="https://legongoraek.github.io/assets/img/IMG_9656.PNG"
-            loading="lazy"
-            decoding="async"
-            alt="Luis Enrique Góngora Ek"
-            class="relative z-10 w-full max-w-lg rounded-[2rem]
-            border border-white/20
-            shadow-[0_30px_80px_rgba(0,0,0,0.25)]
-            object-cover"
-          />
-  
-        </div>
-  
+
+      <p class="hero-in eyebrow mb-4" style="--d:80ms">Full Stack Developer · Web, mobile y automatización</p>
+
+      <h1 class="hero-in text-[2.9rem] sm:text-6xl lg:text-7xl font-bold leading-[0.98] tracking-[-0.035em] mb-7" style="--d:140ms">
+        Luis Enrique
+        <span class="block text-accent">Góngora Ek</span>
+      </h1>
+
+      <p class="hero-in text-lg md:text-xl text-ink/85 leading-relaxed max-w-xl mb-4" style="--d:200ms">
+        Construyo experiencias web y mobile modernas, escalables y enfocadas en negocio.
+      </p>
+
+      <p class="hero-in text-muted leading-relaxed max-w-xl mb-9" style="--d:240ms">
+        Especializado en Django, React, React Native y arquitecturas modernas. Desarrollo productos
+        digitales optimizados para rendimiento, escalabilidad y crecimiento.
+      </p>
+
+      <div class="hero-in flex flex-col sm:flex-row gap-3 mb-12" style="--d:300ms">
+        <a href="#contacto" class="btn-primary">
+          Contacta conmigo
+          <Icon name="mdi:arrow-right" class="btn-arrow w-4 h-4" />
+        </a>
+        <a href="#proyectos" class="btn-secondary">Ver proyectos</a>
       </div>
-  
+
+      <dl class="hero-in grid grid-cols-3 max-w-lg border-t border-line pt-6" style="--d:360ms">
+        {stats.map((stat, i) => (
+          <div class:list={['flex flex-col-reverse justify-end pr-3', i > 0 && 'pl-4 border-l border-line']}>
+            <dt class="mt-1 text-xs md:text-sm text-muted leading-snug">{stat.label}</dt>
+            <dd class="font-display text-3xl md:text-4xl font-bold text-ink">{stat.value}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
-  
-  </div>
-</section>
 
+    {/* Avatar sobre un bloque azul desplazado: la firma visual del sitio. */}
+    <div class="hero-in relative mx-auto w-full max-w-[22rem] sm:max-w-md lg:max-w-none lg:pl-8" style="--d:200ms">
+      <div class="relative">
+        <div class="absolute inset-0 translate-x-4 translate-y-4 md:translate-x-6 md:translate-y-6 rounded-[2rem] bg-accent" aria-hidden="true"></div>
+        <img
+          src="https://legongoraek.github.io/assets/img/IMG_9656.PNG"
+          fetchpriority="high"
+          decoding="async"
+          width="560"
+          height="560"
+          alt="Ilustración de Luis Enrique Góngora Ek"
+          class="relative w-full aspect-square rounded-[2rem] border border-line object-cover bg-surface"
+        />
+      </div>
+    </div>
+  </div>
 </header>
 
 <style>
-  .glass-card {
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(14px);
-
-    border: 1px solid rgba(255,255,255,0.2);
-
-    border-radius: 1rem;
-
-    box-shadow:
-      0 10px 30px rgba(0,0,0,0.08);
+  /* Secuencia de entrada escalonada al cargar. */
+  .hero-in {
+    animation: hero-in 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--d, 0ms);
   }
 
-  .dark .glass-card {
-    background: rgba(15,23,42,0.7);
-
-    border-color: rgba(255,255,255,0.08);
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-float-delay {
-    animation: float 6s ease-in-out infinite;
-    animation-delay: 2s;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-
-    50% {
-      transform: translateY(-10px);
+  @keyframes hero-in {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
     }
   }
 </style>
