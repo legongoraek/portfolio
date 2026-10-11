@@ -3,62 +3,77 @@
 import { Icon } from 'astro-icon/components';
 import SectionHeader from './SectionHeader.astro';
 
+// Fuente: CV v2026.09.29.2 (Downloads/CV/Luis_Enrique_Gongora_Ek_CV.pdf). Mantener la misma redacción.
 const experiences = [
   {
-    "role": "Desarrollador Full Stack Multiplataforma",
-    "company": "Freelance",
-    "period": "Julio 2025 – Actualidad",
-    "current": true,
-    "achievements": [
-      "Desarrollo de aplicaciones web y móviles nativas para iOS y Android",
-      "Construcción de APIs REST con Django REST Framework y autenticación basada en JWT",
-      "Apps móviles multiplataforma con React Native y Expo",
-      "Diseño de arquitecturas desacopladas frontend/backend orientadas a escalar"
+    role: 'Software Engineer · IA e integración de servicios',
+    company: 'Camtom',
+    period: 'Julio 2026 – Actualidad',
+    location: 'Mérida, Yucatán',
+    current: true,
+    achievements: [
+      'Desarrollo funcionalidades y automatizo flujos operativos con reglas e integraciones entre servicios; incorporo IA cuando responde al caso de uso.',
+      'Integro y valido flujos de autenticación y verificación de identidad con Veriff y Didit, además de servicios del ecosistema Camtom.',
+      'Participo en pruebas, documentación, control de versiones y entregas con GitHub, CI/CD, Docker y Vercel.',
     ],
-    "impact": [
-      "Base técnica lista para escalar sin reescrituras mayores",
-      "Autenticación robusta que protege datos y sesiones de usuario",
-      "Experiencia consistente entre web, iOS y Android"
-    ],
-    "icon": "mdi:laptop-account"
+    icon: 'mdi:api',
   },
   {
-    "role": "Desarrollador Full Stack",
-    "company": "Erbessd Instruments",
-    "period": "Octubre 2022 – Enero 2026",
-    "current": false,
-    "achievements": [
-      "Diseño y optimización de endpoints backend de alto rendimiento",
-      "Desarrollo de interfaces con Vue.js, Electron, HTML y CSS",
-      "Administración y mantenimiento de bases de datos SQL en producción",
-      "Creación de una librería de componentes reutilizables para todo el equipo"
+    role: 'Desarrollador full stack y líder técnico',
+    company: 'FidelyT · Independiente',
+    period: 'Julio 2025 – Actualidad',
+    location: 'Remoto',
+    current: true,
+    achievements: [
+      'Desarrollé y coordiné una plataforma de lealtad web y móvil, automatizando flujos de operación desde el análisis de requerimientos hasta su puesta en marcha.',
+      'Integré backend, bases de datos y aplicaciones web y móviles con Django, PostgreSQL, React, React Native y Expo.',
+      'Administré infraestructura y despliegues en AWS EC2/RDS y di seguimiento a disponibilidad, incidencias y mejoras.',
     ],
-    "impact": [
-      "Comunicación frontend-backend más rápida y confiable",
-      "Menos bugs gracias a componentes probados y reutilizables",
-      "Sistema más fácil de mantener y extender por el equipo"
-    ],
-    "icon": "mdi:code-braces-box"
+    icon: 'mdi:gift-outline',
   },
   {
-    "role": "Desarrollo Web, Integraciones y Automatización",
-    "company": "Freelance",
-    "period": "Enero 2022 – Actualidad",
-    "current": true,
-    "achievements": [
-      "Desarrollo y administración de tiendas con WordPress y WooCommerce",
-      "Middlewares a medida con Node.js para conectar sistemas",
-      "Integración de APIs externas de pago, envíos y CRMs",
-      "Automatización de flujos de negocio para eliminar trabajo manual"
+    role: 'Full Stack Developer · Soluciones internas',
+    company: 'Erbessd Instruments',
+    period: 'Octubre 2022 – Enero 2026',
+    location: 'Mérida, Yucatán',
+    current: false,
+    achievements: [
+      'Desarrollé soluciones que automatizan y respaldan procesos internos en una organización con sistema de calidad ISO 9001.',
+      'Desarrollé módulos de reportes personalizados para el seguimiento operativo y la toma de decisiones.',
+      'Integré aplicaciones, servicios y datos para web, escritorio y móvil; colaboré con distintas áreas en pruebas, entregas y mantenimiento.',
     ],
-    "impact": [
-      "Horas de trabajo manual convertidas en procesos automáticos",
-      "Sincronización de datos más rápida entre sistemas",
-      "Menos errores humanos en procesos operativos clave"
+    icon: 'mdi:code-braces-box',
+  },
+  {
+    role: 'Desarrollador web e integraciones',
+    company: 'Independiente',
+    period: '2021 – Diciembre 2025',
+    location: 'Mérida, Yucatán',
+    current: false,
+    achievements: [
+      'Automaticé flujos de atención a clientes, seguimiento de prospectos e inventarios mediante reglas de negocio e integración de plataformas.',
+      'Desarrollé middleware de sincronización con Node.js y Linux para reducir captura duplicada y mantener información coordinada entre servicios.',
     ],
-    "icon": "mdi:cog-sync"
-  }
-]
+    icon: 'mdi:cog-sync',
+  },
+  {
+    role: 'Field Engineer',
+    company: 'Corporativo Marcha, S.A. de C.V.',
+    period: 'Diciembre 2018 – Enero 2022',
+    location: 'Mérida, Yucatán',
+    current: false,
+    achievements: [
+      'Implementé y di seguimiento al Sistema de Gestión de Calidad ISO 9001:2015 mediante documentación, estandarización y control de procesos.',
+      'Coordiné la instalación, capacitación y mantenimiento de 110 equipos críticos en hospitales públicos del Gobierno del Estado de Yucatán durante la contingencia por COVID-19.',
+      'Participé en la gestión y puesta en operación del hospital temporal Siglo XXI en Yucatán durante la contingencia por COVID-19.',
+      'Coordiné asistencia técnica y capacitación en proyectos de campo en Yucatán (2019–2021) y Chiapas (2020–2021).',
+      'Realicé instalación, puesta en marcha, mantenimiento preventivo y correctivo y capacitación a usuarios de equipo especializado.',
+      'Participé en licitaciones: elaboración de fichas técnicas, propuestas técnicas y referenciado.',
+      'Di seguimiento a requerimientos e incidencias operativas y coordiné insumos y actividades entre equipos técnicos y operativos.',
+    ],
+    icon: 'mdi:account-hard-hat',
+  },
+];
 ---
 
 <section id="experiencia" class="section">
@@ -67,7 +82,7 @@ const experiences = [
       anchor="experiencia"
       title="Trayectoria"
       accent="profesional"
-      lead="Más de 3 años construyendo plataformas web, móviles y sistemas escalables enfocados en negocio."
+      lead="Más de 7 años entre ingeniería de campo, calidad y operaciones, automatización de procesos y desarrollo de software web y móvil."
     />
 
     {/* Riel de fechas a la izquierda, tarjeta a la derecha: el orden cronológico se lee de arriba abajo. */}
@@ -85,51 +100,35 @@ const experiences = [
           ></span>
 
           <div class="lg:text-right lg:pt-0.5">
-            <p class="font-mono text-sm text-accent">{exp.period}</p>
-            <p class="mt-1 font-semibold text-ink inline-flex items-center gap-2 lg:justify-end">
-              {exp.company}
+            <p class="flex flex-wrap items-center gap-2 lg:justify-end font-mono text-sm text-accent">
+              {exp.period}
               {exp.current && (
-                <span class="inline-flex items-center gap-1 rounded-full bg-ok/12 text-ok text-[0.7rem] font-bold px-2 py-0.5">
+                <span class="inline-flex items-center gap-1 rounded-full bg-ok/12 text-ok font-sans text-[0.7rem] font-bold px-2 py-0.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-ok"></span>
                   Actual
                 </span>
               )}
             </p>
+            <p class="mt-1 font-semibold text-ink">{exp.company}</p>
+            <p class="mt-0.5 text-sm text-muted">{exp.location}</p>
           </div>
 
           <article class="panel panel-hover p-6 md:p-8">
-            <div class="flex items-start justify-between gap-5 mb-6">
+            <div class="flex items-start justify-between gap-5 mb-5">
               <h3 class="text-xl md:text-2xl font-bold leading-tight">{exp.role}</h3>
               <span class="grid place-items-center w-12 h-12 rounded-xl bg-accent-soft text-accent shrink-0">
                 <Icon name={exp.icon} class="w-6 h-6" />
               </span>
             </div>
 
-            <div class="grid gap-6 md:grid-cols-2 md:gap-8">
-              <div>
-                <p class="eyebrow mb-3">responsabilidades</p>
-                <ul class="space-y-2.5">
-                  {exp.achievements.map((achievement) => (
-                    <li class="flex items-start gap-2.5 text-[0.95rem] text-ink/85 leading-relaxed">
-                      <span class="mt-[0.6rem] w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>
-                      <span>{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div class="rounded-xl bg-surface-2 border border-line p-5">
-                <p class="eyebrow mb-3">impacto</p>
-                <ul class="space-y-2.5">
-                  {exp.impact.map((item) => (
-                    <li class="flex items-start gap-2.5 text-[0.95rem] text-ink/85 leading-relaxed">
-                      <Icon name="mdi:check" class="w-4 h-4 mt-1 text-ok shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <ul class="space-y-2.5">
+              {exp.achievements.map((achievement) => (
+                <li class="flex items-start gap-2.5 text-[0.95rem] text-ink/85 leading-relaxed">
+                  <span class="mt-[0.6rem] w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>
+                  <span>{achievement}</span>
+                </li>
+              ))}
+            </ul>
           </article>
         </li>
       ))}

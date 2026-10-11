@@ -82,9 +82,9 @@
   },
   {
     "title": "Dashboard SpaceX - Amerisa Logistics",
-    "description": "Dashboard de seguimiento de lanzamientos espaciales con datos en tiempo real y visualizaciones interactivas.",
+    "description": "Dashboard React con datos de lanzamientos, filtros, mapa y exportación de reportes PDF (prueba técnica).",
     "technologies": ["React", "APIs REST", "Leaflet.js"],
-    "impact": ["Datos en tiempo real", "Visualizaciones interactivas", "Seguimiento de lanzamientos", "Prueba Técnica"],
+    "impact": ["Filtros de lanzamientos", "Mapa con Leaflet", "Exportación de reportes PDF", "Prueba Técnica"],
     "link": "https://amerisa-spacex-dashboard.vercel.app/",
     "category": "Frontend",
     "icon": "mdi:rocket-launch-outline"
@@ -109,18 +109,18 @@
   },
   {
     "title": "Dashboard Garmin Connect",
-    "description": "Dashboard para visualizar datos de Garmin Connect con gráficos interactivos y estadísticas detalladas.",
+    "description": "Integración y visualización de datos de actividad de Garmin y otras fuentes.",
     "technologies": ["React", "Chart.js", "APIs REST"],
-    "impact": ["Visualización de datos de Garmin Connect", "Gráficos interactivos", "Estadísticas detalladas"],
+    "impact": ["Integración de datos de Garmin y otras fuentes", "Gráficos interactivos", "Estadísticas detalladas"],
     "link": "https://dashboard-garmin-azure.vercel.app/",
     "category": "Full Stack",
     "icon": "mdi:watch"
   },
   {
     "title": "KYB Customs Platform",
-    "description": "Plataforma para la gestión de procesos de conocimiento del cliente (KYB) y cumplimiento de regulaciones aduaneras, con un panel de control completo.",
+    "description": "Demo para expedientes, revisión documental y scoring explicable de riesgo en comercio exterior.",
     "technologies": ["React", "Express", "PostgreSQL"],
-    "impact": ["Gestión de procesos KYB", "Cumplimiento de regulaciones aduaneras", "Panel de control"],
+    "impact": ["Expedientes y revisión documental", "Scoring explicable de riesgo", "Enfoque en comercio exterior"],
     "link": "https://kyb-customs-platform.vercel.app/",
     "category": "Full Stack",
     "icon": "mdi:account-box-multiple-outline"
@@ -151,5 +151,14 @@
     "link": "https://medular-ai.vercel.app/",
     "category": "HealthTech / AI",
     "icon": "mdi:hospital-box-outline"
+  },
+  {
+    "title": "Connect to Analytics",
+    "description": "Agent Skill de código abierto con CLI en Node.js para consultar datos de monitoreo industrial de EI Analytic: jerarquía, mediciones históricas, señales FFT/TWF e imágenes térmicas.",
+    "technologies": ["Node.js", "Agent Skills", "Astro"],
+    "impact": ["Consultas en lenguaje natural desde agentes de IA", "CLI sin dependencias", "Señales FFT/TWF e imágenes térmicas"],
+    "link": "https://connect-to-analytics-site.vercel.app/",
+    "category": "AI / Herramienta",
+    "icon": "mdi:pulse"
   }
 ]
