@@ -3,8 +3,7 @@ import { Icon } from 'astro-icon/components';
 
 const stats = [
   { value: '7+', label: 'años de experiencia' },
-  { value: '18+', label: 'proyectos entregados' },
-  { value: '99%', label: 'satisfacción' },
+  { value: '19+', label: 'proyectos entregados' },
 ];
 ---
 
@@ -50,7 +49,7 @@ const stats = [
         <a href="#proyectos" class="btn-secondary">Ver proyectos</a>
       </div>
 
-      <dl class="hero-in grid grid-cols-3 max-w-lg border-t border-line pt-6" style="--d:360ms">
+      <dl class="hero-in grid grid-cols-2 max-w-sm border-t border-line pt-6" style="--d:360ms">
         {stats.map((stat, i) => (
           <div class:list={['flex flex-col-reverse justify-end pr-3', i > 0 && 'pl-4 border-l border-line']}>
             <dt class="mt-1 text-xs md:text-sm text-muted leading-snug">{stat.label}</dt>
