@@ -3,6 +3,8 @@
 import { Icon } from "astro-icon/components";
 import SectionHeader from "./SectionHeader.astro";
 
+const en = Astro.currentLocale === 'en';
+
 const technologies = {
   frontend: [
     { name: 'React', icon: 'logos:react' },
@@ -31,7 +33,7 @@ const technologies = {
     { name: 'WordPress', icon: 'logos:wordpress-icon' },
     { name: 'Linux/Ubuntu', icon: 'logos:ubuntu' },
     { name: 'API Integration', icon: 'mdi:api' },
-    { name: 'Automatización', icon: 'mdi:robot-outline' },
+    { name: en ? 'Automation' : 'Automatización', icon: 'mdi:robot-outline' },
     { name: 'Git/GitHub', icon: 'logos:github-icon' },
     { name: 'Docker', icon: 'logos:docker-icon' },
   ],
@@ -40,8 +42,8 @@ const technologies = {
 const groups = [
   { title: 'Frontend', icon: 'mdi:monitor-dashboard', items: technologies.frontend },
   { title: 'Backend', icon: 'mdi:server-outline', items: technologies.backend },
-  { title: 'Datos', icon: 'mdi:database-outline', items: technologies.database },
-  { title: 'Herramientas', icon: 'mdi:tools', items: technologies.tools },
+  { title: en ? 'Data' : 'Datos', icon: 'mdi:database-outline', items: technologies.database },
+  { title: en ? 'Tools' : 'Herramientas', icon: 'mdi:tools', items: technologies.tools },
 ];
 ---
 
@@ -49,9 +51,11 @@ const groups = [
   <div class="container-custom">
     <SectionHeader
       anchor="stack"
-      title="Stack"
-      accent="tecnológico"
-      lead="Tecnologías y herramientas que utilizo para construir productos digitales rápidos, escalables y enfocados en negocio."
+      title={en ? 'Tech' : 'Stack'}
+      accent={en ? 'stack' : 'tecnológico'}
+      lead={en
+        ? 'Technologies and tools I use to build fast, scalable, business-focused digital products.'
+        : 'Tecnologías y herramientas que utilizo para construir productos digitales rápidos, escalables y enfocados en negocio.'}
     />
 
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5">

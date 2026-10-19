@@ -13,9 +13,28 @@ interface Props {
   showChrome?: boolean;
 }
 
+const en = Astro.currentLocale === 'en';
+const t = en
+  ? {
+      htmlLang: 'en',
+      ogLocale: 'en_US',
+      siteName: 'Luis Enrique Góngora Ek Portfolio',
+      imageAlt: 'Professional portfolio of',
+      description:
+        'Professional portfolio of Luis Enrique Góngora Ek, Software Engineer and Full Stack Developer specialized in web and mobile development, APIs and process automation.',
+    }
+  : {
+      htmlLang: 'es-MX',
+      ogLocale: 'es_MX',
+      siteName: 'Portafolio de Luis Enrique Góngora Ek',
+      imageAlt: 'Portafolio profesional de',
+      description:
+        'Portafolio profesional de Luis Enrique Góngora Ek, Software Engineer y Full Stack Developer especializado en desarrollo web, mobile, APIs y automatización de procesos.',
+    };
+
 const {
   title = 'Luis Enrique Góngora Ek | Software Engineer & Full Stack Developer',
-  description = 'Portafolio profesional de Luis Enrique Góngora Ek, Software Engineer y Full Stack Developer especializado en desarrollo web, mobile, APIs y automatización de procesos.',
+  description = t.description,
   image = '/android-chrome-512x512.png',
   canonical,
   noindex = false,
@@ -24,6 +43,7 @@ const {
 
 const site = Astro.site ?? new URL('https://legongoraek.me');
 const canonicalURL = canonical ? new URL(canonical, site) : new URL(Astro.url.pathname, site);
+const altURLs = { es: new URL('/', site).href, en: new URL('/en/', site).href };
 const imageURL = new URL(image, site);
 const personId = new URL('/#person', site).href;
 const websiteId = new URL('/#website', site).href;
@@ -61,9 +81,9 @@ const structuredData = {
       '@type': 'WebSite',
       '@id': websiteId,
       url: new URL('/', site).href,
-      name: 'Portafolio de Luis Enrique Góngora Ek',
+      name: t.siteName,
       description,
-      inLanguage: 'es-MX',
+      inLanguage: t.htmlLang,
       publisher: { '@id': personId },
     },
     {
@@ -72,7 +92,7 @@ const structuredData = {
       url: canonicalURL.href,
       name: title,
       description,
-      inLanguage: 'es-MX',
+      inLanguage: t.htmlLang,
       isPartOf: { '@id': websiteId },
       mainEntity: { '@id': personId },
     },
@@ -81,7 +101,7 @@ const structuredData = {
 ---
 
 <!DOCTYPE html>
-<html lang="es-MX" class="no-js">
+<html lang={t.htmlLang} class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -98,6 +118,9 @@ const structuredData = {
       content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}
     />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="es" href={altURLs.es} />
+    <link rel="alternate" hreflang="en" href={altURLs.en} />
+    <link rel="alternate" hreflang="x-default" href={altURLs.es} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -105,16 +128,17 @@ const structuredData = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={imageURL} />
-    <meta property="og:image:alt" content={`Portafolio profesional de ${title.split('|')[0].trim()}`} />
-    <meta property="og:site_name" content="Portafolio de Luis Enrique Góngora Ek" />
-    <meta property="og:locale" content="es_MX" />
+    <meta property="og:image:alt" content={`${t.imageAlt} ${title.split('|')[0].trim()}`} />
+    <meta property="og:site_name" content={t.siteName} />
+    <meta property="og:locale" content={t.ogLocale} />
+    <meta property="og:locale:alternate" content={en ? 'es_MX' : 'en_US'} />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageURL} />
-    <meta name="twitter:image:alt" content="Portafolio profesional de Luis Enrique Góngora Ek" />
+    <meta name="twitter:image:alt" content={`${t.imageAlt} Luis Enrique Góngora Ek`} />
 
     <!-- Structured data for search engines and generative engines -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

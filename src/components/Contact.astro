@@ -2,6 +2,25 @@
 import { Icon } from 'astro-icon/components';
 import SectionHeader from './SectionHeader.astro';
 
+const en = Astro.currentLocale === 'en';
+const t = en
+  ? {
+      title: "Let's work",
+      accent: 'together?',
+      lead: 'I build web and mobile solutions focused on performance, scalability and digital growth.',
+      ctaTitle: 'Tell me about your project',
+      ctaBody: "From web platforms to mobile apps and process automation. I'm ready to help you build something great.",
+      email: 'Send email',
+    }
+  : {
+      title: '¿Trabajamos',
+      accent: 'juntos?',
+      lead: 'Desarrollo soluciones web y móviles enfocadas en rendimiento, escalabilidad y crecimiento digital.',
+      ctaTitle: 'Cuéntame sobre tu proyecto',
+      ctaBody: 'Desde plataformas web hasta aplicaciones móviles y automatización de procesos. Estoy listo para ayudarte a construir algo increíble.',
+      email: 'Enviar email',
+    };
+
 const contactInfo = [
   {
     title: 'Email',
@@ -37,10 +56,10 @@ const contactInfo = [
 <section id="contacto" class="section">
   <div class="container-custom">
     <SectionHeader
-      anchor="contacto"
-      title="¿Trabajamos"
-      accent="juntos?"
-      lead="Desarrollo soluciones web y móviles enfocadas en rendimiento, escalabilidad y crecimiento digital."
+      anchor={en ? 'contact' : 'contacto'}
+      title={t.title}
+      accent={t.accent}
+      lead={t.lead}
     />
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-6">
@@ -77,18 +96,17 @@ const contactInfo = [
       <div class="relative grid gap-8 lg:grid-cols-[1.3fr_auto] lg:items-end">
         <div>
           <h3 class="text-on-accent text-3xl md:text-5xl font-bold leading-[1.05] mb-4">
-            Cuéntame sobre tu proyecto
+            {t.ctaTitle}
           </h3>
           <p class="text-base md:text-lg opacity-85 max-w-2xl leading-relaxed">
-            Desde plataformas web hasta aplicaciones móviles y automatización de procesos.
-            Estoy listo para ayudarte a construir algo increíble.
+            {t.ctaBody}
           </p>
         </div>
 
         <div class="flex flex-col sm:flex-row gap-3">
           <a href="mailto:legongoraek@yahoo.com" class="cta-solid">
             <Icon name="mdi:email-fast-outline" class="w-5 h-5" />
-            Enviar email
+            {t.email}
             <Icon name="mdi:arrow-right" class="btn-arrow w-4 h-4" />
           </a>
           <a href="https://wa.me/529994231687" target="_blank" rel="noopener noreferrer" class="cta-ghost">

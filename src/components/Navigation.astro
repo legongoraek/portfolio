@@ -1,23 +1,34 @@
 ---
 import { Icon } from 'astro-icon/components';
 
+const en = Astro.currentLocale === 'en';
+const t = en
+  ? { nav: 'Main', home: 'Luis Enrique Góngora Ek, go to top', theme: 'Toggle light or dark theme', openMenu: 'Open menu', closeMenu: 'Close menu', langs: 'Language' }
+  : { nav: 'Principal', home: 'Luis Enrique Góngora Ek, ir al inicio', theme: 'Cambiar tema claro u oscuro', openMenu: 'Abrir menú', closeMenu: 'Cerrar menú', langs: 'Idioma' };
+
 const navItems = [
-  { label: 'Sobre mí', href: '#sobre-mi' },
+  { label: en ? 'About' : 'Sobre mí', href: '#sobre-mi' },
   { label: 'Stack', href: '#stack' },
-  { label: 'Proyectos', href: '#proyectos' },
-  { label: 'Experiencia', href: '#experiencia' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: en ? 'Projects' : 'Proyectos', href: '#proyectos' },
+  { label: en ? 'Experience' : 'Experiencia', href: '#experiencia' },
+  { label: en ? 'Contact' : 'Contacto', href: '#contacto' },
 ];
+
+const languages = [
+  { code: 'es', label: 'ES', name: 'Español', href: '/' },
+  { code: 'en', label: 'EN', name: 'English', href: '/en/' },
+];
+const currentLang = en ? 'en' : 'es';
 ---
 
-<nav class="fixed top-3 md:top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-6xl" aria-label="Principal">
+<nav class="fixed top-3 md:top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-6xl" aria-label={t.nav}>
   <div
     id="nav-panel"
     class="rounded-2xl border border-line bg-surface/85 backdrop-blur-xl shadow-[var(--shadow)] transition-shadow duration-300"
   >
     <div class="px-4 lg:px-6">
       <div class="flex items-center justify-between h-16">
-        <a href="#sobre-mi" class="flex items-center gap-3 shrink-0" aria-label="Luis Enrique Góngora Ek, ir al inicio">
+        <a href="#sobre-mi" class="flex items-center gap-3 shrink-0" aria-label={t.home}>
           <span class="grid place-items-center w-9 h-9 rounded-xl bg-accent text-on-accent font-display font-bold text-sm tracking-tight">
             LE
           </span>
@@ -40,11 +51,27 @@ const navItems = [
         </div>
 
         <div class="flex items-center gap-2">
+          <div class="flex items-center h-10 p-1 rounded-xl border border-line" role="group" aria-label={t.langs}>
+            {languages.map((lang) => (
+              <a
+                href={lang.href}
+                hreflang={lang.code}
+                lang={lang.code}
+                data-lang-link
+                aria-label={lang.name}
+                aria-current={lang.code === currentLang ? 'page' : undefined}
+                class="grid place-items-center h-full px-2.5 rounded-lg font-mono text-xs font-bold text-muted hover:text-ink transition-colors aria-[current=page]:bg-accent-soft aria-[current=page]:text-accent"
+              >
+                {lang.label}
+              </a>
+            ))}
+          </div>
+
           <button
             id="theme-toggle"
             type="button"
             class="grid place-items-center w-10 h-10 rounded-xl border border-line text-muted hover:text-ink hover:border-accent transition-colors cursor-pointer"
-            aria-label="Cambiar tema claro u oscuro"
+            aria-label={t.theme}
           >
             <Icon name="mdi:weather-night" class="w-5 h-5 dark:hidden" />
             <Icon name="mdi:white-balance-sunny" class="w-5 h-5 hidden dark:block" />
@@ -54,7 +81,9 @@ const navItems = [
             id="mobile-menu-btn"
             type="button"
             class="md:hidden grid place-items-center w-10 h-10 rounded-xl border border-line text-ink cursor-pointer"
-            aria-label="Abrir menú"
+            aria-label={t.openMenu}
+            data-open-label={t.openMenu}
+            data-close-label={t.closeMenu}
             aria-expanded="false"
             aria-controls="mobile-menu"
           >
@@ -85,11 +114,18 @@ const navItems = [
   function setMenuOpen(open: boolean) {
     menu?.classList.toggle('hidden', !open);
     menuBtn?.setAttribute('aria-expanded', String(open));
-    menuBtn?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    menuBtn?.setAttribute('aria-label', (open ? menuBtn.dataset.closeLabel : menuBtn.dataset.openLabel) ?? '');
   }
 
   menuBtn?.addEventListener('click', () => setMenuOpen(menu?.classList.contains('hidden') ?? false));
   menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+
+  // Al cambiar de idioma conserva la sección en la que estaba el visitante.
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-link]').forEach((link) =>
+    link.addEventListener('click', () => {
+      link.hash = location.hash;
+    })
+  );
 
   // Marca el enlace de la sección que ocupa el centro de la pantalla.
   const links = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');

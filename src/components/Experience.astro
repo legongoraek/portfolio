@@ -8,6 +8,7 @@ const experiences = [
   {
     role: 'Software Engineer · IA e integración de servicios',
     company: 'Camtom',
+    en: {"role": "Software Engineer · AI and service integration", "period": "July 2026 – Present", "achievements": ["I build features and automate operational workflows with rules and integrations between services, adding AI where it fits the use case.", "I integrate and validate authentication and identity verification flows with Veriff and Didit, as well as Camtom ecosystem services.", "I take part in testing, documentation, version control and releases with GitHub, CI/CD, Docker and Vercel."]},
     period: 'Julio 2026 – Actualidad',
     location: 'Mérida, Yucatán',
     current: true,
@@ -21,6 +22,7 @@ const experiences = [
   {
     role: 'Desarrollador full stack y líder técnico',
     company: 'FidelyT · Independiente',
+    en: {"role": "Full stack developer and tech lead", "company": "FidelyT · Freelance", "period": "July 2025 – Present", "location": "Remote", "achievements": ["Built and coordinated a web and mobile loyalty platform, automating operational workflows from requirements analysis to launch.", "Integrated backend, databases and web and mobile apps with Django, PostgreSQL, React, React Native and Expo.", "Managed infrastructure and deployments on AWS EC2/RDS and tracked availability, incidents and improvements."]},
     period: 'Julio 2025 – Actualidad',
     location: 'Remoto',
     current: true,
@@ -34,6 +36,7 @@ const experiences = [
   {
     role: 'Full Stack Developer · Soluciones internas',
     company: 'Erbessd Instruments',
+    en: {"role": "Full Stack Developer · Internal solutions", "period": "October 2022 – January 2026", "achievements": ["Built solutions that automate and support internal processes in an ISO 9001 certified organization.", "Built custom reporting modules for operational tracking and decision-making.", "Integrated applications, services and data for web, desktop and mobile; worked with several teams on testing, releases and maintenance."]},
     period: 'Octubre 2022 – Enero 2026',
     location: 'Mérida, Yucatán',
     current: false,
@@ -47,6 +50,7 @@ const experiences = [
   {
     role: 'Desarrollador web e integraciones',
     company: 'Independiente',
+    en: {"role": "Web and integrations developer", "company": "Freelance", "period": "2021 – December 2025", "achievements": ["Automated customer service, lead tracking and inventory workflows through business rules and platform integrations.", "Built synchronization middleware with Node.js and Linux to reduce duplicate data entry and keep information consistent across services."]},
     period: '2021 – Diciembre 2025',
     location: 'Mérida, Yucatán',
     current: false,
@@ -58,6 +62,7 @@ const experiences = [
   },
   {
     role: 'Field Engineer',
+    en: {"period": "December 2018 – January 2022", "achievements": ["Implemented and maintained the ISO 9001:2015 Quality Management System through documentation, standardization and process control.", "Coordinated installation, training and maintenance of 110 critical devices in Yucatán State public hospitals during the COVID-19 emergency.", "Took part in managing and commissioning the Siglo XXI temporary hospital in Yucatán during the COVID-19 emergency.", "Coordinated technical support and training on field projects in Yucatán (2019–2021) and Chiapas (2020–2021).", "Performed installation, commissioning, preventive and corrective maintenance and user training for specialized equipment.", "Took part in public tenders: technical datasheets, technical proposals and references.", "Tracked operational requirements and incidents and coordinated supplies and activities between technical and operations teams."]},
     company: 'Corporativo Marcha, S.A. de C.V.',
     period: 'Diciembre 2018 – Enero 2022',
     location: 'Mérida, Yucatán',
@@ -75,6 +80,7 @@ const experiences = [
   },
   {
     role: 'Ingeniero de prácticas',
+    en: {"role": "Engineering intern", "period": "June 2018 – December 2018", "achievements": ["Installation and preventive and corrective maintenance of specialized equipment.", "Supported technology and operations projects, and the rollout of tools for information control and points of sale."]},
     company: 'Corporativo Marcha, S.A. de C.V.',
     period: 'Junio 2018 – Diciembre 2018',
     location: 'Mérida, Yucatán',
@@ -87,6 +93,7 @@ const experiences = [
   },
   {
     role: 'Ingeniero clínico · Servicio social',
+    en: {"role": "Clinical engineer · Social service", "period": "January 2018 – July 2018", "achievements": ["Supported installation, commissioning and preventive and corrective maintenance of specialized equipment, documenting activities and incidents."]},
     company: 'ISSSTE, Hospital Regional de Mérida',
     period: 'Enero 2018 – Julio 2018',
     location: 'Mérida, Yucatán',
@@ -97,20 +104,26 @@ const experiences = [
     icon: 'mdi:hospital-building',
   },
 ];
+
+// En /en/ cada puesto sustituye sus textos por los de `en`.
+const isEn = Astro.currentLocale === 'en';
+const items = experiences.map((exp) => (isEn ? { ...exp, ...exp.en } : exp));
 ---
 
 <section id="experiencia" class="section">
   <div class="container-custom">
     <SectionHeader
-      anchor="experiencia"
-      title="Trayectoria"
-      accent="profesional"
-      lead="Más de 7 años entre ingeniería de campo, calidad y operaciones, automatización de procesos y desarrollo de software web y móvil."
+      anchor={isEn ? 'experience' : 'experiencia'}
+      title={isEn ? 'Professional' : 'Trayectoria'}
+      accent={isEn ? 'experience' : 'profesional'}
+      lead={isEn
+        ? 'Over 7 years across field engineering, quality and operations, process automation and web and mobile software development.'
+        : 'Más de 7 años entre ingeniería de campo, calidad y operaciones, automatización de procesos y desarrollo de software web y móvil.'}
     />
 
     {/* Riel de fechas a la izquierda, tarjeta a la derecha: el orden cronológico se lee de arriba abajo. */}
     <ol class="relative space-y-6 md:space-y-8">
-      {experiences.map((exp, index) => (
+      {items.map((exp, index) => (
         <li class="reveal group relative grid gap-4 lg:grid-cols-[14rem_1fr] lg:gap-12 pl-8 lg:pl-0" style={`--reveal-delay:${index * 90}ms`}>
           {/* Línea y punto: en móvil a la izquierda, en desktop entre riel y tarjeta. */}
           <span class="absolute left-[7px] lg:left-[calc(14rem+1.5rem)] top-3 bottom-[-2rem] w-px bg-line group-last:hidden" aria-hidden="true"></span>
@@ -128,7 +141,7 @@ const experiences = [
               {exp.current && (
                 <span class="inline-flex items-center gap-1 rounded-full bg-ok/12 text-ok font-sans text-[0.7rem] font-bold px-2 py-0.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-ok"></span>
-                  Actual
+                  {isEn ? 'Current' : 'Actual'}
                 </span>
               )}
             </p>

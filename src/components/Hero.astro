@@ -1,9 +1,32 @@
 ---
 import { Icon } from 'astro-icon/components';
 
+const t = {
+  es: {
+    eyebrow: 'Full Stack Developer · Web, mobile y automatización',
+    lead: 'Construyo experiencias web y mobile modernas, escalables y enfocadas en negocio.',
+    body: 'Especializado en Django, React, React Native y arquitecturas modernas. Desarrollo productos digitales optimizados para rendimiento, escalabilidad y crecimiento.',
+    contact: 'Contacta conmigo',
+    projects: 'Ver proyectos',
+    years: 'años de experiencia',
+    delivered: 'proyectos entregados',
+    avatarAlt: 'Ilustración de Luis Enrique Góngora Ek',
+  },
+  en: {
+    eyebrow: 'Full Stack Developer · Web, mobile and automation',
+    lead: 'I build modern, scalable, business-focused web and mobile experiences.',
+    body: 'Specialized in Django, React, React Native and modern architectures. I build digital products optimized for performance, scalability and growth.',
+    contact: 'Get in touch',
+    projects: 'View projects',
+    years: 'years of experience',
+    delivered: 'projects delivered',
+    avatarAlt: 'Illustration of Luis Enrique Góngora Ek',
+  },
+}[Astro.currentLocale === 'en' ? 'en' : 'es'];
+
 const stats = [
-  { value: '7+', label: 'años de experiencia' },
-  { value: '19+', label: 'proyectos entregados' },
+  { value: '7+', label: t.years },
+  { value: '19+', label: t.delivered },
 ];
 ---
 
@@ -17,7 +40,7 @@ const stats = [
 
   <div class="container-custom grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-14 lg:gap-16 items-center">
     <div>
-      <p class="hero-in eyebrow mb-4">Full Stack Developer · Web, mobile y automatización</p>
+      <p class="hero-in eyebrow mb-4">{t.eyebrow}</p>
 
       <h1 class="hero-in text-[2.9rem] sm:text-6xl lg:text-7xl font-bold leading-[0.98] tracking-[-0.035em] mb-7" style="--d:140ms">
         Luis Enrique
@@ -25,20 +48,19 @@ const stats = [
       </h1>
 
       <p class="hero-in text-lg md:text-xl text-ink/85 leading-relaxed max-w-xl mb-4" style="--d:200ms">
-        Construyo experiencias web y mobile modernas, escalables y enfocadas en negocio.
+        {t.lead}
       </p>
 
       <p class="hero-in text-muted leading-relaxed max-w-xl mb-9" style="--d:240ms">
-        Especializado en Django, React, React Native y arquitecturas modernas. Desarrollo productos
-        digitales optimizados para rendimiento, escalabilidad y crecimiento.
+        {t.body}
       </p>
 
       <div class="hero-in flex flex-col sm:flex-row gap-3 mb-12" style="--d:300ms">
         <a href="#contacto" class="btn-primary">
-          Contacta conmigo
+          {t.contact}
           <Icon name="mdi:arrow-right" class="btn-arrow w-4 h-4" />
         </a>
-        <a href="#proyectos" class="btn-secondary">Ver proyectos</a>
+        <a href="#proyectos" class="btn-secondary">{t.projects}</a>
       </div>
 
       <dl class="hero-in grid grid-cols-2 max-w-sm border-t border-line pt-6" style="--d:360ms">
@@ -61,7 +83,7 @@ const stats = [
           decoding="async"
           width="400"
           height="400"
-          alt="Ilustración de Luis Enrique Góngora Ek"
+          alt={t.avatarAlt}
           class="relative w-full aspect-square rounded-[2rem] border border-line object-cover bg-surface"
         />
       </div>

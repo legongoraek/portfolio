@@ -2,26 +2,31 @@
 import { Icon } from 'astro-icon/components';
 import versionData from '../../version.json';
 
+const en = Astro.currentLocale === 'en';
+const t = en
+  ? { tagline: 'Full Stack Developer specialized in web, mobile and process automation.', links: 'links', connect: 'connect with me', rights: 'All rights reserved.', nav: 'Footer links' }
+  : { tagline: 'Full Stack Developer especializado en web, mobile y automatización de procesos.', links: 'enlaces', connect: 'conecta conmigo', rights: '{t.rights}', nav: 'Enlaces del pie' };
+
 const currentYear = new Date().getFullYear();
 const version = versionData.version;
-const releaseDate = new Date(versionData.releaseDate).toLocaleDateString('es-ES', {
+const releaseDate = new Date(versionData.releaseDate).toLocaleDateString(en ? 'en-US' : 'es-ES', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
 
 const links = [
-  { label: 'Sobre mí', href: '#sobre-mi' },
-  { label: 'Proyectos', href: '#proyectos' },
-  { label: 'Experiencia', href: '#experiencia' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: en ? 'About' : 'Sobre mí', href: '#sobre-mi' },
+  { label: en ? 'Projects' : 'Proyectos', href: '#proyectos' },
+  { label: en ? 'Experience' : 'Experiencia', href: '#experiencia' },
+  { label: en ? 'Contact' : 'Contacto', href: '#contacto' },
 ];
 
 const socials = [
   { label: 'GitHub', href: 'https://github.com/legongoraek', icon: 'mdi:github' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/luisenriquegongoraek', icon: 'mdi:linkedin' },
   { label: 'WhatsApp', href: 'https://wa.me/529994231687', icon: 'mdi:whatsapp' },
-  { label: 'Portafolio', href: 'https://legongoraek.github.io', icon: 'mdi:link-variant' },
+  { label: en ? 'Portfolio' : 'Portafolio', href: 'https://legongoraek.github.io', icon: 'mdi:link-variant' },
 ];
 ---
 
@@ -31,12 +36,12 @@ const socials = [
       <div>
         <p class="font-display text-lg font-bold text-ink mb-3">Luis Enrique Góngora Ek</p>
         <p class="text-sm text-muted leading-relaxed max-w-sm">
-          Full Stack Developer especializado en web, mobile y automatización de procesos.
+          {t.tagline}
         </p>
       </div>
 
-      <nav aria-label="Enlaces del pie">
-        <p class="eyebrow mb-4">enlaces</p>
+      <nav aria-label={t.nav}>
+        <p class="eyebrow mb-4">{t.links}</p>
         <ul class="space-y-2 text-sm">
           {links.map((link) => (
             <li>
@@ -47,7 +52,7 @@ const socials = [
       </nav>
 
       <div>
-        <p class="eyebrow mb-4">conecta conmigo</p>
+        <p class="eyebrow mb-4">{t.connect}</p>
         <div class="flex gap-2">
           {socials.map((social) => (
             <a
@@ -65,7 +70,7 @@ const socials = [
     </div>
 
     <div class="mt-12 pt-6 border-t border-line flex flex-col md:flex-row gap-2 justify-between text-center md:text-left">
-      <p class="text-sm text-muted">&copy; {currentYear} Luis Enrique Góngora Ek. Todos los derechos reservados.</p>
+      <p class="text-sm text-muted">&copy; {currentYear} Luis Enrique Góngora Ek. {t.rights}</p>
       <p class="font-mono text-xs text-muted">v{version} · deploy {releaseDate}</p>
     </div>
   </div>

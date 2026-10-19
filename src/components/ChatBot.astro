@@ -2,6 +2,19 @@
 // Widget de chat flotante del servicio compartido portfolio-assistant
 // (https://github.com/legongoraek/portfolio-assistant). Opciones data-*:
 // ver el README de ese repo.
+const t = Astro.currentLocale === 'en'
+  ? {
+      title: 'Ask me about my work',
+      subtitle: 'AI-generated answers about my experience and projects',
+      greeting: "Hi 👋 I'm this portfolio's assistant. Ask me about Luis Enrique's experience, projects or tech stack.",
+      placeholder: 'E.g.: What experience does he have with Django?',
+    }
+  : {
+      title: 'Pregúntame sobre mi trabajo',
+      subtitle: 'Respuestas generadas con IA sobre mi experiencia y proyectos',
+      greeting: 'Hola 👋 Soy el asistente de este portafolio. Pregúntame sobre la experiencia, proyectos o stack técnico de Luis Enrique.',
+      placeholder: 'Ej: ¿Qué experiencia tiene con Django?',
+    };
 ---
 
 <script
@@ -10,8 +23,8 @@
   defer
   data-color="#3156d3"
   data-theme="auto"
-  data-title="Pregúntame sobre mi trabajo"
-  data-subtitle="Respuestas generadas con IA sobre mi experiencia y proyectos"
-  data-greeting="Hola 👋 Soy el asistente de este portafolio. Pregúntame sobre la experiencia, proyectos o stack técnico de Luis Enrique."
-  data-placeholder="Ej: ¿Qué experiencia tiene con Django?"
+  data-title={t.title}
+  data-subtitle={t.subtitle}
+  data-greeting={t.greeting}
+  data-placeholder={t.placeholder}
 ></script>
