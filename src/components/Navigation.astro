@@ -120,10 +120,13 @@ const currentLang = en ? 'en' : 'es';
   menuBtn?.addEventListener('click', () => setMenuOpen(menu?.classList.contains('hidden') ?? false));
   menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
 
-  // Al cambiar de idioma conserva la sección en la que estaba el visitante.
+  // Al cambiar de idioma conserva la sección y recuerda la elección (la lee Layout.astro).
   document.querySelectorAll<HTMLAnchorElement>('[data-lang-link]').forEach((link) =>
     link.addEventListener('click', () => {
       link.hash = location.hash;
+      try {
+        localStorage.setItem('lang', link.hreflang);
+      } catch {}
     })
   );
 

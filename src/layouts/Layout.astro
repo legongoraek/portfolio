@@ -168,6 +168,21 @@ const structuredData = {
 
     <link rel="manifest" href="/site.webmanifest" />
 
+    {/* Solo en la raíz: manda a /en/ a quien eligió inglés, o en su primera visita si su
+        navegador no pide español. Los bots se quedan, para que indexen las dos versiones. */}
+    {!en && (
+      <script is:inline>
+        (function () {
+          var saved = null;
+          try { saved = localStorage.getItem('lang'); } catch (e) {}
+          var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+          var wantsSpanish = langs.some(function (l) { return /^es\b/i.test(l); });
+          var bot = /bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent);
+          if (saved === 'en' || (!saved && !bot && !wantsSpanish)) location.replace('/en/' + location.hash);
+        })();
+      </script>
+    )}
+
     <!-- Tema antes del primer pintado para evitar parpadeo: guardado o el del sistema. -->
     <script is:inline>
       (function () {
