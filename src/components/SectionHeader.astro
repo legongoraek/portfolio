@@ -14,7 +14,7 @@ const { anchor, title, accent, lead } = Astro.props;
     <p class="eyebrow mb-4">#{anchor}</p>
     <h2 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.05]">
       {title}
-      {accent && <span class="text-accent">{accent}</span>}
+      {accent && <span class="text-accent"> {accent}</span>}
     </h2>
   </div>
   {lead && <p class="text-base md:text-lg text-muted leading-relaxed max-w-xl lg:justify-self-end">{lead}</p>}
