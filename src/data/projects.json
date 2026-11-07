@@ -169,5 +169,14 @@
     "link": "https://whats-bot-sepia.vercel.app/",
     "category": "Full Stack",
     "icon": "mdi:whatsapp"
+  },
+  {
+    "title": "Moments",
+    "description": "Plataforma web para crear y compartir invitaciones digitales para bodas, XV años y eventos, con detalles de la celebración y confirmación de asistencia.",
+    "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Neon"],
+    "impact": ["Plantillas digitales para distintos eventos", "Enlaces personales para RSVP", "Panel para gestionar eventos e invitados"],
+    "link": "https://moments-bay-omega.vercel.app/",
+    "category": "Full Stack",
+    "icon": "mdi:calendar-heart"
   }
 ]
