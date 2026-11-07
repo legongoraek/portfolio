@@ -184,6 +184,7 @@
     "description": "Plataforma de monitoreo de licitaciones públicas que recopila anuncios vigentes de ComprasMX, los clasifica por sector y presenta los resultados en un catálogo web.",
     "technologies": ["Next.js", "TypeScript", "Playwright", "PostgreSQL", "Prisma", "Supabase"],
     "impact": ["Captura programada de convocatorias y documentos", "Clasificación por vertical y enriquecimiento documental", "Alertas de cambios y catálogo web consultable"],
+    "repository": "https://github.com/legongoraek/licitabot",
     "category": "Full Stack",
     "icon": "mdi:file-search-outline"
   },
@@ -192,6 +193,8 @@
     "description": "Mapa de beneficios universitarios para descubrir convenios vigentes por ubicación, categoría y público, con herramientas para administrar establecimientos y beneficios.",
     "technologies": ["Next.js", "TypeScript", "Neon PostgreSQL", "Neon Auth", "Google Maps Platform"],
     "impact": ["Mapa público con búsqueda y filtros", "Gestión de beneficios, vigencias e historial de cambios", "Reportes públicos y administración de usuarios por rol"],
+    "link": "https://mapuniversity.vercel.app/",
+    "repository": "https://github.com/legongoraek/mapuniversity",
     "category": "Full Stack",
     "icon": "mdi:map-marker-multiple"
   }

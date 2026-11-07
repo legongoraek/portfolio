@@ -209,6 +209,7 @@ const projects = [
     description: "Plataforma de monitoreo de licitaciones públicas que recopila anuncios vigentes de ComprasMX, los clasifica por sector y presenta los resultados en un catálogo web.",
     technologies: ["Next.js", "TypeScript", "Playwright", "PostgreSQL", "Prisma", "Supabase"],
     impact: ["Captura programada de convocatorias y documentos", "Clasificación por vertical y enriquecimiento documental", "Alertas de cambios y catálogo web consultable"],
+    repository: "https://github.com/legongoraek/licitabot",
     en: {"description": "Public procurement monitoring platform that collects active ComprasMX notices, classifies them by sector and presents the results in a searchable web catalog.", "impact": ["Scheduled collection of procurement notices and documents", "Sector classification and document enrichment", "Change alerts and searchable web catalog"]},
     category: "Full Stack",
     icon: "mdi:file-search-outline"
@@ -218,6 +219,8 @@ const projects = [
     description: "Mapa de beneficios universitarios para descubrir convenios vigentes por ubicación, categoría y público, con herramientas para administrar establecimientos y beneficios.",
     technologies: ["Next.js", "TypeScript", "Neon PostgreSQL", "Neon Auth", "Google Maps Platform"],
     impact: ["Mapa público con búsqueda y filtros", "Gestión de beneficios, vigencias e historial de cambios", "Reportes públicos y administración de usuarios por rol"],
+    link: "https://mapuniversity.vercel.app/",
+    repository: "https://github.com/legongoraek/mapuniversity",
     en: {"description": "University benefits map for discovering active partnerships by location, category and audience, with tools to manage venues and benefits.", "impact": ["Public map with search and filters", "Benefit, validity and change history management", "Public reports and role-based user administration"]},
     category: "Full Stack",
     icon: "mdi:map-marker-multiple"
@@ -296,6 +299,18 @@ const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, '');
               </span>
             </a>
           )}
+          {'repository' in project && project.repository && (
+            <a
+              href={project.repository}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="repository-link mt-3 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-accent underline underline-offset-4"
+              aria-label={`${isEn ? 'Repository for' : 'Repositorio de'} ${project.title} ${isEn ? '(may require access)' : '(puede requerir acceso)'}`}
+            >
+              {isEn ? 'GitHub · restricted access' : 'GitHub · acceso restringido'}
+              <Icon name="mdi:arrow-top-right" class="w-4 h-4" />
+            </a>
+          )}
         </article>
       ))}
     </div>
@@ -309,5 +324,10 @@ const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, '');
     position: absolute;
     inset: 0;
     border-radius: inherit;
+  }
+
+  .repository-link {
+    position: relative;
+    z-index: 1;
   }
 </style>
