@@ -14,7 +14,7 @@ const entries = (source, listName) => {
 // `en: {...}` va en una sola línea y en JSON (ver Projects.astro / Experience.astro).
 const enOf = (block) => {
   const line = block.split('\n').find((l) => l.startsWith('    en: {'));
-  return line && JSON.parse(line.slice('    en: '.length).replace(/,$/, ''));
+  return line && JSON.parse(line.slice('    en: '.length).trimEnd().replace(/,$/, ''));
 };
 
 test('every project has its English text', () => {
@@ -28,6 +28,15 @@ test('every project has its English text', () => {
     const impact = JSON.parse(block.match(/impact: (\[.*\])/)[1]);
     assert.equal(en.impact?.length, impact.length, `en.impact length differs for project: ${title}`);
   }
+});
+
+test('FindMyJob links to its demo and private repository', () => {
+  const blocks = entries(read('Projects.astro'), 'projects');
+  const project = blocks.find((block) => block.includes('title: "FindMyJob"'));
+
+  assert.ok(project, 'FindMyJob should be listed in the portfolio');
+  assert.match(project, /link: "https:\/\/find-my-job-delta\.vercel\.app"/);
+  assert.match(project, /repository: "https:\/\/github\.com\/legongoraek\/FindMyJob"/);
 });
 
 test('every experience entry has its English text', () => {
