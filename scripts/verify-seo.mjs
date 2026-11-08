@@ -20,6 +20,7 @@ assert.doesNotMatch(layout, /luisenriquegongoraek\.com/);
 assert.match(layout, /#person/);
 assert.match(layout, /ProfilePage/);
 assert.match(layout, /WebSite/);
+assert.match(layout, /knowsLanguage/);
 
 for (const path of ['public/robots.txt', 'public/sitemap.xml', 'public/llms.txt']) {
   assert.ok(existsSync(new URL(path, rootUrl)), `${path} must exist`);
@@ -29,5 +30,11 @@ assert.match(read('public/robots.txt'), /Sitemap:\s*https:\/\/legongoraek\.me\/s
 assert.match(read('public/sitemap.xml'), /<loc>https:\/\/legongoraek\.me\/<\/loc>/);
 assert.match(read('public/llms.txt'), /Luis Enrique Góngora Ek/);
 assert.match(read('public/llms.txt'), /https:\/\/github\.com\/legongoraek/);
+assert.match(read('public/robots.txt'), /User-agent:\s*OAI-SearchBot[\s\S]*Allow:\s*\//);
+for (const project of ['WhatsBot', 'Moments', 'LicitaBot', 'MapUniversity']) {
+  assert.match(read('public/llms.txt'), new RegExp(project));
+}
+assert.match(read('src/components/QuickAnswers.astro'), /What does Luis Enrique/);
+assert.match(read('src/components/QuickAnswers.astro'), /¿Qué desarrolla Luis Enrique/);
 
 console.log('SEO/GEO verification passed');

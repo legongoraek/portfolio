@@ -32,8 +32,12 @@ const t = en
         'Portafolio profesional de Luis Enrique Góngora Ek, Software Engineer y Full Stack Developer especializado en desarrollo web, mobile, APIs y automatización de procesos.',
     };
 
+const localizedTitle = en
+  ? 'Luis Enrique Góngora Ek | Software Engineer & Full Stack Developer'
+  : 'Luis Enrique Góngora Ek | Ingeniero de Software y Desarrollador Full Stack';
+
 const {
-  title = 'Luis Enrique Góngora Ek | Software Engineer & Full Stack Developer',
+  title = localizedTitle,
   description = t.description,
   image = '/android-chrome-512x512.png',
   canonical,
@@ -47,7 +51,7 @@ const altURLs = { es: new URL('/', site).href, en: new URL('/en/', site).href };
 const imageURL = new URL(image, site);
 const personId = new URL('/#person', site).href;
 const websiteId = new URL('/#website', site).href;
-const profilePageId = new URL('/#profile', site).href;
+const profilePageId = new URL('#profile', canonicalURL).href;
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -76,6 +80,7 @@ const structuredData = {
         'Mobile Development',
         'Process Automation',
       ],
+      knowsLanguage: ['es-MX', 'en'],
     },
     {
       '@type': 'WebSite',

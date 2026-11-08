@@ -1,0 +1,52 @@
+---
+import SectionHeader from './SectionHeader.astro';
+
+const isEn = Astro.currentLocale === 'en';
+const questions = isEn
+  ? [
+      {
+        question: 'What does Luis Enrique Góngora Ek build?',
+        answer: 'He is a Software Engineer and Full Stack Developer who builds web and mobile products, APIs, integrations, and business-process automations.',
+      },
+      {
+        question: 'Which technologies does he work with?',
+        answer: 'His portfolio includes Django, React, React Native, Vue.js, Node.js, PostgreSQL, and API integrations. Each project lists its own technologies.',
+      },
+      {
+        question: 'Where can I see his projects or get in touch?',
+        answer: 'The Projects section links to available product demos and repositories. The Contact section provides his professional contact options.',
+      },
+    ]
+  : [
+      {
+        question: '¿Qué desarrolla Luis Enrique Góngora Ek?',
+        answer: 'Es Software Engineer y desarrollador Full Stack; crea productos web y móviles, APIs, integraciones y automatizaciones de procesos de negocio.',
+      },
+      {
+        question: '¿Qué tecnologías utiliza?',
+        answer: 'Su portafolio incluye proyectos con Django, React, React Native, Vue.js, Node.js, PostgreSQL e integración de APIs. Cada proyecto especifica sus propias tecnologías.',
+      },
+      {
+        question: '¿Dónde puedo ver sus proyectos o contactarlo?',
+        answer: 'La sección de proyectos enlaza las demostraciones y repositorios disponibles. La sección de contacto muestra sus medios profesionales.',
+      },
+    ];
+---
+
+<section id={isEn ? 'quick-answers' : 'respuestas-rapidas'} class="section">
+  <div class="container-custom">
+    <SectionHeader
+      anchor={isEn ? 'quick-answers' : 'respuestas-rapidas'}
+      title={isEn ? 'About Luis Enrique Góngora Ek' : 'Sobre Luis Enrique Góngora Ek'}
+      lead={isEn ? 'Quick answers about his work, technologies, projects, and contact.' : 'Respuestas directas sobre su trabajo, tecnologías, proyectos y contacto.'}
+    />
+    <div class="mx-auto max-w-3xl space-y-6">
+      {questions.map(({ question, answer }) => (
+        <article>
+          <h3 class="text-lg font-semibold">{question}</h3>
+          <p class="mt-2 text-muted">{answer}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
