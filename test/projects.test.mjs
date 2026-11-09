@@ -65,3 +65,12 @@ test('keeps the established inline project list structure', () => {
   assert.match(projectsComponent, /OHIF/);
   assert.match(projectsComponent, /FHIR/);
 });
+
+
+test('private repository links are not exposed in portfolio project data', () => {
+  for (const title of ['LicitaBot', 'MapUniversity']) {
+    const project = projects.find((item) => item.title === title);
+    assert.ok(project, `Missing project: ${title}`);
+    assert.equal(project.repository, undefined);
+  }
+});
