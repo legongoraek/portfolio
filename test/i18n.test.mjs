@@ -30,13 +30,22 @@ test('every project has its English text', () => {
   }
 });
 
-test('FindMyJob links to its demo and private repository', () => {
-  const blocks = entries(read('Projects.astro'), 'projects');
-  const project = blocks.find((block) => block.includes('title: "FindMyJob"'));
+test('project cards hide restricted GitHub links while keeping public demos', () => {
+  const source = read('Projects.astro');
+  const blocks = entries(source, 'projects');
 
-  assert.ok(project, 'FindMyJob should be listed in the portfolio');
-  assert.match(project, /link: "https:\/\/find-my-job-delta\.vercel\.app"/);
-  assert.match(project, /repository: "https:\/\/github\.com\/legongoraek\/FindMyJob"/);
+  for (const title of ['LicitaBot', 'MapUniversity', 'FindMyJob']) {
+    const project = blocks.find((block) => block.includes(`title: "${title}"`));
+    assert.ok(project, `Missing project: ${title}`);
+    assert.doesNotMatch(project, /^\s+repository:/m);
+  }
+
+  const findMyJob = blocks.find((block) => block.includes('title: "FindMyJob"'));
+  const mapUniversity = blocks.find((block) => block.includes('title: "MapUniversity"'));
+  assert.match(findMyJob, /link: "https:\/\/find-my-job-delta\.vercel\.app"/);
+  assert.match(mapUniversity, /link: "https:\/\/mapuniversity\.vercel\.app\//);
+  assert.doesNotMatch(source, /GitHub · (restricted access|acceso restringido)/);
+  assert.doesNotMatch(source, /repository-link/);
 });
 
 test('every experience entry has its English text', () => {
