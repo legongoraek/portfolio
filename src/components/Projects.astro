@@ -312,18 +312,6 @@ const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, '');
               </span>
             </a>
           )}
-          {'repository' in project && project.repository && (
-            <a
-              href={project.repository}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="repository-link mt-3 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-accent underline underline-offset-4"
-              aria-label={`${isEn ? 'Public GitHub repository for' : 'Repositorio público de GitHub para'} ${project.title}`}
-            >
-              {isEn ? 'GitHub · public repository' : 'GitHub · repositorio público'}
-              <Icon name="mdi:arrow-top-right" class="w-4 h-4" />
-            </a>
-          )}
         </article>
       ))}
     </div>
@@ -337,10 +325,5 @@ const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, '');
     position: absolute;
     inset: 0;
     border-radius: inherit;
-  }
-
-  .repository-link {
-    position: relative;
-    z-index: 1;
   }
 </style>

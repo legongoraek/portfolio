@@ -30,7 +30,7 @@ test('every project has its English text', () => {
   }
 });
 
-test('project cards link public repositories and hide private ones', () => {
+test('project cards keep public repository data without displaying repository links', () => {
   const source = read('Projects.astro');
   const blocks = entries(source, 'projects');
 
@@ -59,9 +59,9 @@ test('project cards link public repositories and hide private ones', () => {
     assert.ok(project.includes(`repository: "${repository}"`), `Missing public repo for ${title}`);
   }
 
-  assert.match(source, /repository-link/);
-  assert.match(source, /Public GitHub repository/);
-  assert.match(source, /Repositorio público de GitHub/);
+  assert.doesNotMatch(source, /repository-link/);
+  assert.doesNotMatch(source, /GitHub · public repository/);
+  assert.doesNotMatch(source, /GitHub · repositorio público/);
 });
 
 test('every experience entry has its English text', () => {
