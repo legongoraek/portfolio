@@ -86,6 +86,7 @@
     "technologies": ["React", "APIs REST", "Leaflet.js"],
     "impact": ["Filtros de lanzamientos", "Mapa con Leaflet", "Exportación de reportes PDF", "Prueba Técnica"],
     "link": "https://amerisa-spacex-dashboard.vercel.app/",
+    "repository": "https://github.com/legongoraek/amerisa-spacex-dashboard",
     "category": "Frontend",
     "icon": "mdi:rocket-launch-outline"
   },
@@ -95,6 +96,7 @@
     "technologies": ["Angular", "TypeScript", "Chart.js"],
     "impact": ["Datos en tiempo real", "Visualizaciones dinámicas", "Monitoreo de criptomonedas", "Prueba Técnica"],
     "link": "https://dinametra-dashboard.netlify.app/",
+    "repository": "https://github.com/legongoraek/dinametra-dashboard",
     "category": "Frontend",
     "icon": "mdi:bitcoin"
   },
@@ -113,6 +115,7 @@
     "technologies": ["React", "Chart.js", "APIs REST"],
     "impact": ["Integración de datos de Garmin y otras fuentes", "Gráficos interactivos", "Estadísticas detalladas"],
     "link": "https://dashboard-garmin-azure.vercel.app/",
+    "repository": "https://github.com/legongoraek/dashboard-garmin",
     "category": "Full Stack",
     "icon": "mdi:watch"
   },
@@ -122,6 +125,7 @@
     "technologies": ["React", "Express", "PostgreSQL"],
     "impact": ["Expedientes y revisión documental", "Scoring explicable de riesgo", "Enfoque en comercio exterior"],
     "link": "https://kyb-customs-platform.vercel.app/",
+    "repository": "https://github.com/legongoraek/kyb-customs-platform",
     "category": "Full Stack",
     "icon": "mdi:account-box-multiple-outline"
   },
@@ -158,6 +162,7 @@
     "technologies": ["Node.js", "Agent Skills", "Astro"],
     "impact": ["Consultas en lenguaje natural desde agentes de IA", "CLI sin dependencias", "Señales FFT/TWF e imágenes térmicas"],
     "link": "https://connect-to-analytics-site.vercel.app/",
+    "repository": "https://github.com/legongoraek/connect-to-analytics",
     "category": "AI / Herramienta",
     "icon": "mdi:pulse"
   },
@@ -195,5 +200,14 @@
     "link": "https://mapuniversity.vercel.app/",
     "category": "Full Stack",
     "icon": "mdi:map-marker-multiple"
+  },
+  {
+    "title": "FindMyJob",
+    "description": "Dashboard privado para dar seguimiento a postulaciones laborales, etapas y seguimientos pendientes, con analíticas y exportación CSV.",
+    "technologies": ["Next.js", "Auth.js", "Neon Postgres", "Recharts"],
+    "impact": ["Pipeline de postulaciones y recordatorios", "Analíticas de respuesta y postulaciones mensuales", "Exportación CSV autenticada"],
+    "link": "https://find-my-job-delta.vercel.app",
+    "category": "Full Stack",
+    "icon": "mdi:briefcase-search-outline"
   }
 ]

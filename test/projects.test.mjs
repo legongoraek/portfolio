@@ -66,11 +66,33 @@ test('keeps the established inline project list structure', () => {
   assert.match(projectsComponent, /FHIR/);
 });
 
-
 test('private repository links are not exposed in portfolio project data', () => {
-  for (const title of ['LicitaBot', 'MapUniversity']) {
+  for (const title of ['LicitaBot', 'MapUniversity', 'FindMyJob', 'Moments']) {
     const project = projects.find((item) => item.title === title);
     assert.ok(project, `Missing project: ${title}`);
     assert.equal(project.repository, undefined);
   }
+});
+
+test('public repositories are listed for their matching projects', () => {
+  const publicRepositories = new Map([
+    ['Dashboard SpaceX - Amerisa Logistics', 'https://github.com/legongoraek/amerisa-spacex-dashboard'],
+    ['Dashboard Crypto - Dinametra', 'https://github.com/legongoraek/dinametra-dashboard'],
+    ['Dashboard Garmin Connect', 'https://github.com/legongoraek/dashboard-garmin'],
+    ['KYB Customs Platform', 'https://github.com/legongoraek/kyb-customs-platform'],
+    ['Connect to Analytics', 'https://github.com/legongoraek/connect-to-analytics'],
+  ]);
+
+  for (const [title, repository] of publicRepositories) {
+    assert.equal(projects.find((item) => item.title === title)?.repository, repository);
+  }
+});
+
+test('keeps Projects.astro and projects.json in sync', () => {
+  const componentTitles = [...projectsComponent.matchAll(/^\s*title: ["'](.+?)["'],?$/gm)].map((m) => m[1]);
+  assert.deepEqual(
+    componentTitles,
+    projects.map((project) => project.title),
+    'Projects.astro and src/data/projects.json must list the same projects in the same order',
+  );
 });

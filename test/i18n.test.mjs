@@ -30,11 +30,11 @@ test('every project has its English text', () => {
   }
 });
 
-test('project cards hide restricted GitHub links while keeping public demos', () => {
+test('project cards link public repositories and hide private ones', () => {
   const source = read('Projects.astro');
   const blocks = entries(source, 'projects');
 
-  for (const title of ['LicitaBot', 'MapUniversity', 'FindMyJob']) {
+  for (const title of ['LicitaBot', 'MapUniversity', 'FindMyJob', 'Moments']) {
     const project = blocks.find((block) => block.includes(`title: "${title}"`));
     assert.ok(project, `Missing project: ${title}`);
     assert.doesNotMatch(project, /^\s+repository:/m);
@@ -44,8 +44,24 @@ test('project cards hide restricted GitHub links while keeping public demos', ()
   const mapUniversity = blocks.find((block) => block.includes('title: "MapUniversity"'));
   assert.match(findMyJob, /link: "https:\/\/find-my-job-delta\.vercel\.app"/);
   assert.match(mapUniversity, /link: "https:\/\/mapuniversity\.vercel\.app\//);
-  assert.doesNotMatch(source, /GitHub · (restricted access|acceso restringido)/);
-  assert.doesNotMatch(source, /repository-link/);
+
+  const publicRepositories = new Map([
+    ['Dashboard SpaceX - Amerisa Logistics', 'https://github.com/legongoraek/amerisa-spacex-dashboard'],
+    ['Dashboard Crypto - Dinametra', 'https://github.com/legongoraek/dinametra-dashboard'],
+    ['Dashboard Garmin Connect', 'https://github.com/legongoraek/dashboard-garmin'],
+    ['KYB Customs Platform', 'https://github.com/legongoraek/kyb-customs-platform'],
+    ['Connect to Analytics', 'https://github.com/legongoraek/connect-to-analytics'],
+  ]);
+
+  for (const [title, repository] of publicRepositories) {
+    const project = blocks.find((block) => block.includes(`title: "${title}"`));
+    assert.ok(project, `Missing project: ${title}`);
+    assert.ok(project.includes(`repository: "${repository}"`), `Missing public repo for ${title}`);
+  }
+
+  assert.match(source, /repository-link/);
+  assert.match(source, /Public GitHub repository/);
+  assert.match(source, /Repositorio público de GitHub/);
 });
 
 test('every experience entry has its English text', () => {

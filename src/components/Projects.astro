@@ -100,6 +100,7 @@ const projects = [
     technologies: ["React", "APIs REST", "Leaflet.js"],
     impact: ["Filtros de lanzamientos", "Mapa con Leaflet", "Exportación de reportes PDF", "Prueba Técnica"],
     link: "https://amerisa-spacex-dashboard.vercel.app/",
+    repository: "https://github.com/legongoraek/amerisa-spacex-dashboard",
     en: {"description": "React dashboard with launch data, filters, a map and PDF report export (technical assessment).", "impact": ["Launch filters", "Leaflet map", "PDF report export", "Technical assessment"]},
     category: "Frontend",
     icon: "mdi:rocket-launch-outline"
@@ -110,6 +111,7 @@ const projects = [
     technologies: ["Angular", "TypeScript", "Chart.js"],
     impact: ["Datos en tiempo real", "Visualizaciones dinámicas", "Monitoreo de criptomonedas", "Prueba Técnica"],
     link: "https://dinametra-dashboard.netlify.app/",
+    repository: "https://github.com/legongoraek/dinametra-dashboard",
     en: {"description": "Tracks cryptocurrency prices, volume and market cap using public CoinGecko data.", "impact": ["Real-time data", "Dynamic visualizations", "Cryptocurrency monitoring", "Technical assessment"]},
     category: "Frontend",
     icon: "mdi:bitcoin"
@@ -130,6 +132,7 @@ const projects = [
     technologies: ["React", "Chart.js", "APIs REST"],
     impact: ["Integración de datos de Garmin y otras fuentes", "Gráficos interactivos", "Estadísticas detalladas"],
     link: "https://dashboard-garmin-azure.vercel.app/",
+    repository: "https://github.com/legongoraek/dashboard-garmin",
     en: {"description": "Integration and visualization of activity data from Garmin and other sources.", "impact": ["Data integration from Garmin and other sources", "Interactive charts", "Detailed statistics"]},
     category: "Full Stack",
     icon: "mdi:watch"
@@ -140,6 +143,7 @@ const projects = [
     technologies: ["React", "Express", "PostgreSQL"],
     impact: ["Expedientes y revisión documental", "Scoring explicable de riesgo", "Enfoque en comercio exterior"],
     link: "https://kyb-customs-platform.vercel.app/",
+    repository: "https://github.com/legongoraek/kyb-customs-platform",
     en: {"description": "Demo for case files, document review and explainable risk scoring in foreign trade.", "impact": ["Case files and document review", "Explainable risk scoring", "Foreign trade focus"]},
     category: "Full Stack",
     icon: "mdi:account-box-multiple-outline"
@@ -180,6 +184,7 @@ const projects = [
     technologies: ["Node.js", "Agent Skills", "Astro"],
     impact: ["Consultas en lenguaje natural desde agentes de IA", "CLI sin dependencias", "Señales FFT/TWF e imágenes térmicas"],
     link: "https://connect-to-analytics-site.vercel.app/",
+    repository: "https://github.com/legongoraek/connect-to-analytics",
     en: {"category": "AI / Tool", "description": "Open-source Agent Skill with a Node.js CLI to query EI Analytic industrial monitoring data: hierarchy, historical measurements, FFT/TWF signals and thermal images.", "impact": ["Natural-language queries from AI agents", "Dependency-free CLI", "FFT/TWF signals and thermal images"]},
     category: "AI / Herramienta",
     icon: "mdi:pulse"
@@ -307,6 +312,18 @@ const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, '');
               </span>
             </a>
           )}
+          {'repository' in project && project.repository && (
+            <a
+              href={project.repository}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="repository-link mt-3 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-accent underline underline-offset-4"
+              aria-label={`${isEn ? 'Public GitHub repository for' : 'Repositorio público de GitHub para'} ${project.title}`}
+            >
+              {isEn ? 'GitHub · public repository' : 'GitHub · repositorio público'}
+              <Icon name="mdi:arrow-top-right" class="w-4 h-4" />
+            </a>
+          )}
         </article>
       ))}
     </div>
@@ -320,5 +337,10 @@ const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, '');
     position: absolute;
     inset: 0;
     border-radius: inherit;
+  }
+
+  .repository-link {
+    position: relative;
+    z-index: 1;
   }
 </style>
