@@ -146,7 +146,7 @@ const structuredData = {
     <meta name="twitter:image:alt" content={`${t.imageAlt} Luis Enrique Góngora Ek`} />
 
     <!-- Structured data for search engines and generative engines -->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, "\\u003c")} />
 
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
