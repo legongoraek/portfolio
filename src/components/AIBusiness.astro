@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from './SectionHeader.astro';
+
+const en = Astro.currentLocale === 'en';
+
+const t = en
+  ? {
+      title: 'Bring AI',
+      accent: 'into your business',
+      lead: 'From a growing venture to an established company: let’s identify where artificial intelligence can simplify work, improve customer service and support your team.',
+      diagnosis: 'Find the right opportunity',
+      diagnosisBody: 'Review repetitive tasks, bottlenecks and customer journeys to identify a practical starting point for AI.',
+      automation: 'Automate everyday operations',
+      automationBody: 'Connect tools and workflows to reduce manual work, organize information and keep processes moving.',
+      assistants: 'AI assistants and integrations',
+      assistantsBody: 'Build tailored assistants for customer support, internal knowledge and existing digital systems, with human oversight.',
+      callout: 'Start with a real business need',
+      calloutBody: 'We can review your goals, available tools, data privacy and a small first implementation before scaling.',
+      whatsapp: 'Discuss my idea',
+      contact: 'Other contact options',
+      message: 'Hi, I would like to explore how to implement AI in my business. Can we discuss my idea?',
+    }
+  : {
+      title: 'Lleva la IA',
+      accent: 'a tu negocio',
+      lead: 'Ya sea una empresa, un negocio o un emprendimiento: descubre cómo la inteligencia artificial puede simplificar procesos, mejorar la atención y apoyar a tu equipo.',
+      diagnosis: 'Identifica oportunidades',
+      diagnosisBody: 'Revisamos tareas repetitivas, puntos de fricción y necesidades reales para encontrar por dónde empezar con IA.',
+      automation: 'Automatiza tus procesos',
+      automationBody: 'Conectamos herramientas y flujos de trabajo para reducir tareas manuales y organizar mejor tu operación.',
+      assistants: 'Asistentes e integraciones con IA',
+      assistantsBody: 'Creamos asistentes para atención, consulta de información interna y sistemas existentes, con supervisión humana.',
+      callout: 'Empecemos con un reto real de tu negocio',
+      calloutBody: 'Conversemos sobre tus objetivos, las herramientas que ya utilizas, la privacidad de tus datos y una primera solución medible.',
+      whatsapp: 'Cuéntame tu idea',
+      contact: 'Otras formas de contacto',
+      message: 'Hola, quiero explorar cómo implementar inteligencia artificial en mi empresa, negocio o emprendimiento. Me gustaría platicar sobre mi idea.',
+    };
+
+const services = [
+  { icon: 'mdi:lightbulb-on-outline', title: t.diagnosis, description: t.diagnosisBody },
+  { icon: 'mdi:sync', title: t.automation, description: t.automationBody },
+  { icon: 'mdi:robot-outline', title: t.assistants, description: t.assistantsBody },
+];
+const whatsappUrl = `https://wa.me/529994231687?text=${encodeURIComponent(t.message)}`;
+---
+
+<section id="ia-negocios" class="section" aria-labelledby="ai-business-title">
+  <div class="container-custom">
+    <div id="ai-business-title">
+      <SectionHeader
+        anchor={en ? 'ai-for-business' : 'ia-para-negocios'}
+        title={t.title}
+        accent={t.accent}
+        lead={t.lead}
+      />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+      {services.map((service, index) => (
+        <article class="reveal panel panel-hover p-6 md:p-7" style={`--reveal-delay:${index * 80}ms`}>
+          <span class="grid place-items-center w-12 h-12 rounded-xl bg-accent-soft text-accent mb-5" aria-hidden="true">
+            <Icon name={service.icon} class="w-6 h-6" />
+          </span>
+          <h3 class="text-xl font-bold mb-3">{service.title}</h3>
+          <p class="text-muted leading-relaxed">{service.description}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="reveal panel mt-5 p-6 md:p-9 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div>
+        <h3 class="text-2xl font-bold mb-3">{t.callout}</h3>
+        <p class="text-muted leading-relaxed max-w-2xl">{t.calloutBody}</p>
+      </div>
+      <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3">
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <Icon name="mdi:whatsapp" class="w-5 h-5" />
+          {t.whatsapp}
+        </a>
+        <a href="#contacto" class="btn-secondary">{t.contact}</a>
+      </div>
+    </div>
+  </div>
+</section>

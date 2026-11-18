@@ -8,7 +8,7 @@ const t = en
 
 const navItems = [
   { label: en ? 'About' : 'Sobre mí', href: '#sobre-mi' },
-  { label: 'Stack', href: '#stack' },
+  { label: en ? 'AI for business' : 'IA para negocios', href: '#ia-negocios' },
   { label: en ? 'Projects' : 'Proyectos', href: '#proyectos' },
   { label: en ? 'Experience' : 'Experiencia', href: '#experiencia' },
   { label: en ? 'Contact' : 'Contacto', href: '#contacto' },
@@ -143,5 +143,5 @@ const currentLang = en ? 'en' : 'es';
     { rootMargin: '-45% 0px -50% 0px' }
   );
 
-  document.querySelectorAll('#sobre-mi, #stack, #proyectos, #experiencia, #contacto').forEach((s) => sectionObserver.observe(s));
+  document.querySelectorAll('#sobre-mi, #ia-negocios, #proyectos, #experiencia, #contacto').forEach((s) => sectionObserver.observe(s));
 </script>
