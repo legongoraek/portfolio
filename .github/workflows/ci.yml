@@ -32,3 +32,5 @@ jobs:
         run: npm run verify:seo
       - name: Build Astro website
         run: npm run build
+      - name: Verify rendered AI business pages
+        run: node --test test/ai-business-build.test.mjs
